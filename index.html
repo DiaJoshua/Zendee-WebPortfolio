@@ -1,52 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Marie Zendee Patalinghug - UI/UX Designer & Graphic Artist Portfolio"
+    />
     <title>Berry Zendee 🎀🍓</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Sue+Ellen+Francisco&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
+  <style>
+    /* Smooth Fade-In Effect */
+    .card {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
+  <body>
     <header class="header">
-        <div class="container d-flex justify-content-between align-items-center py-3">
-            <div class="logo fw-bold fs-4 text-uppercase">Portfolio</div>
-            <div class="social-links d-flex gap-4">
-                <a href="https://www.facebook.com/mariezendeee" target="_blank" class="social-link">Facebook</a>
-                <a href="https://www.instagram.com/mariezendee/" target="_blank" class="social-link">Instagram</a>
-                <a href="https://www.linkedin.com/in/marie-zendee-patalinghug-9b5800252/" target="_blank" class="social-link">LinkedIn</a>
-            </div>        
+      <div
+        class="container d-flex justify-content-between align-items-center py-3"
+      >
+        <div class="logo fw-bold fs-4 text-uppercase">Portfolio</div>
+        <div class="social-links d-flex gap-4">
+          <a
+            href="https://www.facebook.com/mariezendeee"
+            target="_blank"
+            class="social-link"
+            >Facebook</a
+          >
+          <a
+            href="https://www.instagram.com/mariezendee/"
+            target="_blank"
+            class="social-link"
+            >Instagram</a
+          >
+          <a
+            href="https://www.linkedin.com/in/marie-zendee-patalinghug-9b5800252/"
+            target="_blank"
+            class="social-link"
+            >LinkedIn</a
+          >
         </div>
+      </div>
     </header>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/1.png" class="d-block w-100" alt="Project 1" />
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./assets/1.png" class="d-block w-100" alt="Project 1">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/2.png" class="d-block w-100" alt="Project 2">
-            </div>
-            <div class="carousel-item">
-                <img src="./assets/3.png" class="d-block w-100" alt="Project 3">
-            </div>
+        <div class="carousel-item">
+          <img src="./assets/2.png" class="d-block w-100" alt="Project 2" />
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
+        <div class="carousel-item">
+          <img src="./assets/3.png" class="d-block w-100" alt="Project 3" />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
+
+    <section class="container text-center my-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <img
+            src="./assets/profile.jpg"
+            class="img-fluid rounded-circle shadow-lg"
+            alt="Marie Zendee"
+          />
+        </div>
+        <div class="col-lg-6">
+          <h1 class="fw-bold">Marie Zendee Patalinghug</h1>
+          <p class="lead">UI/UX Designer | Graphic Artist | Web Developer</p>
+          <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container my-5">
+      <h2 class="text-center mb-4">Projects</h2>
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="./assets/mz-logo.png" class="card-img-top" alt="MZ Logo" />
+          <div class="card-body">
+            <h5 class="card-title">MD Logo Design</h5>
+            <p class="card-text">
+              A soft, elegant initial logo design featuring pastel colors.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/tienda.png"
+              class="card-img-top"
+              alt="Tienda Project"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Tienda: E-commerce Platform</h5>
+              <p class="card-text">
+                Designed and developed a user-friendly e-commerce platform.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/logos.png"
+              class="card-img-top"
+              alt="Graphic Design"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Graphic Design Portfolio</h5>
+              <p class="card-text">
+                Created logos and social media assets for brands.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/prototype.png"
+              class="card-img-top"
+              alt="Prototyping"
+            />
+            <div class="card-body">
+              <h5 class="card-title">UI/UX Prototyping</h5>
+              <p class="card-text">
+                Designed interactive prototypes using Figma & Adobe XD.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills & Tools</h2>
+      <div class="icons">
+        <img src="assets/figma.svg" alt="Figma" />
+        <img src="assets/adobe-xd.svg" alt="Adobe XD" />
+        <img src="assets/javascript.svg" alt="JavaScript" />
+      </div>
+    </section>
+
+    <a href="assets/MarieZendee_CV.pdf" class="btn btn-outline-dark" download
+      >Download Resume</a
+    >
+
+    <section id="contact" class="container my-5">
+      <h2 class="text-center">Contact Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" required />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container text-center py-3">
+        <p>&copy; 2025 Marie Zendee Patalinghug</p>
+      </div>
+    </footer>
 
     <!-- Bootstrap JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    
+    <!-- Smooth Scrolling -->
+    <script>
+      document.querySelectorAll("a.nav-link").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Intersection Observer API
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".card");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+
+        cards.forEach((card) => observer.observe(card));
+      });
+    </script>
+  </body>
 </html>
