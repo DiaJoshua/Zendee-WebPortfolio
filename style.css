@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Sue Ellen Francisco', cursive, Arial, sans-serif;
   background-color: #fefaf6;
   color: #5c4a72;
   margin: 0;
@@ -19,6 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
+  font-family: 'Sue Ellen Francisco', cursive;
 }
 
 /* Logo */
@@ -27,6 +28,7 @@ body {
   color: #d16ba5;
   font-weight: bold;
   font-size: 22px;
+  font-family: 'Sue Ellen Francisco', cursive; /* Ensures logo uses the same font */
 }
 
 /* Social Links */
@@ -39,7 +41,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
-  color: #a188a6;
+  color: #f8bbd0;
   transition: all 0.3s ease-in-out;
 }
 
@@ -101,31 +103,62 @@ body {
 /* Skills Section */
 .skills {
   text-align: center;
-  padding: 40px 20px;
-  background: #fff9fc;
+  padding: 50px 10px;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  color: #444;
 }
 
 .skills h2 {
-  margin-bottom: 25px;
-  font-size: 1.8rem;
-  color: #d16ba5;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #d63384;
 }
 
+/* Icons */
 .skills .icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 50px;
   flex-wrap: wrap;
+  width: 100%;
+  padding: 20px 0;
 }
 
-.skills img {
-  width: 50px;
-  height: 50px;
+.skills .icons i {
+  font-size: 4rem;
+  color: #e91e63;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
-.skills img:hover {
+.skills .icons i:hover {
   transform: scale(1.1);
+  color: #ff4081;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.download-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 25px;
+  transition: background-color 0.3s, transform 0.3s ease;
+  margin-top: 20px; /* Adds space above the button */
+}
+
+.download-btn:hover {
+  background-color: #343a40;
+  color: white;
+  transform: scale(1.05);
+}
+
+.download-btn i {
+  margin-right: 8px;
 }
 
 /* Contact Form */
