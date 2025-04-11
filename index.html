@@ -1,302 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Marie Zendee Patalinghug - UI/UX Designer & Graphic Artist Portfolio" />
-  <title>Berry Zendee 🎀🍓</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Marie Zendee Patalinghug - UI/UX Designer & Graphic Artist Portfolio"
+    />
+    <meta name="keywords" content="UI/UX, Graphic Design, Web Development" />
+    <meta name="author" content="Marie Zendee Patalinghug" />
+    <meta name="theme-color" content="#ff69b4" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="notranslate" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Berry Zendee 🎀🍓</title>
 
-  <!-- Bootstrap & Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Custom Style -->
-  <style>
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #fdfcfa;
-      color: #333;
-    }
+    <!-- Bootstrap & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7x1z5l5e5c5e5e5e5e5e5e5e5e5e5e5e5"
+      crossorigin="anonymous"
+    />
 
-    h1, h2, h5 {
-      font-family: 'Playfair Display', serif;
-      color: #cc3366;
-    }
+    <link rel="stylesheet" href="style.css">
 
-    .navbar {
-      background-color: #fff;
-      border-bottom: 1px solid #eee;
-    }
+    <link rel="icon" type="image/png" href="./assets/favicon.ico" />
+  </head>
 
-    .navbar-brand {
-      font-family: 'Playfair Display', serif;
-      color: #cc3366 !important;
-    }
+  <body>
+    <header class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Berry Zendee 🎀🍓</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-    .btn-primary {
-      background-color: #cc3366;
-      border: none;
-    }
-
-    .btn-primary:hover {
-      background-color: #b32a59;
-    }
-
-    .btn-outline-dark {
-      border-color: #cc3366;
-      color: #cc3366;
-    }
-
-    .btn-outline-dark:hover {
-      background-color: #cc3366;
-      color: #fff;
-    }
-
-    .carousel-inner img {
-      height: 500px;
-      object-fit: cover;
-    }
-
-    .card {
-      border: none;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .skills {
-      text-align: center;
-      padding: 3rem 1rem;
-      background-color: #fef0f5;
-    }
-
-    .skills h2 {
-      margin-bottom: 1rem;
-    }
-
-    .icons i {
-      font-size: 2rem;
-      margin: 0 10px;
-      color: #cc3366;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      background-color: #fff0f5;
-      color: #555;
-    }
-
-    footer a {
-      color: #cc3366;
-      margin-left: 10px;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .download-btn i {
-      margin-right: 5px;
-    }
-
-    @media (max-width: 768px) {
-      .carousel-inner img {
-        height: 250px;
-      }
-    }
-  </style>
-
-  <link rel="icon" type="image/png" href="./assets/favicon.ico" />
-</head>
-
-<body>
-  <header class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Berry Zendee 🎀🍓</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+    <!-- Full-Width Carousel -->
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide w-100"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+      <div class="carousel-inner full-carousel">
+        <div class="carousel-item active">
+          <img src="./assets/1.png" class="d-block w-100" alt="Project 1" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/2.png" class="d-block w-100" alt="Project 2" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/3.png" class="d-block w-100" alt="Project 3" />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
-  </header>
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="./assets/1.png" class="d-block w-100" alt="Project 1" />
+    <section class="container text-center my-5 fade-in profile-section">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <img
+            src="./assets/Zendee Prof pic.jpg"
+            class="img-fluid rounded-circle"
+            alt="Marie Zendee"
+          />
+        </div>
+        <div class="col-lg-6 text-lg-start">
+          <h1 class="fw-bold">Marie Zendee Patalinghug</h1>
+          <p class="lead">UI/UX Designer | Graphic Artist | Web Developer</p>
+          <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+        </div>
       </div>
-      <div class="carousel-item">
-        <img src="./assets/2.png" class="d-block w-100" alt="Project 2" />
-      </div>
-      <div class="carousel-item">
-        <img src="./assets/3.png" class="d-block w-100" alt="Project 3" />
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
+    </section>
 
-  <section class="container text-center my-5 fade-in">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <img src="./assets/Zendee Prof pic.jpg" class="img-fluid rounded-circle shadow-lg" alt="Marie Zendee" />
-      </div>
-      <div class="col-lg-6">
-        <h1 class="fw-bold">Marie Zendee Patalinghug</h1>
-        <p class="lead">UI/UX Designer | Graphic Artist | Web Developer</p>
-        <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
-      </div>
-    </div>
-  </section>
+    <section class="about-me fade-in">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm <strong>Marie Zendee Patalinghug</strong>, a passionate UI/UX Designer, Graphic Artist, and Web Developer based in the Philippines. With a strong eye for detail and love for clean design, I blend creativity with functionality to craft beautiful, user-centered digital experiences.
+      </p>
+      <p>
+        I thrive on turning complex ideas into intuitive and engaging designs. Whether it's designing wireframes, prototyping in Figma, creating assets in Photoshop, or bringing designs to life through HTML, CSS is my language.
+      </p>
+      <p>
+        I'm always excited to learn new tools, collaborate with creative minds, and push the boundaries of digital design. Let's create something amazing together!
+      </p>
+    </section>
 
-  <section id="projects" class="container my-5 fade-in">
-    <h2 class="text-center mb-4">Projects</h2>
-    <div class="row g-4">
-      <div class="col-md-6 mx-auto">
-        <div class="card shadow-sm">
-          <img src="./assets/tienda.png" class="card-img-top" alt="Tienda Project" />
-          <div class="card-body">
-            <h5 class="card-title">Tienda: E-commerce Platform</h5>
-            <p class="card-text">Designed and developed a user-friendly e-commerce platform.</p>
+    <!-- Projects Section -->
+    <section id="projects" class="container my-5 fade-in small-projects">
+      <h2 class="text-center mb-4">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/tienda.png"
+              class="card-img-top project-img"
+              alt="Tienda Project"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Tienda: E-commerce Platform</h5>
+              <p class="card-text">
+                Designed and developed a user-friendly e-commerce platform.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/mz-logo.png"
+              class="card-img-top project-img"
+              alt="Graphic Design"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Graphic Design Portfolio</h5>
+              <p class="card-text">
+                Created logos and social media assets for brands.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5 mx-auto">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/promo-sheet.jpg"
+              class="card-img-top project-img"
+              alt="Promo Sheet Design"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Promo Sheet Design</h5>
+              <p class="card-text">
+                A clean and professional promo sheet layout for brand
+                presentation.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5 mx-auto">
+          <div class="card shadow-sm">
+            <img
+              src="./assets/Paw-up.jpg"
+              class="card-img-top project-img"
+              alt="Paw-Up Campaign"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Paw-Up Campaign Poster</h5>
+              <p class="card-text">
+                Designed a visually engaging campaign for animal welfare
+                awareness.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6 mx-auto">
-        <div class="card shadow-sm">
-          <img src="./assets/mz-logo.png" class="card-img-top" alt="Graphic Design" />
-          <div class="card-body">
-            <h5 class="card-title">Graphic Design Portfolio</h5>
-            <p class="card-text">Created logos and social media assets for brands.</p>
-          </div>
+    </section>
+
+    <section class="skills fade-in">
+      <h2>Skills & Tools</h2>
+      <div class="icons">
+        <div class="skill-item" title="Figma">
+          <i class="bi bi-brush-fill"></i>
+          <span>Figma</span>
+        </div>
+        <div class="skill-item" title="Adobe XD">
+          <i class="bi bi-vector-pen"></i>
+          <span>Canva</span>
+        </div>
+        <div class="skill-item" title="Photoshop">
+          <i class="bi bi-image-fill"></i>
+          <span>Lightroom</span>
+        </div>
+        <div class="skill-item" title="HTML5">
+          <i class="bi bi-file-earmark-code-fill"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="skill-item" title="CSS3">
+          <i class="bi bi-palette-fill"></i>
+          <span>CSS3</span>
         </div>
       </div>
-      <div class="col-md-6 mx-auto">
-        <div class="card shadow-sm">
-          <img src="./assets/prototype.png" class="card-img-top" alt="Prototyping" />
-          <div class="card-body">
-            <h5 class="card-title">UI/UX Prototyping</h5>
-            <p class="card-text">Designed interactive prototypes using Figma & Adobe XD.</p>
-          </div>
-        </div>
+    </section>
+    
+    <section class="certifications fade-in">
+      <h2>Certifications</h2>
+      <ul>
+        <li>2</li>
+        <li>1</li>
+      </ul>
+    </section>    
+
+    <div class="text-center my-4 fade-in">
+      <p>
+        Click below to download my resume and learn more about my experience and
+        achievements.
+      </p>
+      <a
+        href="./assets/PATALINGHUG, MARIE ZENDEE CV 2025 .pdf"
+        class="btn btn-outline-dark download-btn"
+        download
+      >
+        <i class="bi bi-cloud-arrow-down-fill"></i> Download Resume
+      </a>
+    </div>
+
+    <section id="contact" class="container my-5 fade-in">
+      <h2 class="text-center mb-4">Contact Me</h2>
+      <p class="text-center">I'd love to hear from you! Feel free to reach out via any of the platforms below:</p>
+      <div class="text-center">
+        <a href="mailto:your.email@example.com" class="btn btn-outline-dark m-2">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://www.linkedin.com/in/your-linkedin" class="btn btn-outline-primary m-2" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/your-github" class="btn btn-outline-dark m-2" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
       </div>
-    </div>
-  </section>
+    </section>    
 
-  <div class="col-md-9 mx-auto">
-    <div class="card shadow-sm">
-      <img src="./assets/promo-sheet.jpg" class="card-img-top" alt="Promo Sheet Design" />
-      <div class="card-body">
-        <h5 class="card-title">Promo Sheet Design</h5>
-        <p class="card-text">
-          A clean and professional promo sheet layout for brand presentation.
-        </p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-md-9 mx-auto">
-    <div class="card shadow-sm">
-      <img src="./assets/Paw-up.jpg" class="card-img-top" alt="Paw-Up Campaign" />
-      <div class="card-body">
-        <h5 class="card-title">Paw-Up Campaign Poster</h5>
-        <p class="card-text">
-          Designed a visually engaging campaign for animal welfare awareness.
-        </p>
-      </div>
-    </div>
-  </div>
-  
+    <footer class="text-center py-4 mt-5 fade-in" style="background-color: #fff0f5;">
+      <p>Made with 💖 by Marie Zendee | © 2025</p>
+    </footer>
+    
 
-  <section class="skills fade-in">
-    <h2>Skills & Tools</h2>
-    <div class="icons">
-      <i class="bi bi-brush-fill" title="Figma"></i>
-      <i class="bi bi-vector-pen" title="Adobe XD"></i>
-      <i class="bi bi-code-slash" title="JavaScript"></i>
-    </div>
-  </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const fadeElements = document.querySelectorAll(".fade-in");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        fadeElements.forEach((el) => observer.observe(el));
+      });
+    </script>
 
-  <div class="text-center my-4 fade-in">
-    <p>Click below to download my resume and learn more about my experience and achievements.</p>
-    <a href="./assets/PATALINGHUG, MARIE ZENDEE CV 2025 .pdf" class="btn btn-outline-dark download-btn" download>
-      <i class="bi bi-cloud-arrow-down-fill"></i> Download Resume
-    </a>
-  </div>
-
-  <section id="contact" class="container my-5 fade-in">
-    <h2 class="text-center">Contact Me</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form>
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" required />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required />
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="3" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Send</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2024 Marie Zendee Patalinghug | Follow me: 
-      <a href="https://www.facebook.com/mariezendeee" target="_blank"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com/mariezendee/" target="_blank"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/marie-zendee-patalinghug-9b5800252/" target="_blank"><i class="bi bi-linkedin"></i></a>
-    </p>
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const fadeElements = document.querySelectorAll(".fade-in");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      }, { threshold: 0.2 });
-      fadeElements.forEach(el => observer.observe(el));
-    });
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
