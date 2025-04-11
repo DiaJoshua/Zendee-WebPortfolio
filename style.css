@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fdfcfa;
@@ -137,6 +142,7 @@ section.profile-section {
 /* Projects */
 #projects.small-projects .card {
   scale: 0.92;
+  margin-top: 20px;
   transition: scale 0.3s ease, transform 0.3s ease;
 }
 
