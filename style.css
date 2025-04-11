@@ -1,276 +1,199 @@
-/* General Styles */
-.sue-ellen-francisco-regular, * {
-  font-family: 'Sue Ellen Francisco', cursive, Arial, sans-serif;
+/* Reset & Global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Header Styling */
-.header {
-  background: rgba(255, 248, 251, 0.9);
-  padding: 15px 20px;
-  width: 100%;
-  top: 0;
-  position: absolute;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'Sue Ellen Francisco', cursive;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fffafa;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Logo */
-.logo {
-  letter-spacing: 1px;
-  color: #d16ba5;
-  font-weight: bold;
-  font-size: 22px;
-  font-family: 'Sue Ellen Francisco', cursive;
-}
-
-/* Social Links */
-.social-links {
-  display: flex;
-  gap: 15px;
-}
-
-.social-links a {
+a {
   text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  color: #f8bbd0;
-  transition: all 0.3s ease-in-out;
+  color: inherit;
 }
 
-.social-links a:hover {
-  color: #e69fad;
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #fddde6, #fad0c4);
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Profile Image */
-.profile-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0px 4px 15px rgba(230, 169, 189, 0.5);
-  margin-bottom: 15px;
-}
-
-/* Projects Section */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 40px;
-}
-
-.project {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(230, 169, 189, 0.3);
-  transition: transform 0.3s ease-in-out;
-}
-
-.project:hover {
-  transform: scale(1.05);
-}
-
-.project img {
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
+img {
+  max-width: 100%;
+  display: block;
   border-radius: 8px;
 }
 
-.project:hover img {
-  transform: scale(1.05);
+/* Header / Navbar */
+.navbar {
+  background-color: #ffffffd8;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 12px 0;
+}
+
+.navbar-brand {
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 1.7rem;
+  color: #d63384;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #d63384;
+}
+
+/* Carousel */
+.carousel-inner img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Profile Section */
+section .img-fluid {
+  max-width: 300px;
+  border: 8px solid #fff0f5;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+h1.fw-bold {
+  font-size: 2.2rem;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #d63384;
+  border: none;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #c2185b;
+}
+
+/* Projects */
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d63384;
+}
+
+.card-text {
+  color: #666;
 }
 
 /* Skills Section */
 .skills {
+  background: linear-gradient(135deg, #fff0f5, #ffe3e3);
+  padding: 60px 20px;
   text-align: center;
-  padding: 50px 10px;
-  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-  color: #444;
 }
 
 .skills h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 600;
-  color: #d63384;
-}
-
-/* Icons */
-.skills .icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 20px 0;
+  margin-bottom: 25px;
 }
 
 .skills .icons i {
-  font-size: 4rem;
-  color: #e91e63;
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  font-size: 2rem;
+  margin: 0 15px;
+  color: #d63384;
+  transition: transform 0.3s ease;
 }
 
 .skills .icons i:hover {
-  transform: scale(1.1);
-  color: #ff4081;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.2);
 }
 
+/* Resume Download */
 .download-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  text-transform: uppercase;
-  border-radius: 25px;
-  transition: background-color 0.3s, transform 0.3s ease;
-  margin-top: 20px;
+  display: inline-block;
+  margin: 20px auto;
+  font-weight: 500;
+  color: #d63384;
+  border-color: #d63384;
+  transition: all 0.3s ease;
 }
 
 .download-btn:hover {
-  background-color: #343a40;
-  color: white;
-  transform: scale(1.05);
+  background-color: #d63384;
+  color: #fff;
 }
 
-.download-btn i {
-  margin-right: 8px;
-}
-
-/* Contact Form */
-#contact {
-  background: linear-gradient(135deg, #ffd1dc, #ffebcd);
-  padding: 40px 20px;
-  color: #5c4a72;
-  text-align: center;
+/* Contact */
+#contact form {
+  background-color: #fff0f5;
+  padding: 30px;
   border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 #contact h2 {
-  margin-bottom: 15px;
-  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #d63384;
 }
 
-#contact .form-control {
-  border-radius: 8px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  margin-bottom: 15px;
-  background-color: #fff8fb;
-  color: #5c4a72;
-  font-size: 16px;
+.form-label {
+  font-weight: 500;
 }
 
-#contact .form-control:focus {
-  outline: none;
-  box-shadow: 0 0 8px rgba(209, 107, 165, 0.4);
-}
-
-#contact button {
-  background-color: #d16ba5;
-  border: none;
-  padding: 12px;
-  font-size: 18px;
-  width: 100%;
-  transition: all 0.3s;
-  cursor: pointer;
-  border-radius: 8px;
-  color: white;
-}
-
-#contact button:hover {
-  background-color: #e69fad;
+.btn-primary.w-100 {
+  margin-top: 15px;
 }
 
 /* Footer */
 footer {
-  background: #5c4a72;
-  color: white;
   text-align: center;
-  padding: 15px 0;
-  font-size: 14px;
+  padding: 20px 10px;
+  background-color: #fff;
+  font-size: 0.95rem;
+  color: #888;
+  border-top: 1px solid #eee;
 }
 
-/* ============= MEDIA QUERIES ============= */
-@media (max-width: 768px) {
-  /* Header */
-  .header {
-    flex-direction: column;
-    text-align: center;
-    padding: 10px 0;
-  }
+footer a {
+  color: #d63384;
+  margin: 0 5px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
 
-  /* Social Links */
-  .social-links {
-    margin-top: 5px;
-    gap: 10px;
-  }
+footer a:hover {
+  color: #c2185b;
+}
 
-  /* Hero Section */
-  .hero {
-    padding: 60px 15px;
-    min-height: 70vh;
-  }
+/* Fade-in Effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-  .profile-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  /* Projects Section */
-  .projects {
-    grid-template-columns: 1fr;
-    padding: 30px 10px;
-  }
-
-  /* Skills */
-  .skills .icons {
-    gap: 15px;
-  }
-
-  .skills img {
-    width: 40px;
-    height: 40px;
-  }
-
-  /* Contact Form */
-  #contact {
-    padding: 30px 15px;
-  }
-
-  #contact .form-control {
-    font-size: 14px;
-  }
-
-  #contact button {
-    font-size: 16px;
-  }
-
-  /* Footer */
-  .footer {
-    font-size: 12px;
-    padding: 10px 0;
-  }
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
