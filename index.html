@@ -38,7 +38,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <link rel="icon" type="image/png" href="./assets/favicon.ico" />
   </head>
@@ -74,7 +74,7 @@
     <!-- Full-Width Carousel -->
     <div
       id="carouselExampleIndicators"
-      class="carousel slide w-100"
+      class="carousel slide w-100 fade-in"
       data-bs-ride="carousel"
     >
       <div class="carousel-indicators">
@@ -95,7 +95,7 @@
           data-bs-slide-to="2"
         ></button>
       </div>
-      <div class="carousel-inner full-carousel">
+      <div class="carousel-inner full-carousel fade-in">
         <div class="carousel-item active">
           <img src="./assets/1.png" class="d-block w-100" alt="Project 1" />
         </div>
@@ -144,13 +144,22 @@
     <section id="about" class="about-me fade-in">
       <h2>About Me</h2>
       <p>
-        Hi! I'm <strong>Marie Zendee Patalinghug</strong>, a passionate UI/UX Designer, Graphic Artist, and Web Developer based in the Philippines. With a strong eye for detail and love for clean design, I blend creativity with functionality to craft beautiful, user-centered digital experiences.
+        Hi! I'm <strong>Marie Zendee Patalinghug</strong>, a passionate UI/UX
+        Designer, Graphic Artist, and Web Developer based in the Philippines.
+        With a strong eye for detail and love for clean design, I blend
+        creativity with functionality to craft beautiful, user-centered digital
+        experiences.
       </p>
       <p>
-        I thrive on turning complex ideas into intuitive and engaging designs. Whether it's designing wireframes, prototyping in Figma, creating assets in Photoshop, or bringing designs to life through HTML, CSS is my language.
+        I thrive on turning complex ideas into intuitive and engaging designs.
+        Whether it's designing wireframes, prototyping in Figma, creating assets
+        in Photoshop, or bringing designs to life through HTML, CSS is my
+        language.
       </p>
       <p>
-        I'm always excited to learn new tools, collaborate with creative minds, and push the boundaries of digital design. Let's create something amazing together!
+        I'm always excited to learn new tools, collaborate with creative minds,
+        and push the boundaries of digital design. Let's create something
+        amazing together!
       </p>
     </section>
 
@@ -248,14 +257,14 @@
         </div>
       </div>
     </section>
-    
+
     <section class="certifications fade-in">
       <h2>Certifications</h2>
       <ul>
         <li>2</li>
         <li>1</li>
       </ul>
-    </section>    
+    </section>
 
     <div class="text-center my-4 fade-in">
       <p>Download my resume to explore my skills and experience.</p>
@@ -267,10 +276,12 @@
         <i class="bi bi-cloud-arrow-down-fill"></i> Download Resume
       </a>
     </div>
-    
+
     <section id="contact" class="container my-5 fade-in">
       <h2 class="text-center mb-4">Contact Me</h2>
-      <p class="text-center">I'm happy to connect! Send me an email or reach out via social media:</p>
+      <p class="text-center">
+        I'm happy to connect! Send me an email or reach out via social media:
+      </p>
       <div class="text-center">
         <a
           href="mailto:mariezen@example.com?subject=Let's%20Connect&body=Hi%20Marie%20Zendee%2C%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20chat%20more.%0D%0A%0D%0ABest%2C"
@@ -293,7 +304,7 @@
           <i class="fab fa-github"></i> GitHub
         </a>
       </div>
-    
+
       <div class="text-center mt-3">
         <a href="https://twitter.com/mariezendee" class="mx-2" target="_blank">
           <i class="fab fa-twitter fa-lg"></i>
@@ -301,16 +312,22 @@
         <a href="https://facebook.com/mariezendee" class="mx-2" target="_blank">
           <i class="fab fa-facebook fa-lg"></i>
         </a>
-        <a href="https://instagram.com/mariezendee" class="mx-2" target="_blank">
+        <a
+          href="https://instagram.com/mariezendee"
+          class="mx-2"
+          target="_blank"
+        >
           <i class="fab fa-instagram fa-lg"></i>
         </a>
       </div>
     </section>
-    
-    <footer class="text-center py-4 mt-5 fade-in" style="background-color: #fff0f5;">
+
+    <footer
+      class="text-center py-4 mt-5 fade-in"
+      style="background-color: #fff0f5"
+    >
       <p>Made with 💖 by Marie Zendee | © 2025 All rights reserved.</p>
     </footer>
-    
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -326,6 +343,24 @@
           { threshold: 0.2 }
         );
         fadeElements.forEach((el) => observer.observe(el));
+      });
+
+      let lastScrollTop = 0;
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", () => {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Scrolling down
+          navbar.style.transform = "translateY(-100%)";
+        } else {
+          // Scrolling up
+          navbar.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       });
     </script>
 

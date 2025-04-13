@@ -44,6 +44,7 @@ h1.fw-bold {
   backdrop-filter: blur(8px);
   padding: 12px 0;
   border-bottom: 1px solid #eee;
+  transition: transform 0.3s ease-in-out;
 }
 
 .navbar-brand {
