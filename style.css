@@ -73,7 +73,7 @@ h1.fw-bold {
   height: 100vh;
   object-fit: cover;
   border-radius: 0;
-  margin-top: 3vh;
+  margin-top: 2vh;
 }
 
 .carousel-control-prev-icon,
@@ -89,16 +89,11 @@ section.profile-section {
 }
 
 .profile-section .img-fluid {
-  max-width: 220px;
+  max-width: 280px;
   border: 6px solid #fff0f5;
   border-radius: 50%;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.profile-section .img-fluid:hover {
-  transform: scale(1.05);
 }
 
 .profile-section h1.fw-bold {
