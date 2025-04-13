@@ -318,7 +318,7 @@ footer a:hover {
   .carousel-inner,
   .carousel-inner .carousel-item,
   .carousel-inner img {
-    height: 50vh;
+    height: 40vh;
     object-fit: cover;
   }
 
