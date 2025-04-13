@@ -253,6 +253,31 @@ section.profile-section {
   margin-top: 15px;
 }
 
+.email-box {
+  padding: 30px 20px;
+  background-color: #fff0f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.email-input:focus {
+  border-color: #cc3366;
+  box-shadow: 0 0 5px rgba(204, 51, 102, 0.2);
+}
+
 /* Footer */
 footer {
   text-align: center;

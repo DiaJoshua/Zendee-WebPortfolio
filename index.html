@@ -145,16 +145,16 @@
       <h2>About Me</h2>
       <p>
         Hi! I'm <strong>Marie Zendee Patalinghug</strong>, a passionate UI/UX
-        Designer, Graphic Artist, and Frontend Developer based in the Philippines.
-        With a strong eye for detail and love for clean design, I blend
-        creativity with functionality to craft beautiful, user-centered digital
-        experiences.
+        Designer, Graphic Artist, and Frontend Developer based in the
+        Philippines. With a strong eye for detail and love for clean design, I
+        blend creativity with functionality to craft beautiful, user-centered
+        digital experiences.
       </p>
       <p>
         I thrive on turning complex ideas into intuitive and engaging designs.
         Whether it's designing wireframes, prototyping in Figma, creating assets
-        in Lightroom and Photoshop, or bringing designs to life through HTML, CSS is my
-        language.
+        in Lightroom and Photoshop, or bringing designs to life through HTML,
+        CSS is my language.
       </p>
       <p>
         I'm always excited to learn new tools, collaborate with creative minds,
@@ -168,7 +168,11 @@
       <h2 class="text-center mb-4">Projects</h2>
       <div class="row g-4">
         <div class="col-md-6 col-lg-4 mx-auto">
-          <a href="https://tienda-frontend.onrender.com/" target="_blank" class="text-decoration-none text-dark">
+          <a
+            href="https://tienda-frontend.onrender.com/"
+            target="_blank"
+            class="text-decoration-none text-dark"
+          >
             <div class="card shadow-sm h-100">
               <img
                 src="./assets/tienda.png"
@@ -183,7 +187,7 @@
               </div>
             </div>
           </a>
-        </div>        
+        </div>
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="card shadow-sm">
             <img
@@ -263,7 +267,7 @@
     <section class="certifications fade-in">
       <h2>Certifications</h2>
       <ul>
-        <li>UI/UX with Figma & Adobe XD </li>
+        <li>UI/UX with Figma & Adobe XD</li>
         <li>Professional Google Workspace Administrator</li>
       </ul>
     </section>
@@ -307,20 +311,29 @@
         </a>
       </div>
 
-      <div class="text-center mt-3">
-        <a href="https://twitter.com/mariezendee" class="mx-2" target="_blank">
-          <i class="fab fa-twitter fa-lg"></i>
-        </a>
-        <a href="https://facebook.com/mariezendee" class="mx-2" target="_blank">
-          <i class="fab fa-facebook fa-lg"></i>
-        </a>
-        <a
-          href="https://instagram.com/mariezendee"
-          class="mx-2"
-          target="_blank"
+      <!-- Email Box that triggers mailto -->
+      <div class="email-box my-5 text-center">
+        <h5 class="mb-3">Send a Quick Message</h5>
+        <form
+          onsubmit="sendMail(event)"
+          class="d-flex justify-content-center flex-wrap gap-2"
         >
-          <i class="fab fa-instagram fa-lg"></i>
-        </a>
+          <input
+            type="text"
+            class="form-control email-input"
+            id="userEmail"
+            placeholder="Your email"
+            required
+          />
+          <input
+            type="text"
+            class="form-control email-input"
+            id="userMessage"
+            placeholder="Your message"
+            required
+          />
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
       </div>
     </section>
 
@@ -364,6 +377,21 @@
 
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
       });
+
+      function sendMail(event) {
+        event.preventDefault();
+        const email = document.getElementById("userEmail").value;
+        const message = document.getElementById("userMessage").value;
+
+        const mailtoLink =
+          "mailto:mariezen@example.com" +
+          "?subject=Message from " +
+          encodeURIComponent(email) +
+          "&body=" +
+          encodeURIComponent(message);
+
+        window.location.href = mailtoLink;
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
