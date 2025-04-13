@@ -87,6 +87,7 @@ h1.fw-bold {
 /* Profile Section */
 section.profile-section {
   padding: 60px 20px;
+  text-align: center;
 }
 
 .profile-section .img-fluid {
@@ -313,8 +314,22 @@ footer a:hover {
     font-size: 0.9rem;
   }
 
+  .carousel,
+  .carousel-inner,
+  .carousel-inner .carousel-item,
   .carousel-inner img {
     height: 50vh;
+    object-fit: cover;
+  }
+
+  .carousel-inner img {
+    object-fit: contain;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    padding: 10px;
+    background-color: rgba(204, 51, 102, 0.4);
   }
 
   #projects.small-projects .card-title {
@@ -324,17 +339,17 @@ footer a:hover {
   #projects.small-projects .card-text {
     font-size: 0.9rem;
   }
+
   .profile-section .img-fluid {
-    max-width: 160px;
+    max-width: 200px;
     margin: 0 auto 20px;
   }
 
   .profile-section h1.fw-bold {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .profile-section .lead {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
-
 }
