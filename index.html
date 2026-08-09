@@ -41,7 +41,11 @@
     />
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="./assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="./assets/zendee-icon-180.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Zendee 🎀" />
+    <meta name="mobile-web-app-capable" content="yes" />
   </head>
 
   <body>
@@ -82,6 +86,7 @@
           </li>
         </ul>
 
+        <button class="kbd-btn" id="cmdkBtn" aria-label="Open command menu" title="Command menu">⌘K</button>
         <button class="theme-btn" id="themeToggle" aria-label="Toggle dusk mode" title="Toggle dusk mode">🌙</button>
       </nav>
     </header>
@@ -387,6 +392,37 @@
       <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">→</button>
     </div>
 
+    <div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Command menu">
+      <div class="cmdk-panel">
+        <input
+          id="cmdkInput"
+          type="text"
+          placeholder="what are you looking for? ✨"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <ul id="cmdkList" role="listbox"></ul>
+        <p class="cmdk-foot">↑↓ navigate · ↵ go · esc close 🎀</p>
+      </div>
+    </div>
+
+    <!-- ═══ KIND WORDS 💌 (hidden until real quotes are added) ═══
+         Send Claude 2–3 real testimonials (name · role · quote) from clients,
+         professors, or teammates and this section gets enabled.
+    <section id="kind-words" class="section">
+      <header class="section-head reveal">
+        <p class="script-lead">people are sweet</p>
+        <h2>Kind <em>words</em></h2>
+      </header>
+      <div class="kind-grid">
+        <figure class="kind-card reveal">
+          <blockquote>“QUOTE TEXT HERE.”</blockquote>
+          <figcaption>NAME · ROLE</figcaption>
+        </figure>
+      </div>
+    </section>
+    ═══ end kind words ═══ -->
+
     <script>
       /* ── reveal on scroll ── */
       const revealEls = document.querySelectorAll(".reveal");
@@ -585,8 +621,89 @@
         }
       }
       addEventListener("click", (e) => {
-        if (e.target.closest(".lightbox, .nav, form, input, .theme-btn")) return;
+        if (e.target.closest(".lightbox, .nav, form, input, .theme-btn, .cmdk, .kbd-btn")) return;
         spawnSpark(e.clientX, e.clientY, "spark", 6, 120);
+      });
+
+      /* ── command palette 🎀 ── */
+      const cmdk = document.getElementById("cmdk");
+      const cmdkInput = document.getElementById("cmdkInput");
+      const cmdkList = document.getElementById("cmdkList");
+      const cmdkBtn = document.getElementById("cmdkBtn");
+      if (navigator.platform && navigator.platform.indexOf("Win") > -1)
+        cmdkBtn.textContent = "Ctrl K";
+
+      const goTo = (sel) => () =>
+        document.querySelector(sel).scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+
+      const cmdkActions = [
+        { label: "🖼 go to work", hint: "work", run: goTo("#work") },
+        { label: "✨ go to moodboard", hint: "vibe", run: goTo("#moodboard") },
+        { label: "🌷 go to about", hint: "about", run: goTo("#about") },
+        { label: "🎨 go to skills", hint: "skills", run: goTo("#skills") },
+        { label: "📮 go to contact", hint: "contact", run: goTo("#contact") },
+        { label: "💌 copy email", hint: "email", run: () => document.getElementById("copyEmail").click() },
+        { label: "📄 download résumé", hint: "pdf", run: () => {
+            const a = document.createElement("a");
+            a.href = "./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202025%20.pdf";
+            a.download = "";
+            document.body.appendChild(a); a.click(); a.remove();
+          } },
+        { label: "🌙 toggle dusk mode", hint: "theme", run: () => themeToggle.click() },
+        { label: "🔗 open linkedin", hint: "social", run: () => window.open("https://www.linkedin.com/in/marie-zendee-patalinghug/", "_blank") },
+        { label: "🐙 open github", hint: "social", run: () => window.open("https://github.com/mariezendee", "_blank") },
+      ];
+
+      let cmdkFiltered = cmdkActions, cmdkIdx = 0;
+
+      function cmdkRender() {
+        const q = cmdkInput.value.trim().toLowerCase();
+        cmdkFiltered = cmdkActions.filter(
+          (a) => a.label.toLowerCase().includes(q) || a.hint.includes(q)
+        );
+        if (cmdkIdx >= cmdkFiltered.length) cmdkIdx = 0;
+        cmdkList.innerHTML = "";
+        cmdkFiltered.forEach((a, i) => {
+          const li = document.createElement("li");
+          li.setAttribute("role", "option");
+          if (i === cmdkIdx) li.classList.add("active");
+          const l = document.createElement("span");
+          l.textContent = a.label;
+          const h = document.createElement("span");
+          h.className = "hint";
+          h.textContent = a.hint;
+          li.append(l, h);
+          li.addEventListener("click", () => cmdkRun(a));
+          li.addEventListener("mousemove", () => { cmdkIdx = i; cmdkMark(); });
+          cmdkList.appendChild(li);
+        });
+      }
+      const cmdkMark = () =>
+        [...cmdkList.children].forEach((li, i) => li.classList.toggle("active", i === cmdkIdx));
+      const cmdkRun = (a) => { cmdkClose(); a.run(); };
+      function cmdkOpen() {
+        cmdk.classList.add("open");
+        cmdkInput.value = "";
+        cmdkIdx = 0;
+        cmdkRender();
+        setTimeout(() => cmdkInput.focus(), 10);
+      }
+      const cmdkClose = () => cmdk.classList.remove("open");
+
+      cmdkBtn.addEventListener("click", cmdkOpen);
+      cmdk.addEventListener("click", (e) => { if (e.target === cmdk) cmdkClose(); });
+      cmdkInput.addEventListener("input", () => { cmdkIdx = 0; cmdkRender(); });
+      addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+          e.preventDefault();
+          cmdk.classList.contains("open") ? cmdkClose() : cmdkOpen();
+          return;
+        }
+        if (!cmdk.classList.contains("open")) return;
+        if (e.key === "Escape") cmdkClose();
+        else if (e.key === "ArrowDown") { e.preventDefault(); cmdkIdx = Math.min(cmdkIdx + 1, cmdkFiltered.length - 1); cmdkMark(); }
+        else if (e.key === "ArrowUp") { e.preventDefault(); cmdkIdx = Math.max(cmdkIdx - 1, 0); cmdkMark(); }
+        else if (e.key === "Enter" && cmdkFiltered[cmdkIdx]) cmdkRun(cmdkFiltered[cmdkIdx]);
       });
 
       /* ── quick message → mailto (with confetti 🎉) ── */
