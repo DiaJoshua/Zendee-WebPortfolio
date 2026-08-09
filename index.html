@@ -9,8 +9,26 @@
     />
     <meta name="keywords" content="UI/UX, Graphic Design, Web Development" />
     <meta name="author" content="Marie Zendee Patalinghug" />
-    <meta name="theme-color" content="#ffd6e4" />
+    <meta name="theme-color" content="#ffd6e4" id="themeColorMeta" />
     <meta name="robots" content="index, follow" />
+
+    <!-- social share preview (swap og:image to a full https URL once live) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Berry Zendee 🎀🍓 — Marie Zendee Patalinghug" />
+    <meta property="og:description" content="UI/UX Designer · Graphic Artist · Frontend Developer. Making the internet a little softer, one pixel at a time." />
+    <meta property="og:image" content="./assets/1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Berry Zendee 🎀🍓 — Marie Zendee Patalinghug" />
+    <meta name="twitter:description" content="UI/UX Designer · Graphic Artist · Frontend Developer." />
+    <meta name="twitter:image" content="./assets/1.png" />
+
+    <script>
+      /* apply saved theme before paint */
+      try {
+        if (localStorage.getItem("zendee-theme") === "dusk")
+          document.documentElement.setAttribute("data-theme", "dusk");
+      } catch (e) {}
+    </script>
 
     <title>Berry Zendee 🎀🍓</title>
 
@@ -63,6 +81,8 @@
             >
           </li>
         </ul>
+
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle dusk mode" title="Toggle dusk mode">🌙</button>
       </nav>
     </header>
 
@@ -77,9 +97,11 @@
               <span class="hero-sticker" aria-hidden="true">🍓</span>
             </h1>
             <p class="hero-sub">
-              UI/UX Designer&ensp;·&ensp;Graphic Artist&ensp;·&ensp;Frontend
-              Developer — making the internet a little softer, one pixel at a
-              time.
+              <span class="type-wrap"
+                ><span id="typewriter">UI/UX Designer</span
+                ><span class="type-caret" aria-hidden="true">|</span></span
+              ><br />
+              making the internet a little softer, one pixel at a time.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#work">view my work</a>
@@ -324,6 +346,9 @@
             rel="noopener"
             >github</a
           >
+          <button class="btn btn-ghost" id="copyEmail" type="button">
+            copy email 💌
+          </button>
         </div>
 
         <form class="quick-form reveal delay-2" onsubmit="sendMail(event)">
@@ -349,6 +374,18 @@
     </footer>
 
     <button class="to-top" id="toTop" aria-label="Back to top">🎀</button>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">copied! 💌</div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+      <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">←</button>
+      <figure class="lb-figure">
+        <img id="lbImg" src="" alt="" />
+        <figcaption id="lbCap"></figcaption>
+      </figure>
+      <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">→</button>
+    </div>
 
     <script>
       /* ── reveal on scroll ── */
@@ -415,16 +452,157 @@
           gallery.scrollBy({ left: step(), behavior: "smooth" })
         );
 
-      /* ── quick message → mailto ── */
+      const EMAIL = "mariezen@example.com";
+      const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ── dusk mode 🌙 ── */
+      const themeToggle = document.getElementById("themeToggle");
+      const themeMeta = document.getElementById("themeColorMeta");
+      function syncTheme() {
+        const dusk = document.documentElement.getAttribute("data-theme") === "dusk";
+        themeToggle.textContent = dusk ? "🌷" : "🌙";
+        themeMeta.setAttribute("content", dusk ? "#221426" : "#ffd6e4");
+      }
+      themeToggle.addEventListener("click", () => {
+        const dusk = document.documentElement.getAttribute("data-theme") === "dusk";
+        if (dusk) document.documentElement.removeAttribute("data-theme");
+        else document.documentElement.setAttribute("data-theme", "dusk");
+        try { localStorage.setItem("zendee-theme", dusk ? "light" : "dusk"); } catch (e) {}
+        syncTheme();
+      });
+      syncTheme();
+
+      /* ── typewriter roles ── */
+      const roles = ["UI/UX Designer", "Graphic Artist", "Frontend Developer", "Pixel Perfectionist 🎀"];
+      const typeEl = document.getElementById("typewriter");
+      if (reducedMotion) {
+        typeEl.textContent = "UI/UX Designer · Graphic Artist · Frontend Developer";
+      } else {
+        let ri = 0, ci = roles[0].length, deleting = false;
+        (function tick() {
+          const word = roles[ri];
+          typeEl.textContent = word.slice(0, ci);
+          let delay = deleting ? 42 : 74;
+          if (!deleting && ci === word.length) { delay = 1500; deleting = true; }
+          else if (deleting && ci === 0) { deleting = false; ri = (ri + 1) % roles.length; delay = 350; }
+          ci += deleting ? -1 : 1;
+          setTimeout(tick, delay);
+        })();
+      }
+
+      /* ── toast ── */
+      const toast = document.getElementById("toast");
+      let toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      /* ── copy email ── */
+      document.getElementById("copyEmail").addEventListener("click", () => {
+        const done = () => showToast("copied! 💌");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(EMAIL).then(done).catch(() => fallbackCopy());
+        } else fallbackCopy();
+        function fallbackCopy() {
+          const ta = document.createElement("textarea");
+          ta.value = EMAIL;
+          ta.style.cssText = "position:fixed;opacity:0";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); done(); } catch (e) { showToast(EMAIL); }
+          ta.remove();
+        }
+      });
+
+      /* ── lightbox ── */
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbCap = document.getElementById("lbCap");
+      const lbItems = [
+        ...document.querySelectorAll("#gallery .gallery-item img"),
+        ...document.querySelectorAll(".work-grid article .card-media img"),
+      ];
+      let lbIndex = 0;
+
+      function lbShow(i) {
+        lbIndex = (i + lbItems.length) % lbItems.length;
+        lbImg.src = lbItems[lbIndex].src;
+        lbImg.alt = lbItems[lbIndex].alt;
+        lbCap.textContent = lbItems[lbIndex].alt;
+      }
+      function lbOpen(i) {
+        lbShow(i);
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function lbClose() {
+        lb.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      lbItems.forEach((img, i) => {
+        img.classList.add("lb-zoom");
+        img.addEventListener("click", () => lbOpen(i));
+      });
+      document.getElementById("lbClose").addEventListener("click", lbClose);
+      document.getElementById("lbPrev").addEventListener("click", () => lbShow(lbIndex - 1));
+      document.getElementById("lbNext").addEventListener("click", () => lbShow(lbIndex + 1));
+      lb.addEventListener("click", (e) => { if (e.target === lb) lbClose(); });
+      addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") lbClose();
+        if (e.key === "ArrowLeft") lbShow(lbIndex - 1);
+        if (e.key === "ArrowRight") lbShow(lbIndex + 1);
+      });
+      let touchX = null;
+      lb.addEventListener("touchstart", (e) => (touchX = e.touches[0].clientX), { passive: true });
+      lb.addEventListener("touchend", (e) => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
+        touchX = null;
+      });
+
+      /* ── heart sparkles on click ── */
+      const SPARKS = ["💗", "✨", "🎀"];
+      function spawnSpark(x, y, cls, count, spread) {
+        if (reducedMotion) return;
+        for (let i = 0; i < count; i++) {
+          const s = document.createElement("span");
+          s.className = cls;
+          s.textContent = SPARKS[(Math.random() * SPARKS.length) | 0];
+          s.style.left = x + "px";
+          s.style.top = y + "px";
+          s.style.setProperty("--dx", (Math.random() - 0.5) * spread + "px");
+          s.style.setProperty("--dy", -(Math.random() * spread * 0.7 + 12) + "px");
+          s.style.setProperty("--rot", (Math.random() - 0.5) * 240 + "deg");
+          s.style.fontSize = 10 + Math.random() * 10 + "px";
+          document.body.appendChild(s);
+          s.addEventListener("animationend", () => s.remove());
+        }
+      }
+      addEventListener("click", (e) => {
+        if (e.target.closest(".lightbox, .nav, form, input, .theme-btn")) return;
+        spawnSpark(e.clientX, e.clientY, "spark", 6, 120);
+      });
+
+      /* ── quick message → mailto (with confetti 🎉) ── */
       function sendMail(event) {
         event.preventDefault();
         const email = document.getElementById("userEmail").value;
         const message = document.getElementById("userMessage").value;
-        location.href =
-          "mailto:mariezen@example.com?subject=Message from " +
-          encodeURIComponent(email) +
-          "&body=" +
-          encodeURIComponent(message);
+        const btn = event.target.querySelector("button[type=submit]");
+        const r = btn.getBoundingClientRect();
+        spawnSpark(r.left + r.width / 2, r.top + r.height / 2, "confetti", 26, 320);
+        const go = () =>
+          (location.href =
+            "mailto:" + EMAIL +
+            "?subject=Message from " + encodeURIComponent(email) +
+            "&body=" + encodeURIComponent(message));
+        reducedMotion ? go() : setTimeout(go, 400);
       }
 
       document.getElementById("year").textContent = new Date().getFullYear();
