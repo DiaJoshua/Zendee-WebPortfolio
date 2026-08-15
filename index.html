@@ -380,6 +380,16 @@
 
     <button class="to-top" id="toTop" aria-label="Back to top">🎀</button>
 
+    <!-- music player 🎶 -->
+    <div class="player" id="player" aria-label="Music and sound controls">
+      <button class="player-btn" id="musicBtn" aria-label="Play music" title="Play / pause music">▶</button>
+      <span class="player-title">
+        <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="song-name">berry bounce ♪</span>
+      </span>
+      <button class="sfx-btn" id="sfxBtn" aria-label="Toggle sound effects" title="Sound effects on/off">🔔</button>
+    </div>
+
     <div class="toast" id="toast" role="status" aria-live="polite">copied! 💌</div>
 
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
@@ -621,7 +631,7 @@
         }
       }
       addEventListener("click", (e) => {
-        if (e.target.closest(".lightbox, .nav, form, input, .theme-btn, .cmdk, .kbd-btn")) return;
+        if (e.target.closest(".lightbox, .nav, form, input, .theme-btn, .cmdk, .kbd-btn, .player")) return;
         spawnSpark(e.clientX, e.clientY, "spark", 6, 120);
       });
 
@@ -724,5 +734,6 @@
 
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="zendee-sound.js"></script>
   </body>
 </html>
