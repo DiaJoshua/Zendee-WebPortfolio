@@ -79,7 +79,7 @@
           <li class="nav-cta-li">
             <a
               class="nav-cta"
-              href="./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202025%20.pdf"
+              href="./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
               download
               >résumé ↓</a
             >
@@ -177,12 +177,25 @@
 
           <article class="card reveal delay-1">
             <div class="card-media media-contain">
-              <img src="./assets/mz-logo.png" alt="MZ logo design" loading="lazy" />
+              <img src="./assets/dylans-logo.jpg" alt="Dylan's Little Closet logo design" loading="lazy" />
             </div>
             <div class="card-body">
               <div>
-                <h3>Brand &amp; Logo Design</h3>
-                <p>Logos and social media assets crafted for small brands.</p>
+                <h3>Dylan's Little Closet — Logo Design</h3>
+                <p>Playful brand identity and logo for a kids' clothing shop.</p>
+              </div>
+              <span class="card-tag">branding</span>
+            </div>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="card-media media-contain">
+              <img src="./assets/avon-seamfree.jpg" alt="Avon Intimates Seamfree collection campaign visual" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Visual Branding</h3>
+                <p>Campaign visual for Avon Intimates' first Seamfree collection.</p>
               </div>
               <span class="card-tag">branding</span>
             </div>
@@ -227,15 +240,9 @@
           <figure class="gallery-item">
             <img src="./assets/1.png" alt="Zendee brand board — painted bunny with pink bows" loading="lazy" />
           </figure>
-          <figure class="gallery-item">
-            <img src="./assets/2.png" alt="Portfolio deck slide — about me and web development" loading="lazy" />
-          </figure>
-          <figure class="gallery-item">
-            <img src="./assets/3.png" alt="Poster explorations — garden theme, cherry on top, valentine’s" loading="lazy" />
-          </figure>
         </div>
 
-        <div class="gallery-nav reveal">
+        <div class="gallery-nav reveal" id="galleryNav">
           <button class="gal-btn" id="galPrev" aria-label="Previous">←</button>
           <button class="gal-btn" id="galNext" aria-label="Next">→</button>
         </div>
@@ -248,27 +255,25 @@
             <p class="script-lead">nice to meet you 🌷</p>
             <h2>About <em>me</em></h2>
             <p>
-              Hi! I’m <strong>Marie Zendee Patalinghug</strong>, a passionate
-              UI/UX Designer, Graphic Artist, and Frontend Developer based in
-              the Philippines. With a strong eye for detail and a love for
-              clean design, I blend creativity with functionality to craft
-              beautiful, user-centered digital experiences.
+              Hi, I’m <strong>Zendee</strong>! I have experience in visual and
+              brand development, where I work on creating engaging visuals,
+              marketing materials, and content that align with a brand’s
+              identity.
             </p>
             <p>
-              I thrive on turning complex ideas into intuitive, engaging
-              designs — wireframing, prototyping in Figma, creating assets in
-              Lightroom and Photoshop, or bringing it all to life with HTML
-              and CSS.
+              I’m also experienced in supporting product concepts, developing
+              creative ideas, and collaborating with different teams to bring
+              projects to life.
             </p>
             <p>
-              Always excited to learn new tools, collaborate with creative
-              minds, and push the boundaries of digital design. Let’s create
-              something amazing together!
+              I’m passionate about combining creativity and strategy to
+              create visuals and branding that are both appealing and
+              effective.
             </p>
             <div class="chips">
-              <span class="chip">🎨 figma girlie</span>
-              <span class="chip">📍 philippines</span>
-              <span class="chip">💌 open to collabs</span>
+              <span class="chip">🎨 visual content development</span>
+              <span class="chip">📣 campaign support</span>
+              <span class="chip">📱 social media content</span>
             </div>
           </div>
 
@@ -289,7 +294,7 @@
             </div>
             <a
               class="resume-card"
-              href="./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202025%20.pdf"
+              href="./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
               download
             >
               <span class="cert-emoji" aria-hidden="true">📄</span>
@@ -497,6 +502,9 @@
         .addEventListener("click", () =>
           gallery.scrollBy({ left: step(), behavior: "smooth" })
         );
+      if (gallery.querySelectorAll(".gallery-item").length <= 1) {
+        document.getElementById("galleryNav").style.display = "none";
+      }
 
       const EMAIL = "mariezen@example.com";
       const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -655,7 +663,7 @@
         { label: "💌 copy email", hint: "email", run: () => document.getElementById("copyEmail").click() },
         { label: "📄 download résumé", hint: "pdf", run: () => {
             const a = document.createElement("a");
-            a.href = "./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202025%20.pdf";
+            a.href = "./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf";
             a.download = "";
             document.body.appendChild(a); a.click(); a.remove();
           } },
