@@ -1,0 +1,70 @@
+(()=>{
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const body=document.body;
+
+  const boot=$('#boot');
+  addEventListener('load',()=>setTimeout(()=>boot?.classList.add('hide'),reduced?80:720),{once:true});
+
+  const nav=$('#nav'), progress=$('#progressBar'); let scrollRAF=0;
+  const updateScroll=()=>{const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?y/max*100:0)+'%';nav?.classList.toggle('scrolled',y>24);scrollRAF=0};
+  addEventListener('scroll',()=>{if(!scrollRAF)scrollRAF=requestAnimationFrame(updateScroll)},{passive:true}); updateScroll();
+
+  const revealIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');revealIO.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -35px'});
+  $$('.reveal').forEach(el=>revealIO.observe(el));
+
+  const sections=$$('.page-section[id]'); const navAnchors=$$('.nav-links a');
+  const sectionIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;navAnchors.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-35% 0px -55% 0px',threshold:0});
+  sections.forEach(s=>sectionIO.observe(s));
+
+  const menu=$('#menuBtn'), links=$('#navLinks');
+  menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
+  $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+
+  const roles=['Visual Content Developer','Brand Assistant','Graphic Artist 🎀'];
+  const type=$('#typeRole'); let role=0,char=roles[0].length,del=false,typeTimer=0;
+  const tick=()=>{if(!type||reduced)return;const word=roles[role];type.textContent=word.slice(0,char);let wait=del?38:68;if(!del&&char===word.length){del=true;wait=1500}else if(del&&char===0){del=false;role=(role+1)%roles.length;wait=300}char+=del?-1:1;typeTimer=setTimeout(tick,wait)}; tick();
+
+  const visualFrames=$$('.visual-frame'), visualTabs=$$('.visual-tabs button'), visualTitle=$('#visualTitle'), visualDesc=$('#visualDesc'), chapter=$('.chapter-index'), visualLink=$('.visual-copy [data-case]');
+  function showVisual(key){const idx=visualFrames.findIndex(f=>f.dataset.visual===key);visualFrames.forEach(f=>f.classList.toggle('active',f.dataset.visual===key));visualTabs.forEach(b=>b.classList.toggle('active',b.dataset.show===key));const f=visualFrames[idx];if(!f)return;visualTitle.textContent=f.dataset.title;visualDesc.textContent=f.dataset.desc;chapter.textContent=String(idx+1).padStart(2,'0')+' / 04';visualLink.dataset.case=key}
+  visualTabs.forEach(b=>b.addEventListener('click',()=>showVisual(b.dataset.show)));
+
+  const lock=v=>body.classList.toggle('lock',v);
+  const envelope=$('#envelope'), photoModal=$('#photoModal'), photoClose=$('#photoClose'), photoStrip=$('#photoStrip'), slides=$$('.photo-slide'), photoCount=$('#photoCount'), photoBar=$('#photoBar');
+  function openPhotos(){envelope?.classList.add('open');setTimeout(()=>{photoModal?.classList.add('open');photoModal?.setAttribute('aria-hidden','false');lock(true);photoStrip?.focus({preventScroll:true});updatePhotoProgress()},reduced?0:440)}
+  function closePhotos(){photoModal?.classList.remove('open');photoModal?.setAttribute('aria-hidden','true');lock(false);setTimeout(()=>envelope?.classList.remove('open'),reduced?0:260)}
+  envelope?.addEventListener('click',openPhotos); photoClose?.addEventListener('click',closePhotos); photoModal?.addEventListener('click',e=>{if(e.target===photoModal)closePhotos()});
+  const slideWidth=()=>slides[0]?slides[0].getBoundingClientRect().width+26:0;
+  $('#photoPrev')?.addEventListener('click',()=>photoStrip.scrollBy({left:-slideWidth(),behavior:reduced?'auto':'smooth'}));
+  $('#photoNext')?.addEventListener('click',()=>photoStrip.scrollBy({left:slideWidth(),behavior:reduced?'auto':'smooth'}));
+  let photoRAF=0;
+  function updatePhotoProgress(){if(!photoStrip||!slides.length)return;const center=photoStrip.scrollLeft+photoStrip.clientWidth/2;let best=0,dist=Infinity;slides.forEach((s,i)=>{const c=s.offsetLeft+s.offsetWidth/2,d=Math.abs(c-center);if(d<dist){dist=d;best=i}});slides.forEach((s,i)=>s.classList.toggle('active',i===best));photoCount.textContent=String(best+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');photoBar.style.width=((best+1)/slides.length*100)+'%';photoRAF=0}
+  photoStrip?.addEventListener('scroll',()=>{if(!photoRAF)photoRAF=requestAnimationFrame(updatePhotoProgress)},{passive:true});
+  photoStrip?.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){e.preventDefault();photoStrip.scrollLeft+=e.deltaY}},{passive:false});
+  let drag=false,startX=0,startLeft=0;
+  photoStrip?.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'){drag=true;startX=e.clientX;startLeft=photoStrip.scrollLeft;photoStrip.setPointerCapture(e.pointerId)}});
+  photoStrip?.addEventListener('pointermove',e=>{if(drag)photoStrip.scrollLeft=startLeft-(e.clientX-startX)});
+  photoStrip?.addEventListener('pointerup',()=>drag=false); photoStrip?.addEventListener('pointercancel',()=>drag=false);
+
+  const viewer=$('#viewer'),viewerImg=$('#viewerImg');
+  slides.forEach(s=>s.addEventListener('click',()=>{if(drag)return;viewerImg.src=s.dataset.photo;viewerImg.alt=$('img',s).alt;viewer.classList.add('open');viewer.setAttribute('aria-hidden','false')}));
+  function closeViewer(){viewer?.classList.remove('open');viewer?.setAttribute('aria-hidden','true')}
+  $('#viewerClose')?.addEventListener('click',closeViewer);viewer?.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
+
+  const cases={
+    tienda:{type:'digital experience',title:'Tienda',img:'assets/tienda.png',desc:'A friendly e-commerce experience designed around product discovery, visual hierarchy and easy navigation.',focus:'UI/UX · visual system',approach:'clean structure + warm brand cues',deliverable:'responsive web experience'},
+    dylan:{type:'brand identity',title:"Dylan's Little Closet",img:'assets/dylans-logo.jpg',desc:'A playful identity for a children’s clothing concept, balancing charm with enough simplicity to stay memorable.',focus:'logo · identity',approach:'friendly forms + soft palette',deliverable:'brand mark + visual direction'},
+    avon:{type:'campaign visual',title:'Avon Seamfree',img:'assets/avon-seamfree.jpg',desc:'A product-focused campaign direction designed to feel bright, approachable and easy to scan across digital placements.',focus:'campaign composition',approach:'product-led hierarchy',deliverable:'campaign visual system'},
+    promo:{type:'print / social',title:'Promo Sheets',img:'assets/promo-sheet.jpg',desc:'Compact promotional layouts balancing useful information, branded rhythm and visual clarity.',focus:'layout design',approach:'scan-first information design',deliverable:'promotional sheets'},
+    paw:{type:'awareness campaign',title:'Paw-Up',img:'assets/Paw-up.jpg',desc:'An awareness visual built to feel warm, optimistic and immediately understandable.',focus:'campaign poster',approach:'friendly storytelling',deliverable:'awareness creative'}
+  };
+  const caseModal=$('#caseModal'),caseSheet=$('#caseSheet');
+  function openCase(key){const c=cases[key];if(!c)return;caseSheet.innerHTML=`<div class="case-head"><div><small>${c.type}</small><h3>${c.title}</h3></div><button class="round-close case-close" type="button" aria-label="Close case study">×</button></div><div class="case-body"><div class="case-media"><img src="${c.img}" alt="${c.title}"></div><div class="case-copy"><p>${c.desc}</p><div class="case-facts"><div><small>focus</small><b>${c.focus}</b></div><div><small>approach</small><b>${c.approach}</b></div><div><small>deliverable</small><b>${c.deliverable}</b></div></div></div></div>`;caseModal.classList.add('open');caseModal.setAttribute('aria-hidden','false');lock(true);$('.case-close',caseSheet).addEventListener('click',closeCase);wireImageFallbacks(caseSheet)}
+  function closeCase(){caseModal?.classList.remove('open');caseModal?.setAttribute('aria-hidden','true');lock(false)}
+  $$('[data-case]').forEach(el=>el.addEventListener('click',()=>openCase(el.dataset.case)));caseModal?.addEventListener('click',e=>{if(e.target===caseModal)closeCase()});
+
+  addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer?.classList.contains('open'))closeViewer();else if(caseModal?.classList.contains('open'))closeCase();else if(photoModal?.classList.contains('open'))closePhotos()});
+
+  function wireImageFallbacks(root=document){$$('img',root).forEach(img=>{if(img.dataset.checked)return;img.dataset.checked='1';img.addEventListener('error',()=>img.parentElement?.classList.add('asset-missing'),{once:true})})}
+  wireImageFallbacks();
+})();

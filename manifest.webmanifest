@@ -1,24 +1,8 @@
 {
-  "name": "Berry Zendee 🎀🍓",
-  "short_name": "Zendee",
-  "description": "Marie Zendee Patalinghug — UI/UX Designer, Graphic Artist & Frontend Developer.",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#fffaf6",
-  "theme_color": "#ffd6e4",
-  "icons": [
-    {
-      "src": "./assets/zendee-icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./assets/zendee-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
+  "name":"Berry Zendee Portfolio",
+  "short_name":"Zendee",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#fffafb",
+  "theme_color":"#fffafb"
 }
