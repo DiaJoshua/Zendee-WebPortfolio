@@ -34,20 +34,23 @@
   function openPhotos(){envelope?.classList.add('open');setTimeout(()=>{photoModal?.classList.add('open');photoModal?.setAttribute('aria-hidden','false');lock(true);photoStrip?.focus({preventScroll:true});updatePhotoProgress()},reduced?0:440)}
   function closePhotos(){photoModal?.classList.remove('open');photoModal?.setAttribute('aria-hidden','true');lock(false);setTimeout(()=>envelope?.classList.remove('open'),reduced?0:260)}
   envelope?.addEventListener('click',openPhotos); photoClose?.addEventListener('click',closePhotos); photoModal?.addEventListener('click',e=>{if(e.target===photoModal)closePhotos()});
-  const slideWidth=()=>slides[0]?slides[0].getBoundingClientRect().width+26:0;
-  $('#photoPrev')?.addEventListener('click',()=>photoStrip.scrollBy({left:-slideWidth(),behavior:reduced?'auto':'smooth'}));
-  $('#photoNext')?.addEventListener('click',()=>photoStrip.scrollBy({left:slideWidth(),behavior:reduced?'auto':'smooth'}));
-  let photoRAF=0;
-  function updatePhotoProgress(){if(!photoStrip||!slides.length)return;const center=photoStrip.scrollLeft+photoStrip.clientWidth/2;let best=0,dist=Infinity;slides.forEach((s,i)=>{const c=s.offsetLeft+s.offsetWidth/2,d=Math.abs(c-center);if(d<dist){dist=d;best=i}});slides.forEach((s,i)=>s.classList.toggle('active',i===best));photoCount.textContent=String(best+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');photoBar.style.width=((best+1)/slides.length*100)+'%';photoRAF=0}
+  let photoRAF=0,activePhoto=0,wheelLock=false;
+  function nearestPhoto(){if(!photoStrip||!slides.length)return 0;const center=photoStrip.scrollLeft+photoStrip.clientWidth/2;let best=0,dist=Infinity;slides.forEach((s,i)=>{const c=s.offsetLeft+s.offsetWidth/2,d=Math.abs(c-center);if(d<dist){dist=d;best=i}});return best}
+  function updatePhotoProgress(){if(!photoStrip||!slides.length)return;activePhoto=nearestPhoto();slides.forEach((s,i)=>s.classList.toggle('active',i===activePhoto));photoCount.textContent=String(activePhoto+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');photoBar.style.width=((activePhoto+1)/slides.length*100)+'%';photoRAF=0}
+  function goPhoto(index){if(!photoStrip||!slides.length)return;activePhoto=Math.max(0,Math.min(slides.length-1,index));slides[activePhoto].scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest',inline:'center'});requestAnimationFrame(updatePhotoProgress)}
+  $('#photoPrev')?.addEventListener('click',()=>goPhoto(activePhoto-1));
+  $('#photoNext')?.addEventListener('click',()=>goPhoto(activePhoto+1));
   photoStrip?.addEventListener('scroll',()=>{if(!photoRAF)photoRAF=requestAnimationFrame(updatePhotoProgress)},{passive:true});
-  photoStrip?.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){e.preventDefault();photoStrip.scrollLeft+=e.deltaY}},{passive:false});
-  let drag=false,startX=0,startLeft=0;
-  photoStrip?.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'){drag=true;startX=e.clientX;startLeft=photoStrip.scrollLeft;photoStrip.setPointerCapture(e.pointerId)}});
-  photoStrip?.addEventListener('pointermove',e=>{if(drag)photoStrip.scrollLeft=startLeft-(e.clientX-startX)});
-  photoStrip?.addEventListener('pointerup',()=>drag=false); photoStrip?.addEventListener('pointercancel',()=>drag=false);
+  photoStrip?.addEventListener('wheel',e=>{const dominant=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;if(Math.abs(dominant)<6)return;e.preventDefault();if(wheelLock)return;wheelLock=true;goPhoto(activePhoto+(dominant>0?1:-1));setTimeout(()=>{wheelLock=false},reduced?70:240)},{passive:false});
+  let drag=false,dragMoved=false,startX=0,startLeft=0;
+  photoStrip?.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'){drag=true;dragMoved=false;startX=e.clientX;startLeft=photoStrip.scrollLeft;photoStrip.setPointerCapture(e.pointerId)}});
+  photoStrip?.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-startX;if(Math.abs(dx)>5)dragMoved=true;photoStrip.scrollLeft=startLeft-dx});
+  function endDrag(){if(!drag)return;drag=false;const target=nearestPhoto();requestAnimationFrame(()=>goPhoto(target));setTimeout(()=>{dragMoved=false},0)}
+  photoStrip?.addEventListener('pointerup',endDrag); photoStrip?.addEventListener('pointercancel',endDrag);
+  photoStrip?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();goPhoto(activePhoto+1)}else if(e.key==='ArrowLeft'){e.preventDefault();goPhoto(activePhoto-1)}});
 
   const viewer=$('#viewer'),viewerImg=$('#viewerImg');
-  slides.forEach(s=>s.addEventListener('click',()=>{if(drag)return;viewerImg.src=s.dataset.photo;viewerImg.alt=$('img',s).alt;viewer.classList.add('open');viewer.setAttribute('aria-hidden','false')}));
+  slides.forEach(s=>s.addEventListener('click',()=>{if(dragMoved)return;viewerImg.src=s.dataset.photo;viewerImg.alt=$('img',s).alt;viewer.classList.add('open');viewer.setAttribute('aria-hidden','false')}));
   function closeViewer(){viewer?.classList.remove('open');viewer?.setAttribute('aria-hidden','true')}
   $('#viewerClose')?.addEventListener('click',closeViewer);viewer?.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
 
