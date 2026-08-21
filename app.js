@@ -4,13 +4,43 @@
   const body=document.body;
 
   const boot=$('#boot');
-  addEventListener('load',()=>setTimeout(()=>boot?.classList.add('hide'),reduced?80:720),{once:true});
+  const startSite=()=>{
+    if(reduced){
+      document.body.classList.add('site-ready');
+      boot?.classList.add('hide');
+      return;
+    }
+    setTimeout(()=>boot?.classList.add('exit'),760);
+    setTimeout(()=>document.body.classList.add('site-ready'),900);
+    setTimeout(()=>boot?.classList.add('hide'),1480);
+  };
+  addEventListener('load',startSite,{once:true});
 
-  const nav=$('#nav'), progress=$('#progressBar'); let scrollRAF=0;
-  const updateScroll=()=>{const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;if(progress)progress.style.width=(max?y/max*100:0)+'%';nav?.classList.toggle('scrolled',y>24);scrollRAF=0};
+  const nav=$('#nav'), progress=$('#progressBar'), heroShowcase=$('.hero-showcase'), photoBackdrop=$('.photo-backdrop img'); let scrollRAF=0;
+  const updateScroll=()=>{
+    const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
+    if(progress)progress.style.width=(max?y/max*100:0)+'%';
+    nav?.classList.toggle('scrolled',y>24);
+    if(!reduced){
+      if(heroShowcase){
+        const hero=$('.hero');
+        const hp=Math.max(0,Math.min(1,y/Math.max(1,hero?.offsetHeight||innerHeight)));
+        heroShowcase.style.setProperty('--hero-shift',`${hp*22}px`);
+      }
+      if(photoBackdrop){
+        const sec=$('#photography');
+        const r=sec?.getBoundingClientRect();
+        if(r){
+          const p=Math.max(-1,Math.min(1,(innerHeight/2-(r.top+r.height/2))/Math.max(1,innerHeight)));
+          photoBackdrop.style.setProperty('--photo-y',`${p*22}px`);
+        }
+      }
+    }
+    scrollRAF=0
+  };
   addEventListener('scroll',()=>{if(!scrollRAF)scrollRAF=requestAnimationFrame(updateScroll)},{passive:true}); updateScroll();
 
-  const revealIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');revealIO.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -35px'});
+  const revealIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');revealIO.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -8% 0px'});
   $$('.reveal').forEach(el=>revealIO.observe(el));
 
   const sections=$$('.page-section[id]'); const navAnchors=$$('.nav-links a');
