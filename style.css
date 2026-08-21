@@ -1146,3 +1146,140 @@ html,body{background:#fffdfd}
 @media(prefers-reduced-motion:reduce){
   .boot-sheen{display:none}
 }
+
+
+/* V15 — real loading state + Apple-inspired ecosystem polish */
+
+/* Strip returns to light pink */
+.ticker{
+  background:#f8dbe6!important;
+  border-color:#efcad8!important;
+  box-shadow:none!important;
+}
+.ticker span{
+  color:#8f6373!important;
+  font-weight:620;
+}
+
+/* Real loading progress: no looping fake animation */
+.boot-track i{
+  width:0!important;
+  animation:none!important;
+  transform:none!important;
+  transition:width .28s cubic-bezier(.16,1,.3,1);
+}
+.boot.loading-complete .boot-track i{width:100%!important}
+
+/* Quieter Apple-like surfaces */
+.glass,
+.glass-heavy,
+.nav,
+.photo-window,
+.case-sheet{
+  -webkit-backdrop-filter:blur(22px) saturate(1.12);
+  backdrop-filter:blur(22px) saturate(1.12);
+}
+.nav{
+  border:1px solid rgba(255,255,255,.72);
+}
+.nav.scrolled{
+  background:rgba(255,255,255,.82);
+}
+
+/* Apple-style tactile hover/focus states */
+.nav-links a,
+.button,
+.visual-tabs button,
+.project-row,
+.process-card,
+.brand-details>div,
+.photo-arrow,
+.round-close{
+  transform:translateZ(0);
+}
+.nav-links a:hover{
+  background:rgba(255,255,255,.72);
+}
+.button{
+  box-shadow:0 10px 24px rgba(75,47,59,.06);
+}
+.button:hover{
+  box-shadow:0 16px 34px rgba(75,47,59,.09);
+}
+.icon-btn:hover{
+  background:rgba(255,255,255,.92);
+}
+
+/* Subtle glass highlight on interactive panels */
+.visual-stage,
+.brand-system,
+.process-card,
+.about-photo,
+.photo-window,
+.case-sheet{
+  position:relative;
+  isolation:isolate;
+}
+.visual-stage:after,
+.brand-system:after,
+.about-photo:after,
+.photo-window:after,
+.case-sheet:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.26),transparent 34%,transparent 70%,rgba(255,255,255,.10));
+  opacity:.55;
+}
+
+/* Smoother card entrances / less abrupt UI */
+.visual-frame,
+.hero-work,
+.process-card,
+.brand-details>div,
+.project-row{
+  will-change:transform,opacity;
+}
+
+/* Preserve restraint on mobile */
+@media(max-width:590px){
+  .glass,
+  .glass-heavy,
+  .nav,
+  .photo-window,
+  .case-sheet{
+    -webkit-backdrop-filter:blur(16px) saturate(1.08);
+    backdrop-filter:blur(16px) saturate(1.08);
+  }
+}
+
+
+/* V16 — résumé hover refinement */
+.resume-button{
+  background:rgba(255,255,255,.88);
+  color:#b84f78;
+  border:1px solid #eecedb;
+  box-shadow:0 10px 26px rgba(91,51,69,.06);
+  transition:
+    background .32s cubic-bezier(.16,1,.3,1),
+    color .32s cubic-bezier(.16,1,.3,1),
+    border-color .32s cubic-bezier(.16,1,.3,1),
+    box-shadow .32s cubic-bezier(.16,1,.3,1),
+    transform .32s cubic-bezier(.16,1,.3,1);
+}
+.resume-button:hover{
+  background:linear-gradient(135deg,#f8bfd3,#ed8eb2);
+  color:#ffffff;
+  border-color:#eca7c1;
+  box-shadow:0 14px 32px rgba(201,93,137,.18);
+  transform:translateY(-2px);
+}
+.resume-button:active{
+  transform:translateY(0) scale(.985);
+}
+.resume-button:focus-visible{
+  outline:3px solid rgba(229,117,160,.22);
+  outline-offset:3px;
+}
