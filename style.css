@@ -975,3 +975,174 @@ footer span{font-size:8px}
   .process-card p{font-size:12px}
   .visual-tabs button{font-size:11.5px}
 }
+
+
+/* V14 — quieter, lighter, less visual noise */
+
+/* Softer overall canvas */
+html,body{background:#fffdfd}
+.hero{
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,235,242,.24),transparent 34%),
+    linear-gradient(180deg,#fffefe 0%,#fffafb 100%);
+}
+#visual.section-pink,
+#process.section-pink{
+  background:linear-gradient(180deg,#fffafb,#fffefe);
+}
+#visual.section-pink:before,
+#process.section-pink:before{background:#fffafb}
+
+/* Loader: cleaner and much lighter */
+.boot{
+  background:#fff9fb;
+}
+.boot-panel{
+  background:#fff9fb;
+}
+.boot-sheen{
+  opacity:.32;
+}
+.boot-card{
+  transform:translate3d(0,20px,0) scale(.985);
+}
+.boot-mark{
+  width:66px;
+  height:66px;
+  border-radius:18px;
+  box-shadow:0 10px 26px rgba(77,42,56,.09);
+}
+.boot-name{
+  font-size:clamp(46px,5.5vw,60px);
+  letter-spacing:-.035em;
+}
+.boot-card p{
+  margin:18px 0 0;
+  font-size:8px;
+  letter-spacing:.14em;
+  color:#b19aa3;
+}
+.boot-track{
+  width:135px;
+  margin-top:20px;
+  background:#f0dfe6;
+}
+.boot-track i{
+  background:#e983a6;
+}
+.boot-enter{
+  margin-top:10px;
+  font-size:6.5px;
+  letter-spacing:.14em;
+  color:#c4abb5;
+}
+
+/* Reduce decorative clutter */
+.ambient-berry{
+  opacity:.34;
+  filter:none;
+}
+.b2,.b4{display:none!important}
+.b1{font-size:19px}
+.b3{font-size:15px}
+
+/* Quieter ticker */
+.ticker{
+  padding:10px 0;
+  box-shadow:none;
+}
+.ticker span{
+  font-size:10px;
+  letter-spacing:.045em;
+  font-weight:650;
+}
+
+/* Lighter nav glass and reduced contrast */
+.nav{
+  box-shadow:0 10px 30px rgba(70,48,57,.06);
+}
+.nav.scrolled{
+  background:rgba(255,255,255,.9);
+  box-shadow:0 12px 34px rgba(70,48,57,.08);
+}
+.nav-links a{font-weight:550}
+
+/* Less aggressive card motion and shadows */
+.hero-work,
+.visual-stage,
+.brand-system,
+.process-card,
+.about-photo{
+  box-shadow:0 18px 50px rgba(55,42,47,.075);
+}
+.hero-work:hover,
+.process-card:hover,
+.about-photo:hover{
+  box-shadow:0 24px 60px rgba(55,42,47,.10);
+}
+.process-card:hover{transform:translateY(-3px)}
+.brand-details>div:hover{transform:translateY(-3px)}
+.button:hover{transform:translateY(-2px)}
+
+/* Brand section: quieter whites */
+.brand-system{
+  background:rgba(255,255,255,.88);
+}
+.brand-lockup,
+.brand-statement,
+.brand-details>div{
+  box-shadow:none!important;
+}
+
+/* Photo archive: the imagery does more of the work */
+.photo-window{
+  background:rgba(255,255,255,.72);
+  box-shadow:0 28px 80px rgba(25,20,22,.18);
+}
+.photo-slide{
+  opacity:.48;
+  box-shadow:0 14px 34px rgba(25,20,22,.12);
+}
+.photo-slide.active{
+  box-shadow:0 20px 48px rgba(25,20,22,.16);
+}
+.photo-slide span{
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+}
+
+/* Trim text density */
+.hero-lede,
+.section-head>p,
+.visual-copy p,
+.photo-copy>p,
+.about-copy>p:not(.kicker),
+.process-card p{
+  color:#7f7278;
+}
+.kicker{letter-spacing:.15em}
+
+/* Keep interaction, remove excess sheen */
+.process-card:after{
+  opacity:.42;
+}
+.brand-details>div,
+.visual-tabs button{
+  transition-duration:.35s;
+}
+
+/* Mobile: even cleaner */
+@media(max-width:590px){
+  .boot-name{font-size:46px}
+  .boot-mark{width:58px;height:58px}
+  .ambient-berry{display:none}
+  .ticker{padding:9px 0}
+  .ticker span{font-size:9px}
+  .hero-glass-note{display:none}
+  .process-card:after{display:none}
+}
+
+/* Reduced motion stays fully respected */
+@media(prefers-reduced-motion:reduce){
+  .boot-sheen{display:none}
+}
