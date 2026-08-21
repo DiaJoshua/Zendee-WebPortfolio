@@ -4,34 +4,50 @@
   const body=document.body;
 
   const boot=$('#boot'), bootProgress=$('#bootProgress');
-  let bootValue=8, bootDone=false, bootTimer=0;
+  const bootStart=performance.now();
+  const MIN_BOOT_TIME=reduced?80:1450;
+  let bootValue=8, bootDone=false, bootTimer=0, pageReady=false;
+
   const setBootProgress=(v)=>{
     bootValue=Math.max(0,Math.min(100,v));
     if(bootProgress)bootProgress.style.width=bootValue+'%';
   };
-  const finishBoot=()=>{
+
+  const revealSite=()=>{
     if(bootDone)return;
     bootDone=true;
     clearInterval(bootTimer);
     setBootProgress(100);
     boot?.classList.add('loading-complete');
+
     if(reduced){
       document.body.classList.add('site-ready');
       boot?.classList.add('hide');
       return;
     }
-    setTimeout(()=>boot?.classList.add('exit'),180);
-    setTimeout(()=>document.body.classList.add('site-ready'),300);
-    setTimeout(()=>boot?.classList.add('hide'),980);
+
+    setTimeout(()=>boot?.classList.add('exit'),220);
+    setTimeout(()=>document.body.classList.add('site-ready'),420);
+    setTimeout(()=>boot?.classList.add('hide'),1120);
   };
+
+  const tryFinishBoot=()=>{
+    if(!pageReady||bootDone)return;
+    const elapsed=performance.now()-bootStart;
+    const remaining=Math.max(0,MIN_BOOT_TIME-elapsed);
+    setTimeout(revealSite,remaining);
+  };
+
   const trackedImages=[...document.images].filter(img=>!img.loading||img.loading!=='lazy');
   const totalTracked=Math.max(1,trackedImages.length);
   let loadedTracked=0;
+
   const imageSettled=()=>{
     loadedTracked++;
-    const imagePart=(loadedTracked/totalTracked)*72;
+    const imagePart=(loadedTracked/totalTracked)*68;
     setBootProgress(Math.max(bootValue,12+imagePart));
   };
+
   trackedImages.forEach(img=>{
     if(img.complete) imageSettled();
     else{
@@ -39,14 +55,28 @@
       img.addEventListener('error',imageSettled,{once:true});
     }
   });
+
   setBootProgress(10);
+
   bootTimer=setInterval(()=>{
     if(bootDone)return;
-    const ceiling=document.readyState==='complete'?94:82;
-    if(bootValue<ceiling)setBootProgress(bootValue+Math.max(.4,(ceiling-bootValue)*.06));
+    const elapsed=performance.now()-bootStart;
+    const timePart=Math.min(1,elapsed/MIN_BOOT_TIME);
+    const ceiling=pageReady?96:88;
+    const target=18+(ceiling-18)*timePart;
+    if(bootValue<target)setBootProgress(bootValue+Math.max(.35,(target-bootValue)*.08));
   },90);
-  if(document.readyState==='complete')finishBoot();
-  else addEventListener('load',finishBoot,{once:true});
+
+  if(document.readyState==='complete'){
+    pageReady=true;
+    tryFinishBoot();
+  }else{
+    addEventListener('load',()=>{
+      pageReady=true;
+      setBootProgress(Math.max(bootValue,92));
+      tryFinishBoot();
+    },{once:true});
+  }
 
   const nav=$('#nav'), progress=$('#progressBar'), heroShowcase=$('.hero-showcase'), photoBackdrop=$('.photo-backdrop img'); let scrollRAF=0;
   const updateScroll=()=>{

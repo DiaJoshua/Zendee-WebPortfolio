@@ -1283,3 +1283,15 @@ html,body{background:#fffdfd}
   outline:3px solid rgba(229,117,160,.22);
   outline-offset:3px;
 }
+
+
+/* V17 — restore the more deliberate loading-screen pacing */
+.boot-panel{
+  transition:transform 1.14s var(--motion);
+}
+.boot.exit .boot-card{
+  transition:opacity .48s var(--motion),transform .64s var(--motion);
+}
+.boot-track i{
+  transition:width .36s cubic-bezier(.16,1,.3,1);
+}
