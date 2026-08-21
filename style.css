@@ -614,3 +614,364 @@ html,body{background:#fff3f7}
     font-size:16px;
   }
 }
+
+
+/* V12 — professional balance: lighter canvas, refined scale, softer weight */
+
+/* Overall palette: lighter, cleaner, less pink-heavy */
+:root{
+  --paper:#fffafd;
+  --blush:#fff4f8;
+  --blush2:#fbe3ec;
+}
+html,body{background:#fffafd}
+
+.hero{
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,230,239,.34),transparent 31%),
+    radial-gradient(circle at 82% 22%,rgba(255,254,254,.98),transparent 33%),
+    linear-gradient(180deg,#fffefe 0%,#fff9fb 72%,#fff6fa 100%);
+}
+
+#visual.section-pink{
+  background:linear-gradient(180deg,#fff7fa,#fffdfd);
+}
+#visual.section-pink:before{background:#fff7fa}
+
+#process.section-pink{
+  background:linear-gradient(180deg,#fff9fb,#fffefe);
+}
+#process.section-pink:before{background:#fff9fb}
+
+#branding.section-white{
+  background:linear-gradient(180deg,#ffffff,#fffdfd);
+}
+
+#about.section-white{background:#ffffff}
+footer{background:#fff8fb}
+
+/* Global display sizing: keep editorial character, reduce visual shouting */
+.section-head h2,
+.photo-copy h2,
+.contact-card h2{
+  font-size:clamp(44px,5.35vw,72px);
+  line-height:1.01;
+  letter-spacing:-.048em;
+  font-weight:560;
+}
+.section-head h2 em,
+.photo-copy h2 em,
+.contact-card h2 em{
+  font-size:.96em;
+}
+
+/* About: cleaner wrapping and less oversized script */
+.about-copy h2{
+  max-width:720px;
+  font-size:clamp(42px,4.7vw,66px);
+  line-height:1.025;
+  letter-spacing:-.045em;
+  font-weight:560;
+}
+.about-copy h2 em{
+  display:inline;
+  font-size:.91em;
+  line-height:1.03;
+}
+.about-copy>p:not(.kicker){
+  max-width:620px;
+  font-size:14.5px;
+  line-height:1.78;
+}
+.about-facts b{font-size:10.5px}
+.chips span{font-size:9.5px}
+.resume-button{
+  min-height:54px;
+  padding-inline:24px;
+  font-size:12px;
+}
+
+/* Projects: category stays visually dominant, but no longer heavy/bold */
+.project-row{
+  padding:31px 0;
+}
+.project-row small{
+  font-size:clamp(22px,2.6vw,35px);
+  line-height:1.06;
+  font-weight:560;
+  letter-spacing:-.018em;
+  color:#fff8fb;
+}
+.project-row h3{
+  font-size:clamp(14px,1.35vw,19px);
+  line-height:1.2;
+  font-weight:520;
+  color:#efbfd0;
+  letter-spacing:-.01em;
+}
+.project-row>span{
+  font-size:9.5px;
+  font-weight:620;
+}
+.project-row b{
+  font-size:22px;
+  font-weight:500;
+}
+
+/* Process tablets: light pink but less saturated and more premium */
+.process-card{
+  background:linear-gradient(145deg,#fff1f6,#fff8fb);
+  border:1px solid #efd4df;
+  box-shadow:
+    0 12px 32px rgba(94,58,72,.055),
+    inset 0 1px 0 rgba(255,255,255,.92);
+  padding:26px;
+}
+.process-card h3{
+  font-size:27px;
+  font-weight:620;
+  letter-spacing:-.025em;
+}
+.process-card p{
+  font-size:13.5px;
+  line-height:1.68;
+}
+.process-card>span{
+  font-size:8.5px;
+}
+.process-card:hover{
+  transform:translateY(-5px);
+  box-shadow:
+    0 22px 52px rgba(94,58,72,.095),
+    inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+/* Visual selector: still readable, but not oversized */
+.visual-tabs button{
+  min-height:68px;
+  padding:14px 16px;
+  font-size:13.5px;
+  font-weight:650;
+}
+.visual-tabs button span{
+  font-size:9px;
+}
+.visual-copy h3{
+  font-size:clamp(42px,3.9vw,58px);
+  font-weight:500;
+}
+.visual-copy p{
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* Branding: lighter cards and softer typography */
+.brand-statement strong{
+  font-size:30px;
+  line-height:1.1;
+  font-weight:600;
+}
+.brand-details b{
+  font-size:11px;
+  font-weight:580;
+}
+.tone span{font-size:9.5px}
+.tone b{font-size:8.5px}
+
+/* Small text throughout gets a tiny trim */
+.kicker{font-size:9px}
+.section-head>p{font-size:14px}
+.hero-lede{font-size:16px}
+.role{font-size:17px}
+.hero-meta{font-size:8px}
+
+/* Phone: prioritize rhythm and prevent awkward wrapping */
+@media(max-width:930px){
+  .section-head h2,
+  .photo-copy h2,
+  .contact-card h2{
+    font-size:clamp(42px,8vw,60px);
+  }
+  .about-copy h2{
+    font-size:clamp(40px,7.4vw,56px);
+  }
+  .project-row small{font-size:30px}
+  .project-row h3{font-size:17px}
+}
+
+@media(max-width:590px){
+  .section-head h2,
+  .photo-copy h2,
+  .contact-card h2{
+    font-size:clamp(38px,10.8vw,48px);
+  }
+  .about-copy h2{
+    font-size:clamp(36px,10vw,46px);
+    max-width:100%;
+  }
+  .about-copy h2 br{display:none}
+  .about-copy h2 em{
+    display:block;
+    margin-top:4px;
+  }
+  .about-copy>p:not(.kicker){
+    font-size:14px;
+    line-height:1.72;
+  }
+  .project-row{
+    padding:23px 0;
+  }
+  .project-row small{
+    font-size:clamp(22px,6.5vw,28px);
+    font-weight:550;
+  }
+  .project-row h3{
+    font-size:15px;
+  }
+  .process-card{
+    padding:22px;
+    border-radius:24px;
+  }
+  .process-card h3{font-size:24px}
+  .process-card p{font-size:13px}
+  .visual-tabs button{
+    min-height:62px;
+    font-size:13px;
+  }
+}
+
+
+/* V13 — final hierarchy cleanup: blackish-plum accents + smaller professional type */
+
+/* Use the requested blackish plum for BOTH:
+   1) the moving strip
+   2) the blackish-plum palette swatch */
+:root{
+  --blackish-plum:#231A1F;
+}
+.ticker{
+  background:var(--blackish-plum)!important;
+  border-color:rgba(246,202,219,.24)!important;
+}
+.ticker span{
+  color:#f6cadb!important;
+}
+.t3{
+  background:var(--blackish-plum)!important;
+  color:#f6cadb!important;
+  border-color:var(--blackish-plum)!important;
+}
+.t3 span,.t3 b{
+  color:#f6cadb!important;
+}
+
+/* Overall typography scale: slightly smaller, quieter, more professional */
+.nav-links a{font-size:11px}
+.nav-cta{font-size:10.5px}
+.brand b{font-size:20px;font-weight:650}
+.icon-btn,.menu-btn{font-size:14px}
+
+.bootzy-note{font-size:26px}
+.hero-copy h1{font-size:clamp(62px,7.1vw,104px)}
+.role{font-size:15px}
+.hero-lede{font-size:14.5px;line-height:1.68}
+.button{font-size:11px;min-height:49px;padding-inline:20px}
+.hero-meta{font-size:7.5px}
+
+.kicker{font-size:8px;letter-spacing:.17em}
+.section-head h2,
+.photo-copy h2,
+.contact-card h2{
+  font-size:clamp(40px,4.8vw,64px);
+}
+.section-head>p{font-size:13px;line-height:1.7}
+
+/* Visual design */
+.visual-copy h3{font-size:clamp(38px,3.5vw,52px)}
+.visual-copy p{font-size:13px;line-height:1.68}
+.visual-copy .text-link{font-size:10.5px}
+.visual-tabs button{
+  min-height:61px;
+  font-size:12px;
+  font-weight:620;
+  padding:12px 14px;
+}
+.visual-tabs button span{font-size:8px;margin-bottom:4px}
+
+/* Branding */
+.brand-lockup p{font-size:46px}
+.brand-lockup h3{font-size:clamp(66px,7.5vw,105px)}
+.brand-statement strong{font-size:27px;line-height:1.12}
+.brand-statement small,.brand-details small{font-size:7px}
+.brand-details b{font-size:10px}
+.brand-details .bootzy{font-size:27px}
+.tone span{font-size:8.5px}
+.tone b{font-size:7.5px}
+
+/* Projects: correct title casing, restrained hierarchy */
+.project-row{
+  padding:27px 0;
+}
+.project-row small{
+  text-transform:none!important;
+  font-size:clamp(20px,2.3vw,31px);
+  line-height:1.06;
+  font-weight:550;
+  letter-spacing:-.015em;
+  color:#fff;
+}
+.project-row h3{
+  font-size:clamp(13px,1.15vw,17px);
+  font-weight:500;
+  color:#efbfd0;
+}
+.project-row>span{font-size:8.5px}
+.project-row b{font-size:19px}
+
+/* Process */
+.process-card{padding:23px}
+.process-card h3{font-size:24px;font-weight:600}
+.process-card p{font-size:12.5px;line-height:1.64}
+.process-card>span{font-size:7.5px}
+.tool-strip span{font-size:9.5px;padding:7px 11px}
+
+/* About */
+.about-copy h2{
+  font-size:clamp(38px,4.25vw,58px);
+}
+.about-copy>p:not(.kicker){
+  font-size:13.5px;
+  line-height:1.75;
+}
+.about-facts small{font-size:6.5px}
+.about-facts b{font-size:9.5px}
+.chips span{font-size:8.8px;padding:8px 11px}
+.resume-button{font-size:11px;min-height:50px}
+
+/* Contact/footer */
+.contact-card>p:not(.bootzy-note){font-size:13px}
+footer span{font-size:8px}
+
+/* Keep the project rows elegantly proportioned on tablet/phone */
+@media(max-width:930px){
+  .brand b{font-size:18px}
+  .project-row small{font-size:27px}
+  .project-row h3{font-size:15px}
+  .section-head h2,.photo-copy h2,.contact-card h2{font-size:clamp(38px,7vw,54px)}
+  .about-copy h2{font-size:clamp(36px,6.5vw,50px)}
+}
+@media(max-width:590px){
+  .brand b{font-size:17px}
+  .hero-copy h1{font-size:clamp(52px,14vw,66px)}
+  .bootzy-note{font-size:22px}
+  .role{font-size:14px}
+  .hero-lede{font-size:14px}
+  .section-head h2,.photo-copy h2,.contact-card h2{font-size:clamp(34px,9.5vw,44px)}
+  .about-copy h2{font-size:clamp(34px,9vw,43px)}
+  .project-row{padding:21px 0}
+  .project-row small{font-size:clamp(20px,6vw,26px)}
+  .project-row h3{font-size:14px}
+  .process-card h3{font-size:22px}
+  .process-card p{font-size:12px}
+  .visual-tabs button{font-size:11.5px}
+}
