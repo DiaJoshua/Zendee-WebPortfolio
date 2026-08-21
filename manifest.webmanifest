@@ -1,10 +1,10 @@
 {
-  "name": "Berry Zendee Portfolio",
-  "short_name": "Zendee",
+  "name": "Marie Zendee Portfolio",
+  "short_name": "Marie Zendee",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#fffafb",
-  "theme_color": "#fffafb",
+  "background_color": "#fff2f7",
+  "theme_color": "#fff2f7",
   "icons": [
     {
       "src": "favicon-32x32.png",

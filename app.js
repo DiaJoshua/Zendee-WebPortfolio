@@ -21,7 +21,7 @@
   menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
   $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
 
-  const roles=['Visual Content Developer','Brand Assistant','Graphic Artist 🎀'];
+  const roles=['Graphic Artist','Visual Designer','Photography & Brand Support'];
   const type=$('#typeRole'); let role=0,char=roles[0].length,del=false,typeTimer=0;
   const tick=()=>{if(!type||reduced)return;const word=roles[role];type.textContent=word.slice(0,char);let wait=del?38:68;if(!del&&char===word.length){del=true;wait=1500}else if(del&&char===0){del=false;role=(role+1)%roles.length;wait=300}char+=del?-1:1;typeTimer=setTimeout(tick,wait)}; tick();
 
@@ -41,7 +41,7 @@
   $('#photoPrev')?.addEventListener('click',()=>goPhoto(activePhoto-1));
   $('#photoNext')?.addEventListener('click',()=>goPhoto(activePhoto+1));
   photoStrip?.addEventListener('scroll',()=>{if(!photoRAF)photoRAF=requestAnimationFrame(updatePhotoProgress)},{passive:true});
-  photoStrip?.addEventListener('wheel',e=>{const dominant=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;if(Math.abs(dominant)<6)return;e.preventDefault();if(wheelLock)return;wheelLock=true;goPhoto(activePhoto+(dominant>0?1:-1));setTimeout(()=>{wheelLock=false},reduced?70:240)},{passive:false});
+  photoStrip?.addEventListener('wheel',e=>{const dominant=Math.abs(e.deltaY)>=Math.abs(e.deltaX)?e.deltaY:e.deltaX;if(Math.abs(dominant)<6)return;e.preventDefault();if(wheelLock)return;wheelLock=true;goPhoto(activePhoto+(dominant>0?1:-1));setTimeout(()=>{wheelLock=false},reduced?60:180)},{passive:false});
   let drag=false,dragMoved=false,startX=0,startLeft=0;
   photoStrip?.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'){drag=true;dragMoved=false;startX=e.clientX;startLeft=photoStrip.scrollLeft;photoStrip.setPointerCapture(e.pointerId)}});
   photoStrip?.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-startX;if(Math.abs(dx)>5)dragMoved=true;photoStrip.scrollLeft=startLeft-dx});
