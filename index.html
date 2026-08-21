@@ -1,1925 +1,966 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
+      name="description"
+      content="Marie Zendee Patalinghug — Graphic Artist Portfolio"
     />
-    <meta name="theme-color" content="#fff9fb" />
-    <title>Zendee — Visual Design / Photography / Brand</title>
-    <style>
-      @font-face {
-        font-family: Bootzy;
-        src: url("./BootzyTM.ttf") format("truetype");
-        font-weight: 100 900;
-        font-style: normal;
-        font-display: swap;
-      }
-      :root {
-        --paper: #fffafc;
-        --pink: #f3d8e2;
-        --pink2: #faeef2;
-        --rose: #c77e98;
-        --ink: #151216;
-        --muted: #776e74;
-        --line: rgba(21, 18, 22, 0.1);
-        --glass: rgba(255, 255, 255, 0.42);
-        --ease: cubic-bezier(0.16, 1, 0.3, 1);
-        --spring: cubic-bezier(0.2, 1.15, 0.3, 1);
-        --radius: 34px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        background: var(--paper);
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        background: var(--paper);
-        color: var(--ink);
-        font-family:
-          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue",
-          Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-      body.lock {
-        overflow: hidden;
-      }
-      button,
-      a {
-        font: inherit;
-      }
-      button {
-        cursor: pointer;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      img {
-        display: block;
-        max-width: 100%;
-      }
-      ::selection {
-        background: #edcbd7;
-        color: #181317;
-      }
-      .noise {
-        position: fixed;
-        inset: 0;
-        z-index: 90;
-        pointer-events: none;
-        opacity: 0.035;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
-      }
-      #loader {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        background: #fffafc;
-        display: grid;
-        place-items: center;
-        transition:
-          opacity 1s var(--ease),
-          visibility 1s;
-      }
-      .loader-core {
-        text-align: center;
-      }
-      .loader-name {
-        font-family: Bootzy, serif;
-        font-size: clamp(72px, 13vw, 180px);
-        line-height: 0.75;
-        letter-spacing: -0.08em;
-      }
-      .loader-name em {
-        font-style: normal;
-        color: var(--rose);
-      }
-      .loader-sub {
-        margin-top: 28px;
-        font-size: 10px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: #88777f;
-      }
-      .loader-track {
-        width: 160px;
-        height: 2px;
-        background: #eadce1;
-        margin: 28px auto 0;
-        overflow: hidden;
-      }
-      .loader-track i {
-        display: block;
-        width: 35%;
-        height: 100%;
-        background: var(--rose);
-        animation: loader 1.2s ease-in-out infinite;
-      }
-      @keyframes loader {
-        to {
-          transform: translateX(480%);
-        }
-      }
-      #loader.done {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
-      .progress {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 2px;
-        z-index: 1000;
-      }
-      .progress i {
-        display: block;
-        width: 0;
-        height: 100%;
-        background: var(--rose);
-      }
-      .nav {
-        position: fixed;
-        top: 18px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 800;
-        width: min(1180px, calc(100% - 28px));
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 9px 10px 9px 18px;
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.48);
-        backdrop-filter: blur(24px) saturate(1.3);
-        box-shadow: 0 18px 60px rgba(71, 45, 56, 0.09);
-        transition: 0.5s var(--ease);
-      }
-      .nav.scrolled {
-        background: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 20px 70px rgba(71, 45, 56, 0.13);
-      }
-      .brand {
-        font-family: Bootzy, serif;
-        font-size: 28px;
-        letter-spacing: -0.06em;
-      }
-      .brand-dot {
-        color: var(--rose);
-      }
-      .navlinks {
-        display: flex;
-        gap: 2px;
-        align-items: center;
-      }
-      .navlinks a {
-        font-size: 11px;
-        color: #6f666b;
-        padding: 10px 13px;
-        border-radius: 999px;
-        transition: 0.3s;
-      }
-      .navlinks a:hover {
-        background: #fff;
-        color: #171318;
-      }
-      .navlinks .contact-link {
-        background: #171318;
-        color: #fff;
-      }
-      .menu {
-        display: none;
-        border: 0;
-        background: #171318;
-        color: #fff;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-      }
-      .hero {
-        height: 150svh;
-        min-height: 980px;
-        position: relative;
-      }
-      .hero-sticky {
-        position: sticky;
-        top: 0;
-        height: 100svh;
-        min-height: 700px;
-        overflow: hidden;
-      }
-      .hero-photo {
-        position: absolute;
-        inset: -8%;
-        transform: scale(1.08);
-        will-change: transform;
-      }
-      .hero-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: saturate(0.72) contrast(0.94);
-      }
-      .hero-photo:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(12, 9, 12, 0.03),
-          rgba(12, 9, 12, 0.05) 35%,
-          rgba(12, 9, 12, 0.7) 100%
-        );
-      }
-      .hero-glow {
-        position: absolute;
-        width: 65vw;
-        height: 65vw;
-        right: -25vw;
-        top: -25vw;
-        background: radial-gradient(
-          circle,
-          rgba(248, 211, 224, 0.55),
-          transparent 65%
-        );
-        filter: blur(20px);
-      }
-      .hero-content {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 7vh;
-        width: min(1180px, calc(100% - 48px));
-        margin: auto;
-        color: #fff;
-        will-change: transform, opacity;
-      }
-      .eyebrow {
-        font-size: 10px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        opacity: 0.78;
-      }
-      .hero-title {
-        font-family: Bootzy, serif;
-        font-size: clamp(88px, 15vw, 220px);
-        font-weight: 400;
-        line-height: 0.72;
-        letter-spacing: -0.085em;
-        margin: 25px 0 32px;
-      }
-      .hero-title .pink {
-        color: #f4d7e2;
-      }
-      .hero-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        gap: 30px;
-      }
-      .hero-copy {
-        font-size: 15px;
-        line-height: 1.65;
-        max-width: 460px;
-        color: rgba(255, 255, 255, 0.82);
-      }
-      .scroll-cue {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        font-size: 10px;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-      }
-      .scroll-cue:before {
-        content: "";
-        width: 52px;
-        height: 1px;
-        background: #fff;
-      }
-      .hero-caption {
-        position: absolute;
-        right: 5vw;
-        top: 50%;
-        transform: translateY(-50%) rotate(90deg);
-        transform-origin: right center;
-        font-size: 9px;
-        letter-spacing: 0.35em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.55);
-      }
-      .section {
-        position: relative;
-        padding: 170px max(5vw, 26px);
-        overflow: hidden;
-      }
-      .section-inner {
-        width: min(1180px, 100%);
-        margin: auto;
-      }
-      .slant-top:before {
-        content: "";
-        position: absolute;
-        left: -5%;
-        top: -80px;
-        width: 110%;
-        height: 150px;
-        background: var(--paper);
-        transform: rotate(-3deg);
-        z-index: 2;
-      }
-      .slant-bottom:after {
-        content: "";
-        position: absolute;
-        left: -5%;
-        bottom: -90px;
-        width: 110%;
-        height: 150px;
-        background: var(--paper);
-        transform: rotate(-3deg);
-        z-index: 2;
-      }
-      .pink-section {
-        background: linear-gradient(180deg, #fff8fa 0%, #f5e0e7 100%);
-      }
-      .ink-section {
-        background: #141115;
-        color: #fff;
-      }
-      .ink-section .slant-top {
-        background: #141115;
-      }
-      .kicker {
-        font-size: 10px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: #9b7785;
-      }
-      .ink-section .kicker {
-        color: #d6a8b9;
-      }
-      .display {
-        font-family: Bootzy, serif;
-        font-weight: 400;
-        font-size: clamp(64px, 9vw, 135px);
-        line-height: 0.78;
-        letter-spacing: -0.075em;
-        margin: 18px 0 35px;
-      }
-      .display em {
-        font-style: normal;
-        color: var(--rose);
-      }
-      .lead {
-        font-size: 17px;
-        line-height: 1.7;
-        color: var(--muted);
-        max-width: 610px;
-      }
-      .ink-section .lead {
-        color: #b9afb5;
-      }
-      .section-head {
-        display: grid;
-        grid-template-columns: 1fr 0.8fr;
-        gap: 50px;
-        align-items: end;
-        margin-bottom: 85px;
-      }
-      /* VISUAL STORY */
-      .visual-story {
-        display: grid;
-        grid-template-columns: 0.86fr 1.14fr;
-        gap: 22px;
-        align-items: start;
-      }
-      .visual-copy {
-        position: sticky;
-        top: 140px;
-        padding: 10px 0 80px;
-      }
-      .visual-index {
-        font-size: 12px;
-        letter-spacing: 0.15em;
-        color: #8d7780;
-        margin-top: 25px;
-      }
-      .visual-copy .line {
-        width: 90px;
-        height: 1px;
-        background: #d8bcc7;
-        margin: 30px 0;
-      }
-      .visual-canvas {
-        min-height: 1500px;
-        position: relative;
-      }
-      .visual-card {
-        position: sticky;
-        top: 120px;
-        height: min(70vh, 680px);
-        min-height: 510px;
-        border-radius: var(--radius);
-        overflow: hidden;
-        box-shadow: 0 45px 100px rgba(64, 39, 48, 0.17);
-        transform-origin: center;
-        will-change: transform;
-      }
-      .visual-card:nth-child(2) {
-        margin-top: -58vh;
-      }
-      .visual-card:nth-child(3) {
-        margin-top: -58vh;
-      }
-      .visual-card:nth-child(4) {
-        margin-top: -58vh;
-      }
-      .art {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        padding: 8%;
-        background: #f2d9e2;
-      }
-      .paper-art {
-        width: 82%;
-        height: 82%;
-        background: #fffdfb;
-        box-shadow: 0 30px 80px rgba(49, 27, 37, 0.18);
-        padding: 9%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transform: rotate(-2deg);
-      }
-      .paper-art.dark {
-        background: #171319;
-        color: #fff;
-        transform: rotate(2deg);
-      }
-      .paper-art.pink {
-        background: linear-gradient(145deg, #fff, #f6d7e2);
-      }
-      .art-meta {
-        font-size: 9px;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-      }
-      .art-script {
-        font-family: Bootzy, serif;
-        font-size: clamp(58px, 7vw, 105px);
-        line-height: 0.72;
-        letter-spacing: -0.07em;
-      }
-      .art-script.small {
-        font-size: clamp(44px, 5vw, 72px);
-      }
-      .art-rule {
-        height: 1px;
-        width: 75%;
-        background: currentColor;
-        opacity: 0.45;
-      }
-      .card-num {
-        position: absolute;
-        top: 22px;
-        left: 22px;
-        z-index: 3;
-        padding: 9px 12px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.48);
-        color: #5d4b54;
-        backdrop-filter: blur(18px);
-        font-size: 9px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-      .dark-art {
-        background: radial-gradient(circle at 65% 35%, #e6bfcf, #2b2228 60%);
-      }
-      .campaign-art {
-        background: linear-gradient(135deg, #f1c9d7, #fff8fa 55%, #d8a4b6);
-      }
-      /* PHOTOGRAPHY */
-      .photo-story {
-        height: 2350px;
-        position: relative;
-      }
-      .photo-sticky {
-        position: sticky;
-        top: 0;
-        height: 100svh;
-        min-height: 720px;
-        display: grid;
-        place-items: center;
-      }
-      .photo-intro {
-        position: absolute;
-        left: 0;
-        top: 16vh;
-        width: 38%;
-        z-index: 4;
-      }
-      .photo-intro .display {
-        font-size: clamp(65px, 8vw, 120px);
-      }
-      .photo-intro p {
-        max-width: 430px;
-      }
-      .photo-envelope-wrap {
-        position: relative;
-        width: min(700px, 66vw);
-        height: min(500px, 55vw);
-        margin-left: 27%;
-        perspective: 1200px;
-        will-change: transform;
-      }
-      .envelope {
-        position: absolute;
-        inset: 0;
-        cursor: pointer;
-        filter: drop-shadow(0 50px 80px rgba(65, 35, 48, 0.2));
-        transition: transform 1.1s var(--ease);
-      }
-      .envelope:hover {
-        transform: translateY(-10px) rotate(-0.5deg);
-      }
-      .env-base {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(145deg, #efd0dc, #f7e4ea);
-        border-radius: 16px;
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.7);
-      }
-      .env-back {
-        position: absolute;
-        inset: 0;
-        background: #f0d3de;
-        clip-path: polygon(0 0, 100% 0, 50% 62%);
-        border-radius: 16px 16px 0 0;
-      }
-      .env-paper {
-        position: absolute;
-        left: 7%;
-        right: 7%;
-        top: 10%;
-        bottom: 8%;
-        background: #fffdfd;
-        border-radius: 9px;
-        display: grid;
-        place-items: center;
-        z-index: 2;
-        box-shadow: 0 30px 60px rgba(54, 28, 39, 0.13);
-        overflow: hidden;
-      }
-      .env-paper:after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          115deg,
-          transparent 42%,
-          rgba(255, 255, 255, 0.8) 50%,
-          transparent 58%
-        );
-        transform: translateX(-100%);
-        animation: shine 3.2s infinite;
-      }
-      .env-flap {
-        position: absolute;
-        inset: 0;
-        background: #f7e3e9;
-        clip-path: polygon(0 0, 100% 0, 50% 57%);
-        z-index: 5;
-        transform-origin: top;
-        transition: transform 1.05s var(--ease);
-        border-radius: 16px 16px 0 0;
-      }
-      .env-pocket {
-        position: absolute;
-        inset: 0;
-        background: #edccd8;
-        clip-path: polygon(0 100%, 50% 48%, 100% 100%);
-        z-index: 6;
-        pointer-events: none;
-        border-radius: 0 0 16px 16px;
-      }
-      .envelope.open .env-flap {
-        transform: rotateX(180deg);
-        z-index: 1;
-      }
-      .env-label {
-        text-align: center;
-        position: relative;
-        z-index: 2;
-      }
-      .env-label strong {
-        font-family: Bootzy, serif;
-        font-weight: 400;
-        font-size: clamp(64px, 8vw, 105px);
-        letter-spacing: -0.08em;
-        line-height: 0.7;
-      }
-      .env-label small {
-        display: block;
-        font-size: 9px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: #8d7780;
-        margin-top: 24px;
-      }
-      .stamp {
-        position: absolute;
-        right: 30px;
-        top: 25px;
-        width: 48px;
-        height: 48px;
-        border: 1px dashed rgba(91, 56, 69, 0.35);
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        z-index: 7;
-        transform: rotate(12deg);
-      }
-      .photo-note {
-        position: absolute;
-        bottom: 10vh;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        font-size: 10px;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        color: #8c747e;
-      }
-      .photo-note b {
-        color: var(--rose);
-      }
-      .glass-modal {
-        position: fixed;
-        inset: 0;
-        z-index: 4000;
-        background: rgba(20, 16, 20, 0.28);
-        backdrop-filter: blur(30px) saturate(1.2);
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.7s var(--ease);
-        padding: 24px;
-      }
-      .glass-modal.open {
-        opacity: 1;
-        visibility: visible;
-      }
-      .glass-window {
-        width: min(1240px, 100%);
-        height: min(850px, calc(100svh - 48px));
-        margin: auto;
-        align-self: center;
-        background: rgba(255, 255, 255, 0.33);
-        border: 1px solid rgba(255, 255, 255, 0.65);
-        box-shadow: 0 50px 120px rgba(16, 10, 15, 0.28);
-        border-radius: 38px;
-        backdrop-filter: blur(26px) saturate(1.35);
-        overflow: hidden;
-        transform: translateY(30px) scale(0.96);
-        transition: 0.8s var(--ease);
-        display: flex;
-        flex-direction: column;
-      }
-      .glass-modal.open .glass-window {
-        transform: none;
-      }
-      .windowbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 22px 24px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-      }
-      .windowbar h3 {
-        font-family: Bootzy, serif;
-        font-size: 36px;
-        font-weight: 400;
-        letter-spacing: -0.05em;
-        margin: 2px 0 0;
-      }
-      .window-kicker {
-        font-size: 9px;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-        color: #6f5d65;
-      }
-      .close-btn {
-        border: 1px solid rgba(255, 255, 255, 0.55);
-        background: rgba(255, 255, 255, 0.45);
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        font-size: 22px;
-        color: #272027;
-        transition: 0.3s;
-      }
-      .close-btn:hover {
-        transform: rotate(8deg) scale(1.05);
-        background: #fff;
-      }
-      .photo-stack {
-        flex: 1;
-        position: relative;
-        overflow: auto;
-        padding: 48px 5%;
-        scroll-snap-type: y proximity;
-      }
-      .photo-card {
-        width: min(720px, 86%);
-        margin: 0 auto 90px;
-        position: relative;
-        border-radius: 30px;
-        overflow: hidden;
-        box-shadow: 0 35px 90px rgba(31, 20, 27, 0.22);
-        border: 1px solid rgba(255, 255, 255, 0.55);
-        cursor: pointer;
-        transform-style: preserve-3d;
-        transition:
-          transform 0.5s var(--ease),
-          box-shadow 0.5s;
-      }
-      .photo-card:nth-child(even) {
-        width: min(610px, 76%);
-        margin-right: 4%;
-      }
-      .photo-card:nth-child(odd) {
-        margin-left: 5%;
-      }
-      .photo-card:hover {
-        box-shadow: 0 50px 110px rgba(31, 20, 27, 0.28);
-      }
-      .photo-card img {
-        width: 100%;
-        height: auto;
-        max-height: 72vh;
-        object-fit: cover;
-      }
-      .photo-overlay {
-        position: absolute;
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
-        padding: 14px 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.32);
-        backdrop-filter: blur(18px);
-        border: 1px solid rgba(255, 255, 255, 0.48);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: #fff;
-      }
-      .photo-overlay span {
-        font-size: 9px;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-      }
-      .photo-overlay b {
-        font-size: 13px;
-        font-weight: 500;
-      }
-      .image-viewer {
-        position: fixed;
-        inset: 0;
-        z-index: 5000;
-        background: rgba(8, 7, 9, 0.68);
-        backdrop-filter: blur(32px);
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.6s var(--ease);
-      }
-      .image-viewer.open {
-        opacity: 1;
-        visibility: visible;
-      }
-      .viewer-image {
-        width: min(1400px, 92vw);
-        height: min(88vh, 900px);
-        object-fit: contain;
-        border-radius: 26px;
-        box-shadow: 0 50px 150px rgba(0, 0, 0, 0.4);
-        transform: scale(0.94);
-        transition: 0.7s var(--ease);
-      }
-      .image-viewer.open .viewer-image {
-        transform: none;
-      }
-      .viewer-close {
-        position: absolute;
-        right: 28px;
-        top: 25px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        background: rgba(255, 255, 255, 0.14);
-        color: #fff;
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        font-size: 24px;
-        z-index: 2;
-      }
-      /* BRAND */
-      .brand-system {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 22px;
-        align-items: stretch;
-      }
-      .brand-hero {
-        min-height: 650px;
-        border-radius: var(--radius);
-        overflow: hidden;
-        position: relative;
-        background: linear-gradient(145deg, #f2d5e0, #fff);
-        box-shadow: 0 40px 100px rgba(71, 42, 53, 0.16);
-        display: grid;
-        place-items: center;
-      }
-      .brand-hero .brand-lockup {
-        font-family: Bootzy, serif;
-        font-size: clamp(80px, 12vw, 180px);
-        letter-spacing: -0.09em;
-        line-height: 0.7;
-        color: #171318;
-      }
-      .brand-lockup span {
-        color: var(--rose);
-      }
-      .brand-orb {
-        position: absolute;
-        width: 330px;
-        height: 330px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.45);
-        backdrop-filter: blur(10px);
-        top: -90px;
-        right: -90px;
-      }
-      .brand-details {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        gap: 18px;
-      }
-      .spec-card {
-        border-radius: 28px;
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.55);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        box-shadow: 0 20px 60px rgba(68, 41, 52, 0.08);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .spec-card small {
-        font-size: 9px;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        color: #907883;
-      }
-      .spec-card strong {
-        font-family: Bootzy, serif;
-        font-size: 34px;
-        font-weight: 400;
-        letter-spacing: -0.04em;
-        line-height: 0.9;
-      }
-      .swatches {
-        display: flex;
-        gap: 9px;
-      }
-      .swatch {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: 1px solid rgba(0, 0, 0, 0.06);
-      }
-      .sw1 {
-        background: #f3d8e2;
-      }
-      .sw2 {
-        background: #fffafc;
-      }
-      .sw3 {
-        background: #151216;
-      }
-      .sw4 {
-        background: #c77e98;
-      }
-      /* PROJECTS */
-      .project-list {
-        display: grid;
-        gap: 18px;
-      }
-      .project-card {
-        min-height: 390px;
-        border-radius: var(--radius);
-        position: relative;
-        overflow: hidden;
-        background: #f4e3e9;
-        color: #171318;
-        padding: 35px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-        transition:
-          transform 0.65s var(--ease),
-          box-shadow 0.65s;
-      }
-      .project-card:hover {
-        transform: translateY(-7px) scale(0.995);
-        box-shadow: 0 35px 100px rgba(52, 31, 40, 0.16);
-      }
-      .project-card.dark {
-        background: #1a151a;
-        color: #fff;
-      }
-      .project-card.alt {
-        background: #eee9e9;
-      }
-      .project-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .tag {
-        font-size: 9px;
-        letter-spacing: 0.24em;
-        text-transform: uppercase;
-        opacity: 0.6;
-      }
-      .project-arrow {
-        width: 46px;
-        height: 46px;
-        border: 1px solid currentColor;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        transition: 0.5s var(--ease);
-      }
-      .project-card:hover .project-arrow {
-        transform: rotate(45deg);
-      }
-      .project-title {
-        font-family: Bootzy, serif;
-        font-size: clamp(58px, 8vw, 120px);
-        line-height: 0.72;
-        letter-spacing: -0.07em;
-        font-weight: 400;
-        margin: 0;
-      }
-      .project-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        gap: 20px;
-      }
-      .project-bottom p {
-        max-width: 500px;
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.6;
-        opacity: 0.72;
-      }
-      .project-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-      }
-      .project-grid .project-card {
-        min-height: 330px;
-      }
-      .case-modal {
-        position: fixed;
-        inset: 0;
-        z-index: 4500;
-        background: rgba(13, 10, 13, 0.35);
-        backdrop-filter: blur(30px);
-        padding: 24px;
-        overflow: auto;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.6s var(--ease);
-      }
-      .case-modal.open {
-        opacity: 1;
-        visibility: visible;
-      }
-      .case-window {
-        width: min(1100px, 100%);
-        margin: 0 auto;
-        background: #fffafc;
-        border-radius: 36px;
-        overflow: hidden;
-        box-shadow: 0 60px 140px rgba(0, 0, 0, 0.28);
-        transform: translateY(50px) scale(0.97);
-        transition: 0.7s var(--ease);
-      }
-      .case-modal.open .case-window {
-        transform: none;
-      }
-      .case-cover {
-        min-height: 480px;
-        background: linear-gradient(145deg, #f2d8e2, #fff);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 34px;
-      }
-      .case-cover.dark {
-        background: radial-gradient(circle at 70% 30%, #e3bccb, #1b151a 60%);
-        color: #fff;
-      }
-      .case-cover h3 {
-        font-family: Bootzy, serif;
-        font-size: clamp(70px, 10vw, 140px);
-        line-height: 0.72;
-        letter-spacing: -0.08em;
-        font-weight: 400;
-        margin: 0;
-      }
-      .case-body {
-        padding: 50px 7%;
-        display: grid;
-        grid-template-columns: 0.7fr 1.3fr;
-        gap: 60px;
-      }
-      .case-body h4 {
-        font-family: Bootzy, serif;
-        font-size: 44px;
-        font-weight: 400;
-        line-height: 0.8;
-        margin: 0;
-      }
-      .case-body p {
-        font-size: 15px;
-        line-height: 1.8;
-        color: #665e63;
-        margin-top: 0;
-      }
-      .case-close {
-        position: sticky;
-        top: 20px;
-        float: right;
-        margin: 20px;
-        z-index: 5;
-      }
-      /* ABOUT */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 22px;
-      }
-      .about-panel {
-        min-height: 600px;
-        border-radius: var(--radius);
-        padding: 40px;
-        background: #f4e0e7;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .about-big {
-        font-family: Bootzy, serif;
-        font-size: clamp(54px, 6vw, 90px);
-        line-height: 0.8;
-        letter-spacing: -0.065em;
-      }
-      .about-panel p {
-        font-size: 15px;
-        line-height: 1.7;
-        color: #6d6268;
-        max-width: 480px;
-      }
-      .contact-panel {
-        min-height: 600px;
-        border-radius: var(--radius);
-        background: #171318;
-        color: #fff;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        overflow: hidden;
-      }
-      .contact-panel:before {
-        content: "";
-        position: absolute;
-        width: 420px;
-        height: 420px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(230, 169, 190, 0.65),
-          transparent 65%
-        );
-        right: -140px;
-        top: -140px;
-      }
-      .contact-title {
-        font-family: Bootzy, serif;
-        font-size: clamp(70px, 9vw, 130px);
-        line-height: 0.7;
-        letter-spacing: -0.08em;
-        position: relative;
-      }
-      .email {
-        font-size: 13px;
-        color: #f0d6df;
-        position: relative;
-        word-break: break-word;
-      }
-      .footer {
-        padding: 60px 5vw 100px;
-        background: #171318;
-        color: #9c9198;
-        font-size: 11px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .footer strong {
-        font-family: Bootzy, serif;
-        color: #fff;
-        font-size: 34px;
-        letter-spacing: -0.05em;
-        text-transform: none;
-      }
-      /* reveal / pointer glass */
-      .reveal {
-        opacity: 0;
-        transform: translateY(45px);
-        transition:
-          opacity 1s var(--ease),
-          transform 1s var(--ease);
-      }
-      .reveal.in {
-        opacity: 1;
-        transform: none;
-      }
-      .tilt {
-        transform-style: preserve-3d;
-        will-change: transform;
-      }
-      .cursor-glow {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 30;
-        background: radial-gradient(
-          circle,
-          rgba(241, 185, 204, 0.16),
-          transparent 65%
-        );
-        filter: blur(8px);
-        mix-blend-mode: multiply;
-        transform: translate(-50%, -50%);
-      }
-      @media (max-width: 900px) {
-        .nav {
-          top: 10px;
-        }
-        .navlinks {
-          display: none;
-          position: absolute;
-          top: 60px;
-          left: 0;
-          right: 0;
-          padding: 8px;
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(25px);
-          border-radius: 22px;
-          flex-direction: column;
-        }
-        .nav.open .navlinks {
-          display: flex;
-        }
-        .navlinks a {
-          width: 100%;
-          text-align: center;
-        }
-        .menu {
-          display: block;
-        }
-        .hero {
-          height: 125svh;
-          min-height: 800px;
-        }
-        .hero-title {
-          font-size: clamp(76px, 18vw, 145px);
-        }
-        .hero-content {
-          width: calc(100% - 38px);
-        }
-        .hero-bottom {
-          display: block;
-        }
-        .scroll-cue {
-          margin-top: 28px;
-        }
-        .section {
-          padding: 120px 20px;
-        }
-        .section-head,
-        .visual-story,
-        .brand-system,
-        .about-grid,
-        .case-body {
-          grid-template-columns: 1fr;
-        }
-        .visual-copy {
-          position: relative;
-          top: auto;
-          padding-bottom: 25px;
-        }
-        .visual-canvas {
-          min-height: 1120px;
-        }
-        .visual-card {
-          height: 60vh;
-          min-height: 430px;
-        }
-        .visual-card:nth-child(2),
-        .visual-card:nth-child(3),
-        .visual-card:nth-child(4) {
-          margin-top: -52vh;
-        }
-        .photo-story {
-          height: 1850px;
-        }
-        .photo-intro {
-          position: relative;
-          top: auto;
-          left: auto;
-          width: 100%;
-          padding: 100px 0 0;
-        }
-        .photo-sticky {
-          display: block;
-          padding: 0 20px;
-        }
-        .photo-envelope-wrap {
-          width: 92vw;
-          height: 60vw;
-          margin: 70px auto 0;
-        }
-        .photo-note {
-          bottom: 4vh;
-        }
-        .project-grid {
-          grid-template-columns: 1fr;
-        }
-        .project-card {
-          min-height: 330px;
-        }
-        .project-grid .project-card {
-          min-height: 290px;
-        }
-        .about-panel,
-        .contact-panel {
-          min-height: 500px;
-        }
-        .cursor-glow {
-          display: none;
-        }
-        .glass-window {
-          height: calc(100svh - 24px);
-          border-radius: 26px;
-        }
-        .photo-card,
-        .photo-card:nth-child(even),
-        .photo-card:nth-child(odd) {
-          width: 92%;
-          margin: 0 auto 55px;
-        }
-        .photo-stack {
-          padding: 30px 4%;
-        }
-        .display {
-          font-size: clamp(62px, 15vw, 100px);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *:before,
-        *:after {
-          animation: none !important;
-          transition: none !important;
-          scroll-behavior: auto !important;
-        }
-        .reveal {
-          opacity: 1;
-          transform: none;
-        }
-      }
-    </style>
+    <meta name="keywords" content="UI/UX, Graphic Design, Web Development" />
+    <meta name="author" content="Marie Zendee Patalinghug" />
+    <meta name="theme-color" content="#ffd6e4" id="themeColorMeta" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- social share preview (swap og:image to a full https URL once live) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Berry Zendee 🎀🍓 — Marie Zendee Patalinghug"
+    />
+    <meta
+      property="og:description"
+      content="Brand Assistant · Visual Content Developer · Graphic Artist. Making the internet a little softer, one pixel at a time."
+    />
+    <meta property="og:image" content="./assets/1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Berry Zendee 🎀🍓 — Marie Zendee Patalinghug"
+    />
+    <meta
+      name="twitter:description"
+      content="Brand Assistant · Visual Content Developer · Graphic Artist"
+    />
+    <meta name="twitter:image" content="./assets/1.png" />
+
+    <script>
+      /* apply saved theme before paint */
+      try {
+        if (localStorage.getItem("zendee-theme") === "dusk")
+          document.documentElement.setAttribute("data-theme", "dusk");
+      } catch (e) {}
+    </script>
+
+    <title>Berry Zendee 🎀🍓</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="./assets/zendee-icon-180.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Zendee 🎀" />
+    <meta name="mobile-web-app-capable" content="yes" />
   </head>
+
   <body>
-    <div id="loader">
-      <div class="loader-core">
-        <div class="loader-name">zendee<span class="em">.</span></div>
-        <div class="loader-sub">visual · photography · brand · 2026</div>
-        <div class="loader-track"><i></i></div>
-      </div>
+    <!-- scroll progress -->
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <!-- ambient background blobs -->
+    <div class="ambient" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
     </div>
-    <div class="noise"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
-    <div class="progress"><i></i></div>
-    <nav class="nav" id="nav">
-      <a href="#top" class="brand">zendee<span class="brand-dot">.</span></a>
-      <div class="navlinks">
-        <a href="#visual">visual</a><a href="#photography">photography</a
-        ><a href="#branding">branding</a><a href="#projects">projects</a
-        ><a class="contact-link" href="#contact">let's work</a>
-      </div>
-      <button class="menu" id="menu" aria-label="Menu">☰</button>
-    </nav>
+
+    <!-- Nav -->
+    <header class="nav-wrap">
+      <nav class="nav" id="nav" aria-label="Main">
+        <a class="brand" href="#top">
+          <span class="brand-bow" aria-hidden="true">🎀</span> zendee
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </label>
+
+        <ul class="nav-links">
+          <li><a href="#work" data-spy>work</a></li>
+          <li><a href="#about" data-spy>about</a></li>
+          <li><a href="#skills" data-spy>skills</a></li>
+          <li><a href="#contact" data-spy>contact</a></li>
+          <li class="nav-cta-li">
+            <a
+              class="nav-cta"
+              href="./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
+              download
+              >résumé ↓</a
+            >
+          </li>
+        </ul>
+
+        <button
+          class="kbd-btn"
+          id="cmdkBtn"
+          aria-label="Open command menu"
+          title="Command menu"
+        >
+          ⌘K
+        </button>
+        <button
+          class="theme-btn"
+          id="themeToggle"
+          aria-label="Toggle dusk mode"
+          title="Toggle dusk mode"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+
     <main id="top">
-      <section class="hero" id="hero">
-        <div class="hero-sticky">
-          <div class="hero-photo" id="heroPhoto">
-            <img src="./assets/photo-lake.jpg" alt="Portrait beside a lake" />
-          </div>
-          <div class="hero-glow"></div>
-          <div class="hero-content" id="heroContent">
-            <div class="eyebrow">
-              Creative portfolio · visual / photography / brand
-            </div>
-            <h1 class="hero-title">
-              soft ideas.<br /><span class="pink">sharp execution.</span>
+      <!-- ═══════════ HERO ═══════════ -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-text reveal">
+            <p class="script-lead">hihi, i’m ✿</p>
+            <h1>
+              Marie <em>Zendee</em>
+              <span class="hero-sticker" aria-hidden="true">🍓</span>
             </h1>
-            <div class="hero-bottom">
-              <p class="hero-copy">
-                A visual portfolio built around thoughtful composition,
-                photography, brand systems and digital experiences — with a
-                little softness and a lot of intention.
-              </p>
-              <div class="scroll-cue">Scroll to explore</div>
-            </div>
-          </div>
-          <div class="hero-caption">Zendee · creative practice · 2026</div>
-        </div>
-      </section>
-
-      <section class="section slant-top" id="visual">
-        <div class="section-inner">
-          <div class="visual-story">
-            <div class="visual-copy reveal">
-              <div class="kicker">01 · visual design</div>
-              <h2 class="display">Designed<br />to <em>feel.</em></h2>
-              <p class="lead">
-                Visual design becomes a story here. Instead of a grid of
-                thumbnails, each piece enters as a full-screen composition and
-                shifts as you scroll — closer to an editorial product page than
-                a traditional portfolio.
-              </p>
-              <div class="line"></div>
-              <div class="visual-index">
-                01 / 04 · scroll through the system
-              </div>
-            </div>
-            <div class="visual-canvas">
-              <article class="visual-card tilt reveal">
-                <span class="card-num">01 · portfolio</span>
-                <div class="art">
-                  <div class="paper-art pink">
-                    <div class="art-meta">Zendee / creator portfolio</div>
-                    <div class="art-script">
-                      Creator<br /><span
-                        style="
-                          font-family: inherit;
-                          font-size: 0.58em;
-                          letter-spacing: -0.04em;
-                        "
-                        >PORTFOLIO</span
-                      >
-                    </div>
-                    <div>
-                      <div class="art-rule"></div>
-                      <div class="art-meta" style="margin-top: 18px">
-                        visual systems · content · direction
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article class="visual-card tilt">
-                <span class="card-num">02 · type</span>
-                <div class="art dark-art">
-                  <div class="paper-art dark">
-                    <div class="art-meta">Typography study</div>
-                    <div class="art-script">quiet<br />luxury.</div>
-                    <div class="art-meta">Bootzy display · clean UI text</div>
-                  </div>
-                </div>
-              </article>
-              <article class="visual-card tilt">
-                <span class="card-num">03 · campaign</span>
-                <div class="art campaign-art">
-                  <div class="paper-art">
-                    <div class="art-meta">Campaign / social</div>
-                    <div class="art-script small">
-                      make it<br /><span style="color: #c77e98"
-                        >memorable.</span
-                      >
-                    </div>
-                    <div class="art-meta">
-                      concept → art direction → delivery
-                    </div>
-                  </div>
-                </div>
-              </article>
-              <article class="visual-card tilt">
-                <span class="card-num">04 · composition</span>
-                <div class="art">
-                  <div class="paper-art">
-                    <div class="art-meta">Editorial composition</div>
-                    <div class="art-script small">
-                      less noise.<br />more
-                      <span style="color: #c77e98">meaning.</span>
-                    </div>
-                    <div class="art-rule"></div>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="section pink-section slant-top photo-story"
-        id="photography"
-      >
-        <div class="section-inner photo-sticky">
-          <div class="photo-intro reveal">
-            <div class="kicker">02 · photography</div>
-            <h2 class="display">Open the<br /><em>envelope.</em></h2>
-            <p class="lead">
-              A physical-feeling archive for the photographs you supplied. Open
-              it once, then explore each image as a translucent glass object —
-              like a private photo library inside iPhone OS.
+            <p class="hero-sub">
+              <span class="type-wrap"
+                ><span id="typewriter">Brand Assistant</span
+                ><span class="type-caret" aria-hidden="true">|</span></span
+              ><br />
+              making the internet a little softer, one pixel at a time.
             </p>
-          </div>
-          <div class="photo-envelope-wrap" id="envelopeWrap">
-            <div class="envelope tilt" id="envelope">
-              <div class="env-base"></div>
-              <div class="env-back"></div>
-              <div class="env-paper">
-                <div class="env-label">
-                  <strong>VIEW ME</strong
-                  ><small>photography archive · tap to open</small>
-                </div>
-              </div>
-              <div class="env-flap"></div>
-              <div class="env-pocket"></div>
-              <div class="stamp">✦</div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">view my work</a>
+              <a class="btn btn-ghost" href="#contact">say hello 🎀</a>
             </div>
           </div>
-          <div class="photo-note">
-            click to unfold · <b>then tap a photograph</b>
+
+          <div class="hero-photo reveal delay-1">
+            <div class="photo-blob">
+              <img
+                src="./assets/Zendee Prof pic.jpg"
+                alt="Portrait of Marie Zendee smiling"
+                width="480"
+                height="480"
+              />
+            </div>
+            <span class="floaty f-1" aria-hidden="true">🎀</span>
+            <span class="floaty f-2" aria-hidden="true">✨</span>
+            <span class="floaty f-3" aria-hidden="true">🍓</span>
+            <span class="floaty f-4" aria-hidden="true">🌷</span>
           </div>
         </div>
+
+        <a class="scroll-hint" href="#work" aria-label="Scroll down">
+          <span></span>
+        </a>
       </section>
 
-      <section class="section pink-section slant-top" id="branding">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <div>
-              <div class="kicker">03 · branding</div>
-              <h2 class="display">A visual<br /><em>signature.</em></h2>
-            </div>
-            <p class="lead">
-              The identity is built to move between portfolio, social content,
-              campaign work and product storytelling without losing its
-              personality.
-            </p>
-          </div>
-          <div class="brand-system">
-            <div class="brand-hero tilt reveal">
-              <div class="brand-orb"></div>
-              <div class="brand-lockup">zendee<span>.</span></div>
-            </div>
-            <div class="brand-details">
-              <div class="spec-card reveal">
-                <small>Palette</small>
-                <div class="swatches">
-                  <span class="swatch sw1"></span
-                  ><span class="swatch sw2"></span
-                  ><span class="swatch sw3"></span
-                  ><span class="swatch sw4"></span>
-                </div>
-              </div>
-              <div class="spec-card reveal">
-                <small>Typography</small
-                ><strong>Bootzy<br />+ Apple-clean UI</strong>
-              </div>
-              <div class="spec-card reveal">
-                <small>Motion language</small
-                ><strong>soft easing<br />glass · depth · scroll</strong>
-              </div>
-            </div>
-          </div>
+      <!-- ═══════════ MARQUEE ═══════════ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span
+            >ui/ux design ✿ graphic art ✿ frontend dev ✿ figma girlie ✿ based in
+            the philippines ✿ open for projects ✿&nbsp;</span
+          >
+          <span
+            >ui/ux design ✿ graphic art ✿ frontend dev ✿ figma girlie ✿ based in
+            the philippines ✿ open for projects ✿&nbsp;</span
+          >
         </div>
-      </section>
+      </div>
 
-      <section class="section ink-section slant-top" id="projects">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <div>
-              <div class="kicker">04 · selected projects</div>
-              <h2 class="display">Work with<br /><em>purpose.</em></h2>
-            </div>
-            <p class="lead">
-              Projects open from their cards into full-screen case-study
-              stories. The structure is ready for the real project imagery and
-              copy to be dropped in later.
-            </p>
-          </div>
-          <div class="project-list">
-            <article class="project-card reveal tilt" data-case="tienda">
-              <div class="project-top">
-                <span class="tag">digital experience · 01</span
-                ><span class="project-arrow">↗</span>
-              </div>
-              <h3 class="project-title">Tienda</h3>
-              <div class="project-bottom">
-                <p>
-                  A clean, friendly e-commerce direction focused on product
-                  discovery, hierarchy and a warm visual rhythm.
-                </p>
-                <span class="tag">open case study</span>
-              </div>
-            </article>
-            <article class="project-card alt reveal tilt" data-case="dylan">
-              <div class="project-top">
-                <span class="tag">brand identity · 02</span
-                ><span class="project-arrow">↗</span>
-              </div>
-              <h3 class="project-title">Dylan's<br />Little Closet</h3>
-              <div class="project-bottom">
-                <p>
-                  A playful children's clothing concept balancing charm, clarity
-                  and a memorable visual identity.
-                </p>
-                <span class="tag">open case study</span>
-              </div>
-            </article>
-            <div class="project-grid">
-              <article class="project-card reveal tilt" data-case="visual">
-                <div class="project-top">
-                  <span class="tag">campaign · 03</span
-                  ><span class="project-arrow">↗</span>
-                </div>
-                <h3 class="project-title">Visual<br />Branding</h3>
-              </article>
-              <article class="project-card dark reveal tilt" data-case="promo">
-                <div class="project-top">
-                  <span class="tag">print / social · 04</span
-                  ><span class="project-arrow">↗</span>
-                </div>
-                <h3 class="project-title">Promo<br />Sheets</h3>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- ═══════════ WORK ═══════════ -->
+      <section id="work" class="section">
+        <header class="section-head reveal">
+          <p class="script-lead">stuff i made with love</p>
+          <h2>Selected <em>work</em></h2>
+        </header>
 
-      <section class="section slant-top" id="about">
-        <div class="section-inner">
-          <div class="about-grid">
-            <article class="about-panel reveal">
+        <div class="work-grid">
+          <a
+            class="card card-wide reveal"
+            href="https://tienda-frontend.onrender.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="card-media">
+              <img
+                src="./assets/tienda.png"
+                alt="Tienda e-commerce platform screens"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
               <div>
-                <div class="kicker">05 · about</div>
-                <div class="about-big">
-                  Beautiful enough to stop the scroll.<br /><span
-                    style="color: #c77e98"
-                    >Clear enough to communicate.</span
-                  >
-                </div>
+                <h3>Tienda — E-commerce Platform</h3>
+                <p>
+                  Designed &amp; built a user-friendly online shop, end to end.
+                </p>
               </div>
-              <p>
-                Visual and brand development, marketing materials, social
-                content, product concepts and collaborative creative direction.
-                The goal is simple: make the idea feel as good as it works.
-              </p>
-            </article>
-            <article class="contact-panel reveal" id="contact">
+              <span class="card-tag">live ↗</span>
+            </div>
+          </a>
+
+          <article class="card reveal delay-1">
+            <div class="card-media media-contain">
+              <img
+                src="./assets/dylans-logo.jpg"
+                alt="Dylan's Little Closet logo design"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
               <div>
-                <div class="kicker" style="color: #d8a7b8">06 · let's work</div>
-                <div class="contact-title">
-                  Make<br />something<br />lovely.
-                </div>
+                <h3>Dylan's Little Closet — Logo Design</h3>
+                <p>
+                  Playful brand identity and logo for a kids' clothing shop.
+                </p>
               </div>
-              <a class="email" href="mailto:mariezendee@gmail.com"
-                >mariezendee@gmail.com ↗</a
-              >
-            </article>
-          </div>
+              <span class="card-tag">branding</span>
+            </div>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="card-media media-contain">
+              <img
+                src="./assets/avon-seamfree.jpg"
+                alt="Avon Intimates Seamfree collection campaign visual"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Visual Branding</h3>
+                <p>
+                  Campaign visual for Avon Intimates' first Seamfree collection.
+                </p>
+              </div>
+              <span class="card-tag">branding</span>
+            </div>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="card-media media-tall">
+              <img
+                src="./assets/promo-sheet.jpg"
+                alt="Promo sheet layout design"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Promo Sheet Design</h3>
+                <p>A clean, professional layout for brand presentation.</p>
+              </div>
+              <span class="card-tag">print</span>
+            </div>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="card-media media-tall">
+              <img
+                src="./assets/Paw-up.jpg"
+                alt="Paw-Up animal welfare campaign poster"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-body">
+              <div>
+                <h3>Paw-Up Campaign Poster</h3>
+                <p>
+                  A visually engaging campaign for animal welfare awareness. 🐾
+                </p>
+              </div>
+              <span class="card-tag">campaign</span>
+            </div>
+          </article>
         </div>
       </section>
-    </main>
-    <footer class="footer">
-      <strong>zendee.</strong><br /><br />visual design · photography · branding
-      · digital<br /><br />built as an Apple-inspired creative portfolio concept
-    </footer>
 
-    <div class="glass-modal" id="galleryModal" aria-hidden="true">
-      <div class="glass-window">
-        <div class="windowbar">
-          <div>
-            <div class="window-kicker">Photography archive</div>
-            <h3>landscapes / moments</h3>
+      <!-- ═══════════ MOODBOARD ═══════════ -->
+      <section class="section section-soft" id="moodboard">
+        <header class="section-head reveal">
+          <p class="script-lead">a peek at the vibe</p>
+          <h2>The <em>moodboard</em></h2>
+        </header>
+
+        <div
+          class="gallery reveal"
+          id="gallery"
+          tabindex="0"
+          aria-label="Brand moodboard gallery"
+        >
+          <figure class="gallery-item">
+            <img
+              src="./assets/3.png"
+              alt="Zendee brand board — painted bunny with pink bows"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="gallery-nav reveal" id="galleryNav">
+          <button class="gal-btn" id="galPrev" aria-label="Previous">←</button>
+          <button class="gal-btn" id="galNext" aria-label="Next">→</button>
+        </div>
+      </section>
+
+      <!-- ═══════════ ABOUT ═══════════ -->
+      <section id="about" class="section">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="script-lead">nice to meet you 🌷</p>
+            <h2>About <em>me</em></h2>
+            <p>
+              Hi, I’m <strong>Zendee</strong>! I have experience in visual and
+              brand development, where I work on creating engaging visuals,
+              marketing materials, and content that align with a brand’s
+              identity.
+            </p>
+            <p>
+              I’m also experienced in supporting product concepts, developing
+              creative ideas, and collaborating with different teams to bring
+              projects to life.
+            </p>
+            <p>
+              I’m passionate about combining creativity and strategy to create
+              visuals and branding that are both appealing and effective.
+            </p>
+            <div class="chips">
+              <span class="chip">🎨 visual content development</span>
+              <span class="chip">📣 campaign support</span>
+              <span class="chip">📱 social media content</span>
+            </div>
           </div>
-          <button class="close-btn" id="galleryClose" aria-label="Close">
-            ×
+
+          <aside class="about-certs reveal delay-1">
+            <div class="cert-card">
+              <span class="cert-emoji" aria-hidden="true">🏅</span>
+              <div>
+                <h3>UI/UX with Figma &amp; Adobe XD</h3>
+                <p>certification</p>
+              </div>
+            </div>
+            <div class="cert-card">
+              <span class="cert-emoji" aria-hidden="true">🎓</span>
+              <div>
+                <h3>Professional Google Workspace Administrator</h3>
+                <p>certification</p>
+              </div>
+            </div>
+            <a
+              class="resume-card"
+              href="./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
+              download
+            >
+              <span class="cert-emoji" aria-hidden="true">📄</span>
+              <div>
+                <h3>Grab my résumé</h3>
+                <p>skills, experience &amp; a lil’ sparkle — pdf, one click</p>
+              </div>
+              <span class="resume-arrow" aria-hidden="true">↓</span>
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ═══════════ SKILLS ═══════════ -->
+      <section id="skills" class="section section-soft">
+        <header class="section-head reveal">
+          <p class="script-lead">my toolbox</p>
+          <h2>Skills &amp; <em>tools</em></h2>
+        </header>
+
+        <ul class="skills-grid">
+          <li class="skill reveal"><span aria-hidden="true">🎨</span>Figma</li>
+          <li class="skill reveal delay-1">
+            <span aria-hidden="true">🪄</span>Canva
+          </li>
+          <li class="skill reveal delay-2">
+            <span aria-hidden="true">🖌️</span>Photoshop
+          </li>
+          <li class="skill reveal delay-3">
+            <span aria-hidden="true">📸</span>Lightroom
+          </li>
+          <li class="skill reveal delay-4">
+            <span aria-hidden="true">🧩</span>HTML5
+          </li>
+          <li class="skill reveal delay-5">
+            <span aria-hidden="true">🎀</span>CSS3
+          </li>
+        </ul>
+      </section>
+
+      <!-- ═══════════ CONTACT ═══════════ -->
+      <section id="contact" class="section contact">
+        <header class="section-head reveal">
+          <p class="script-lead">don’t be shy</p>
+          <h2>Let’s make something <em>cute</em> together</h2>
+          <p class="contact-sub">
+            I’m happy to connect — send me an email or reach out on socials 💌
+          </p>
+        </header>
+
+        <div class="contact-actions reveal delay-1">
+          <a
+            class="btn btn-primary"
+            href="mailto:mariezendee@gmail.com?subject=Let's%20Connect&body=Hi%20Marie%20Zendee%2C%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20chat%20more.%0D%0A%0D%0ABest%2C"
+          >
+            ✉️ email me
+          </a>
+          <a
+            class="btn btn-ghost"
+            href="https://www.linkedin.com/in/marie-zendee-patalinghug/"
+            target="_blank"
+            rel="noopener"
+            >linkedin</a
+          >
+          <a
+            class="btn btn-ghost"
+            href="https://github.com/mariezendee"
+            target="_blank"
+            rel="noopener"
+            >github</a
+          >
+          <button class="btn btn-ghost" id="copyEmail" type="button">
+            copy email 💌
           </button>
         </div>
-        <div class="photo-stack" id="photoStack">
-          <article class="photo-card tilt" data-img="./assets/photo-lake.jpg">
-            <img src="./assets/photo-lake.jpg" alt="Portrait beside a lake" />
-            <div class="photo-overlay">
-              <span>01 · still water</span><b>open ↗</b>
-            </div>
-          </article>
-          <article class="photo-card tilt" data-img="./assets/photo-shop.jpg">
-            <img
-              src="./assets/photo-shop.jpg"
-              alt="Green vintage shop interior"
+
+        <form class="quick-form reveal delay-2" onsubmit="sendMail(event)">
+          <p class="quick-form-title">or send a quick message 🎀</p>
+          <div class="quick-form-row">
+            <input
+              type="email"
+              id="userEmail"
+              placeholder="your email"
+              autocomplete="email"
+              required
             />
-            <div class="photo-overlay">
-              <span>02 · found details</span><b>open ↗</b>
-            </div>
-          </article>
-          <article
-            class="photo-card tilt"
-            data-img="./assets/photo-peacock.jpg"
-          >
-            <img src="./assets/photo-peacock.jpg" alt="Peacock in a garden" />
-            <div class="photo-overlay">
-              <span>03 · quiet encounters</span><b>open ↗</b>
-            </div>
-          </article>
-          <article class="photo-card tilt" data-img="./assets/photo-city.jpg">
-            <img src="./assets/photo-city.jpg" alt="City skyline at dusk" />
-            <div class="photo-overlay">
-              <span>04 · city / water</span><b>open ↗</b>
-            </div>
-          </article>
-        </div>
+            <input
+              type="text"
+              id="userMessage"
+              placeholder="your message…"
+              required
+            />
+            <button type="submit" class="btn btn-primary">send</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-bow" aria-hidden="true">˚ ༘ ⋆｡ 🎀 ｡⋆ ༘ ˚</p>
+      <p>
+        made with 💖 by Marie Zendee&ensp;·&ensp;© <span id="year">2025</span>
+      </p>
+    </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">🎀</button>
+
+    <!-- music player 🎶 -->
+    <div class="player" id="player" aria-label="Music and sound controls">
+      <button
+        class="player-btn"
+        id="musicBtn"
+        aria-label="Play music"
+        title="Play / pause music"
+      >
+        ▶
+      </button>
+      <span class="player-title">
+        <span class="eq" aria-hidden="true"
+          ><span></span><span></span><span></span><span></span
+        ></span>
+        <span class="song-name">berry bounce ♪</span>
+      </span>
+      <button
+        class="sfx-btn"
+        id="sfxBtn"
+        aria-label="Toggle sound effects"
+        title="Sound effects on/off"
+      >
+        🔔
+      </button>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      copied! 💌
+    </div>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+    >
+      <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+      <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">
+        ←
+      </button>
+      <figure class="lb-figure">
+        <img id="lbImg" src="" alt="" />
+        <figcaption id="lbCap"></figcaption>
+      </figure>
+      <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">
+        →
+      </button>
+    </div>
+
+    <div
+      class="cmdk"
+      id="cmdk"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Command menu"
+    >
+      <div class="cmdk-panel">
+        <input
+          id="cmdkInput"
+          type="text"
+          placeholder="what are you looking for? ✨"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <ul id="cmdkList" role="listbox"></ul>
+        <p class="cmdk-foot">↑↓ navigate · ↵ go · esc close 🎀</p>
       </div>
     </div>
-    <div class="image-viewer" id="imageViewer">
-      <button class="viewer-close" id="viewerClose" aria-label="Close">×</button
-      ><img class="viewer-image" id="viewerImg" src="" alt="" />
-    </div>
-    <div class="case-modal" id="caseModal">
-      <button class="close-btn case-close" id="caseClose">×</button>
-      <div class="case-window" id="caseWindow"></div>
-    </div>
+
+    <!-- ═══ KIND WORDS 💌 (hidden until real quotes are added) ═══
+         Send Claude 2–3 real testimonials (name · role · quote) from clients,
+         professors, or teammates and this section gets enabled.
+    <section id="kind-words" class="section">
+      <header class="section-head reveal">
+        <p class="script-lead">people are sweet</p>
+        <h2>Kind <em>words</em></h2>
+      </header>
+      <div class="kind-grid">
+        <figure class="kind-card reveal">
+          <blockquote>“QUOTE TEXT HERE.”</blockquote>
+          <figcaption>NAME · ROLE</figcaption>
+        </figure>
+      </div>
+    </section>
+    ═══ end kind words ═══ -->
+
     <script>
-      const $ = (s) => document.querySelector(s),
-        $$ = (s) => [...document.querySelectorAll(s)];
-      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.addEventListener("load", () =>
-        setTimeout(() => $("#loader").classList.add("done"), 900),
-      );
-      const nav = $("#nav"),
-        bar = $(".progress i"),
-        hero = $("#hero"),
-        heroPhoto = $("#heroPhoto"),
-        heroContent = $("#heroContent");
-      function scrollFX() {
-        const y = scrollY,
-          max = document.documentElement.scrollHeight - innerHeight;
-        bar.style.width = (max ? (y / max) * 100 : 0) + "%";
-        nav.classList.toggle("scrolled", y > 30);
-        if (reduce) return;
-        const r = hero.getBoundingClientRect(),
-          p = Math.min(
-            1,
-            Math.max(0, -r.top / (hero.offsetHeight - innerHeight || 1)),
-          );
-        heroPhoto.style.transform = `translate3d(0,${p * 8}%,0) scale(${1.08 - p * 0.08})`;
-        heroContent.style.transform = `translate3d(0,${p * -16}%,0) scale(${1 - p * 0.03})`;
-        heroContent.style.opacity = String(1 - p * 0.95);
-      }
-      addEventListener("scroll", scrollFX, { passive: true });
-      scrollFX();
+      /* ── reveal on scroll ── */
+      const revealEls = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver(
-        (entries) =>
+        (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
-              e.target.classList.add("in");
-              if (e.target.classList.contains("reveal")) io.unobserve(e.target);
+              e.target.classList.add("show");
+              io.unobserve(e.target);
             }
-          }),
-        { threshold: 0.12 },
-      );
-      $$(".reveal").forEach((x) => io.observe(x));
-      $("#menu").onclick = () => nav.classList.toggle("open");
-      $$(".navlinks a").forEach(
-        (a) => (a.onclick = () => nav.classList.remove("open")),
-      );
-      /* pointer-driven glass / depth */
-      const glow = $("#cursorGlow");
-      addEventListener(
-        "pointermove",
-        (e) => {
-          if (innerWidth < 900 || reduce) return;
-          glow.style.left = e.clientX + "px";
-          glow.style.top = e.clientY + "px";
-          $$(".tilt").forEach((el) => {
-            if (
-              el.closest(".glass-modal")?.classList.contains("open") === false
-            )
-              return;
-            const r = el.getBoundingClientRect();
-            if (
-              r.bottom < 0 ||
-              r.top > innerHeight ||
-              r.right < 0 ||
-              r.left > innerWidth
-            )
-              return;
-            const x = (e.clientX - (r.left + r.width / 2)) / r.width,
-              y = (e.clientY - (r.top + r.height / 2)) / r.height;
-            el.style.transform = `perspective(1000px) rotateX(${y * -2.2}deg) rotateY(${x * 2.2}deg) translateY(-2px)`;
           });
         },
-        { passive: true },
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
       );
-      $$(".tilt").forEach((el) => {
-        el.addEventListener("mouseleave", () => {
-          el.style.transform = "";
+      revealEls.forEach((el) => io.observe(el));
+
+      /* ── nav: shrink + scrollspy + progress + to-top ── */
+      const nav = document.getElementById("nav");
+      const progress = document.querySelector(".scroll-progress span");
+      const toTop = document.getElementById("toTop");
+      const spyLinks = document.querySelectorAll("[data-spy]");
+      const sections = [...spyLinks].map((a) =>
+        document.querySelector(a.getAttribute("href")),
+      );
+
+      function onScroll() {
+        const y = window.scrollY;
+        nav.classList.toggle("scrolled", y > 24);
+        toTop.classList.toggle("show", y > 600);
+        const max = document.documentElement.scrollHeight - innerHeight;
+        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+
+        let current = null;
+        sections.forEach((sec, i) => {
+          if (sec && y >= sec.offsetTop - innerHeight * 0.4) current = i;
         });
-      });
-      /* photography envelope */
-      const envelope = $("#envelope"),
-        gallery = $("#galleryModal");
-      function openGallery() {
-        envelope.classList.add("open");
-        setTimeout(() => {
-          gallery.classList.add("open");
-          gallery.setAttribute("aria-hidden", "false");
-          document.body.classList.add("lock");
-        }, 600);
+        spyLinks.forEach((a, i) => a.classList.toggle("active", i === current));
       }
-      function closeGallery() {
-        gallery.classList.remove("open");
-        gallery.setAttribute("aria-hidden", "true");
-        envelope.classList.remove("open");
-        document.body.classList.remove("lock");
-      }
-      envelope.onclick = openGallery;
-      $("#galleryClose").onclick = closeGallery;
-      gallery.addEventListener("click", (e) => {
-        if (e.target === gallery) closeGallery();
-      });
-      /* image viewer */
-      const viewer = $("#imageViewer"),
-        viewerImg = $("#viewerImg");
-      $$(".photo-card").forEach((card) =>
-        card.addEventListener("click", () => {
-          viewerImg.src = card.dataset.img;
-          viewerImg.alt = card.querySelector("img").alt;
-          viewer.classList.add("open");
-        }),
+      addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      toTop.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
       );
-      $("#viewerClose").onclick = () => viewer.classList.remove("open");
-      viewer.addEventListener("click", (e) => {
-        if (e.target === viewer) viewer.classList.remove("open");
-      });
-      /* case studies */
-      const cases = {
-        tienda: {
-          title: "Tienda",
-          tag: "digital experience",
-          dark: false,
-          desc: "An e-commerce direction built around product clarity, friendly hierarchy and a calm visual rhythm.",
-          sections: [
-            [
-              "The idea",
-              "Make browsing feel effortless. The interface uses generous spacing, simple categories and a warm editorial tone so the products remain the hero.",
-            ],
-            [
-              "Direction",
-              "Soft neutrals, strong display typography, clean product framing and micro-interactions that reward exploration without getting in the way.",
-            ],
-            [
-              "Outcome",
-              "A flexible digital system that can scale from a small collection into a larger commerce experience.",
-            ],
-          ],
-        },
-        dylan: {
-          title: "Dylan's Little Closet",
-          tag: "brand identity",
-          dark: false,
-          desc: "A playful identity concept for children’s clothing — designed to feel memorable without becoming visually noisy.",
-          sections: [
-            [
-              "The idea",
-              "Build a world around the name: friendly, tactile and easy to recognize across packaging, social and digital touchpoints.",
-            ],
-            [
-              "Direction",
-              "Rounded compositions, playful scale changes and a soft palette create a system that feels young while remaining polished.",
-            ],
-            [
-              "Outcome",
-              "A recognizable identity that can stretch across campaign assets, tags, cards and an online storefront.",
-            ],
-          ],
-        },
-        visual: {
-          title: "Visual Branding",
-          tag: "campaign",
-          dark: false,
-          desc: "A visual campaign language designed for social-first storytelling and quick recognition.",
-          sections: [
-            [
-              "The idea",
-              "Turn a simple message into a visual moment that survives the speed of the feed.",
-            ],
-            [
-              "Direction",
-              "Editorial type, controlled color, strong crops and short motion loops create a repeatable campaign system.",
-            ],
-            [
-              "Outcome",
-              "A set of principles that keeps future campaign pieces visually related while allowing each execution to feel fresh.",
-            ],
-          ],
-        },
-        promo: {
-          title: "Promo Sheets",
-          tag: "print / social",
-          dark: true,
-          desc: "A compact promotional system that makes information feel designed rather than merely placed on a page.",
-          sections: [
-            [
-              "The idea",
-              "Give promotional content a visual hierarchy so the offer is immediately understandable.",
-            ],
-            [
-              "Direction",
-              "Large headlines, clear callouts and structured whitespace make the system readable at a glance.",
-            ],
-            [
-              "Outcome",
-              "A reusable template language for promotional materials across print and social formats.",
-            ],
-          ],
-        },
-      };
-      const caseModal = $("#caseModal"),
-        caseWindow = $("#caseWindow");
-      $$(".project-card").forEach((card) =>
-        card.addEventListener("click", () => {
-          const c = cases[card.dataset.case];
-          caseWindow.innerHTML = `<div class="case-cover ${c.dark ? "dark" : ""}"><div><div class="tag">${c.tag}</div></div><h3>${c.title}</h3></div><div class="case-body"><div><h4>Case<br>study.</h4></div><div><p>${c.desc}</p>${c.sections.map((s) => `<div style="padding:28px 0;border-top:1px solid rgba(21,18,22,.1)"><div class="tag" style="margin-bottom:12px">${s[0]}</div><p style="margin:0">${s[1]}</p></div>`).join("")}</div></div>`;
-          caseModal.classList.add("open");
-          document.body.classList.add("lock");
-          caseModal.scrollTop = 0;
-        }),
-      );
-      function closeCase() {
-        caseModal.classList.remove("open");
-        document.body.classList.remove("lock");
+
+      /* close mobile menu when a link is tapped */
+      const navToggle = document.getElementById("nav-toggle");
+      document
+        .querySelectorAll(".nav-links a")
+        .forEach((a) =>
+          a.addEventListener("click", () => (navToggle.checked = false)),
+        );
+
+      /* ── moodboard gallery arrows ── */
+      const gallery = document.getElementById("gallery");
+      const step = () =>
+        gallery.querySelector(".gallery-item").offsetWidth + 20;
+      document
+        .getElementById("galPrev")
+        .addEventListener("click", () =>
+          gallery.scrollBy({ left: -step(), behavior: "smooth" }),
+        );
+      document
+        .getElementById("galNext")
+        .addEventListener("click", () =>
+          gallery.scrollBy({ left: step(), behavior: "smooth" }),
+        );
+      if (gallery.querySelectorAll(".gallery-item").length <= 1) {
+        document.getElementById("galleryNav").style.display = "none";
       }
-      $("#caseClose").onclick = closeCase;
-      caseModal.addEventListener("click", (e) => {
-        if (e.target === caseModal) closeCase();
+
+      const EMAIL = "mariezen@example.com";
+      const reducedMotion = matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      /* ── dusk mode 🌙 ── */
+      const themeToggle = document.getElementById("themeToggle");
+      const themeMeta = document.getElementById("themeColorMeta");
+      function syncTheme() {
+        const dusk =
+          document.documentElement.getAttribute("data-theme") === "dusk";
+        themeToggle.textContent = dusk ? "🌷" : "🌙";
+        themeMeta.setAttribute("content", dusk ? "#221426" : "#ffd6e4");
+      }
+      themeToggle.addEventListener("click", () => {
+        const dusk =
+          document.documentElement.getAttribute("data-theme") === "dusk";
+        if (dusk) document.documentElement.removeAttribute("data-theme");
+        else document.documentElement.setAttribute("data-theme", "dusk");
+        try {
+          localStorage.setItem("zendee-theme", dusk ? "light" : "dusk");
+        } catch (e) {}
+        syncTheme();
       });
-      addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeGallery();
-          viewer.classList.remove("open");
-          closeCase();
+      syncTheme();
+
+      /* ── typewriter roles ── */
+      const roles = [
+        "Brand Assistant",
+        "Visual Content Developer",
+        "Graphic Artist 🎀",
+      ];
+      const typeEl = document.getElementById("typewriter");
+      if (reducedMotion) {
+        typeEl.textContent =
+          "Brand Assistant · Visual Content Developer · Graphic Artist";
+      } else {
+        let ri = 0,
+          ci = roles[0].length,
+          deleting = false;
+        (function tick() {
+          const word = roles[ri];
+          typeEl.textContent = word.slice(0, ci);
+          let delay = deleting ? 42 : 74;
+          if (!deleting && ci === word.length) {
+            delay = 1500;
+            deleting = true;
+          } else if (deleting && ci === 0) {
+            deleting = false;
+            ri = (ri + 1) % roles.length;
+            delay = 350;
+          }
+          ci += deleting ? -1 : 1;
+          setTimeout(tick, delay);
+        })();
+      }
+
+      /* ── toast ── */
+      const toast = document.getElementById("toast");
+      let toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      /* ── copy email ── */
+      document.getElementById("copyEmail").addEventListener("click", () => {
+        const done = () => showToast("copied! 💌");
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(EMAIL)
+            .then(done)
+            .catch(() => fallbackCopy());
+        } else fallbackCopy();
+        function fallbackCopy() {
+          const ta = document.createElement("textarea");
+          ta.value = EMAIL;
+          ta.style.cssText = "position:fixed;opacity:0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+            done();
+          } catch (e) {
+            showToast(EMAIL);
+          }
+          ta.remove();
         }
       });
+
+      /* ── lightbox ── */
+      const lb = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbCap = document.getElementById("lbCap");
+      const lbItems = [
+        ...document.querySelectorAll("#gallery .gallery-item img"),
+        ...document.querySelectorAll(".work-grid article .card-media img"),
+      ];
+      let lbIndex = 0;
+
+      function lbShow(i) {
+        lbIndex = (i + lbItems.length) % lbItems.length;
+        lbImg.src = lbItems[lbIndex].src;
+        lbImg.alt = lbItems[lbIndex].alt;
+        lbCap.textContent = lbItems[lbIndex].alt;
+      }
+      function lbOpen(i) {
+        lbShow(i);
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function lbClose() {
+        lb.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      lbItems.forEach((img, i) => {
+        img.classList.add("lb-zoom");
+        img.addEventListener("click", () => lbOpen(i));
+      });
+      document.getElementById("lbClose").addEventListener("click", lbClose);
+      document
+        .getElementById("lbPrev")
+        .addEventListener("click", () => lbShow(lbIndex - 1));
+      document
+        .getElementById("lbNext")
+        .addEventListener("click", () => lbShow(lbIndex + 1));
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) lbClose();
+      });
+      addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") lbClose();
+        if (e.key === "ArrowLeft") lbShow(lbIndex - 1);
+        if (e.key === "ArrowRight") lbShow(lbIndex + 1);
+      });
+      let touchX = null;
+      lb.addEventListener(
+        "touchstart",
+        (e) => (touchX = e.touches[0].clientX),
+        { passive: true },
+      );
+      lb.addEventListener("touchend", (e) => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
+        touchX = null;
+      });
+
+      /* ── heart sparkles on click ── */
+      const SPARKS = ["💗", "✨", "🎀"];
+      function spawnSpark(x, y, cls, count, spread) {
+        if (reducedMotion) return;
+        for (let i = 0; i < count; i++) {
+          const s = document.createElement("span");
+          s.className = cls;
+          s.textContent = SPARKS[(Math.random() * SPARKS.length) | 0];
+          s.style.left = x + "px";
+          s.style.top = y + "px";
+          s.style.setProperty("--dx", (Math.random() - 0.5) * spread + "px");
+          s.style.setProperty(
+            "--dy",
+            -(Math.random() * spread * 0.7 + 12) + "px",
+          );
+          s.style.setProperty("--rot", (Math.random() - 0.5) * 240 + "deg");
+          s.style.fontSize = 10 + Math.random() * 10 + "px";
+          document.body.appendChild(s);
+          s.addEventListener("animationend", () => s.remove());
+        }
+      }
+      addEventListener("click", (e) => {
+        if (
+          e.target.closest(
+            ".lightbox, .nav, form, input, .theme-btn, .cmdk, .kbd-btn, .player",
+          )
+        )
+          return;
+        spawnSpark(e.clientX, e.clientY, "spark", 6, 120);
+      });
+
+      /* ── command palette 🎀 ── */
+      const cmdk = document.getElementById("cmdk");
+      const cmdkInput = document.getElementById("cmdkInput");
+      const cmdkList = document.getElementById("cmdkList");
+      const cmdkBtn = document.getElementById("cmdkBtn");
+      if (navigator.platform && navigator.platform.indexOf("Win") > -1)
+        cmdkBtn.textContent = "Ctrl K";
+
+      const goTo = (sel) => () =>
+        document
+          .querySelector(sel)
+          .scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+
+      const cmdkActions = [
+        { label: "🖼 go to work", hint: "work", run: goTo("#work") },
+        { label: "✨ go to moodboard", hint: "vibe", run: goTo("#moodboard") },
+        { label: "🌷 go to about", hint: "about", run: goTo("#about") },
+        { label: "🎨 go to skills", hint: "skills", run: goTo("#skills") },
+        { label: "📮 go to contact", hint: "contact", run: goTo("#contact") },
+        {
+          label: "💌 copy email",
+          hint: "email",
+          run: () => document.getElementById("copyEmail").click(),
+        },
+        {
+          label: "📄 download résumé",
+          hint: "pdf",
+          run: () => {
+            const a = document.createElement("a");
+            a.href = "./assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf";
+            a.download = "";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          },
+        },
+        {
+          label: "🌙 toggle dusk mode",
+          hint: "theme",
+          run: () => themeToggle.click(),
+        },
+        {
+          label: "🔗 open linkedin",
+          hint: "social",
+          run: () =>
+            window.open(
+              "https://www.linkedin.com/in/marie-zendee-patalinghug/",
+              "_blank",
+            ),
+        },
+        {
+          label: "🐙 open github",
+          hint: "social",
+          run: () => window.open("https://github.com/mariezendee", "_blank"),
+        },
+      ];
+
+      let cmdkFiltered = cmdkActions,
+        cmdkIdx = 0;
+
+      function cmdkRender() {
+        const q = cmdkInput.value.trim().toLowerCase();
+        cmdkFiltered = cmdkActions.filter(
+          (a) => a.label.toLowerCase().includes(q) || a.hint.includes(q),
+        );
+        if (cmdkIdx >= cmdkFiltered.length) cmdkIdx = 0;
+        cmdkList.innerHTML = "";
+        cmdkFiltered.forEach((a, i) => {
+          const li = document.createElement("li");
+          li.setAttribute("role", "option");
+          if (i === cmdkIdx) li.classList.add("active");
+          const l = document.createElement("span");
+          l.textContent = a.label;
+          const h = document.createElement("span");
+          h.className = "hint";
+          h.textContent = a.hint;
+          li.append(l, h);
+          li.addEventListener("click", () => cmdkRun(a));
+          li.addEventListener("mousemove", () => {
+            cmdkIdx = i;
+            cmdkMark();
+          });
+          cmdkList.appendChild(li);
+        });
+      }
+      const cmdkMark = () =>
+        [...cmdkList.children].forEach((li, i) =>
+          li.classList.toggle("active", i === cmdkIdx),
+        );
+      const cmdkRun = (a) => {
+        cmdkClose();
+        a.run();
+      };
+      function cmdkOpen() {
+        cmdk.classList.add("open");
+        cmdkInput.value = "";
+        cmdkIdx = 0;
+        cmdkRender();
+        setTimeout(() => cmdkInput.focus(), 10);
+      }
+      const cmdkClose = () => cmdk.classList.remove("open");
+
+      cmdkBtn.addEventListener("click", cmdkOpen);
+      cmdk.addEventListener("click", (e) => {
+        if (e.target === cmdk) cmdkClose();
+      });
+      cmdkInput.addEventListener("input", () => {
+        cmdkIdx = 0;
+        cmdkRender();
+      });
+      addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+          e.preventDefault();
+          cmdk.classList.contains("open") ? cmdkClose() : cmdkOpen();
+          return;
+        }
+        if (!cmdk.classList.contains("open")) return;
+        if (e.key === "Escape") cmdkClose();
+        else if (e.key === "ArrowDown") {
+          e.preventDefault();
+          cmdkIdx = Math.min(cmdkIdx + 1, cmdkFiltered.length - 1);
+          cmdkMark();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          cmdkIdx = Math.max(cmdkIdx - 1, 0);
+          cmdkMark();
+        } else if (e.key === "Enter" && cmdkFiltered[cmdkIdx])
+          cmdkRun(cmdkFiltered[cmdkIdx]);
+      });
+
+      /* ── quick message → mailto (with confetti 🎉) ── */
+      function sendMail(event) {
+        event.preventDefault();
+        const email = document.getElementById("userEmail").value;
+        const message = document.getElementById("userMessage").value;
+        const btn = event.target.querySelector("button[type=submit]");
+        const r = btn.getBoundingClientRect();
+        spawnSpark(
+          r.left + r.width / 2,
+          r.top + r.height / 2,
+          "confetti",
+          26,
+          320,
+        );
+        const go = () =>
+          (location.href =
+            "mailto:" +
+            EMAIL +
+            "?subject=Message from " +
+            encodeURIComponent(email) +
+            "&body=" +
+            encodeURIComponent(message));
+        reducedMotion ? go() : setTimeout(go, 400);
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script src="zendee-sound.js"></script>
   </body>
 </html>
