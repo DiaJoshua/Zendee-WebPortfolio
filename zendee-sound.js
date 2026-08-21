@@ -1,5 +1,6 @@
 (()=>{
   const soundBtn=document.getElementById('soundBtn');
+  const soundTooltip=document.getElementById('soundTooltip');
   if(!soundBtn)return;
 
   const AudioCtx=window.AudioContext||window.webkitAudioContext;
@@ -53,8 +54,9 @@
   function sync(){
     soundBtn.textContent=playing?'⏸':'♪';
     soundBtn.classList.toggle('playing',playing);
-    soundBtn.setAttribute('aria-label',playing?'Pause portfolio music':'Play portfolio music');
+    soundBtn.setAttribute('aria-label',playing?'Pause portfolio sound':'Play portfolio sound');
     soundBtn.setAttribute('aria-pressed',String(playing));
+    if(soundTooltip)soundTooltip.textContent=playing?'sound on':'sound off';
   }
 
   function playStep(){

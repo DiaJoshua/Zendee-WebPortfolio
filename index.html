@@ -1,709 +1,231 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#fff3f7" />
-    <meta
-      name="description"
-      content="Marie Zendee — visual design, photography, branding and creative portfolio."
-    />
-    <meta name="color-scheme" content="light" />
-    <title>Marie Zendee Portfolio</title>
-    <link
-      rel="preload"
-      href="BootzyTM.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Marie Zendee" />
-  </head>
-  <body>
-    <div class="boot" id="boot" aria-hidden="true">
-      <div class="boot-panel boot-panel-left"></div>
-      <div class="boot-panel boot-panel-right"></div>
-      <div class="boot-sheen"></div>
-      <div class="boot-card">
-        <img
-          class="boot-mark"
-          src="assets/zendee-logo.png"
-          alt="Marie Zendee logo"
-        />
-        <div class="boot-name"><span>Marie</span> Zendee</div>
-        <p>visual design · photography · branding</p>
-        <div class="boot-track"><i id="bootProgress"></i></div>
-        <span class="boot-enter">portfolio</span>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#fff3f7" />
+  <meta name="description" content="Marie Zendee — visual design, photography, branding and creative portfolio." />
+  <meta name="color-scheme" content="light" />
+  <title>Marie Zendee Portfolio</title>
+  <link rel="preload" href="BootzyTM.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="canonical" href="https://berry-zendee.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Marie Zendee — Visual Design, Photography & Branding" />
+  <meta property="og:description" content="A multidisciplinary creative portfolio by Marie Zendee, featuring visual design, branding, campaigns and photography." />
+  <meta property="og:url" content="https://berry-zendee.vercel.app/" />
+  <meta property="og:image" content="https://berry-zendee.vercel.app/og-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marie Zendee — Creative Portfolio" />
+  <meta name="twitter:description" content="Visual design, photography, branding and creative work by Marie Zendee." />
+  <meta name="twitter:image" content="https://berry-zendee.vercel.app/og-preview.jpg" />
+  <link rel="preload" href="assets/tienda-960.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Marie Zendee" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Marie Zendee",
+    "url":"https://berry-zendee.vercel.app/",
+    "sameAs":[
+      "https://www.linkedin.com/in/marie-zendee-patalinghug/",
+      "https://www.instagram.com/mariezendee/",
+      "https://www.facebook.com/mariezendeee"
+    ],
+    "knowsAbout":["Visual Design","Branding","Photography","Campaign Design","Creative Content"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#visual">Skip to selected work</a>
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-panel boot-panel-left"></div>
+    <div class="boot-panel boot-panel-right"></div>
+    <div class="boot-sheen"></div>
+    <div class="boot-card">
+      <img class="boot-mark" src="assets/zendee-logo.png" alt="Marie Zendee logo" />
+      <div class="boot-name"><span>Marie</span> Zendee</div>
+      <p>visual design · photography · branding</p>
+      <div class="boot-track"><i id="bootProgress"></i></div>
+      <span class="boot-enter">portfolio</span>
     </div>
+  </div>
 
-    <div class="top-progress" aria-hidden="true"><i id="progressBar"></i></div>
+  <div class="top-progress" aria-hidden="true"><i id="progressBar"></i></div>
 
-    <header class="nav-shell">
-      <nav class="nav glass" id="nav" aria-label="Main navigation">
-        <a class="brand" href="#top" aria-label="Marie Zendee home"
-          ><img class="brand-mark" src="assets/zendee-logo.png" alt="" /><b
-            >Marie Zendee</b
-          ></a
-        >
-        <div class="nav-links" id="navLinks">
-          <a href="#visual">visual</a>
-          <a href="#photography">photo</a>
-          <a href="#branding">brand</a>
-          <a href="#projects">projects</a>
-          <a href="#process">process</a>
-          <a href="#about">about</a>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <header class="nav-shell">
+    <nav class="nav glass" id="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Marie Zendee home"><img class="brand-mark" src="assets/zendee-logo.png" alt="" /><b>Marie Zendee</b></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#visual">visual</a>
+        <a href="#photography">photo</a>
+        <a href="#branding">brand</a>
+        <a href="#projects">projects</a>
+        <a href="#process">process</a>
+        <a href="#about">about</a>
+      </div>
+      <div class="nav-actions">
+        <div class="sound-wrap"><button class="icon-btn" id="soundBtn" type="button" aria-label="Play portfolio sound" aria-pressed="false">♪</button><span class="sound-tooltip" id="soundTooltip" role="status" aria-live="polite">sound off</span></div>
+        <a class="nav-cta" href="#contact">say hello</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero page-section" data-tone="light">
+      <div class="ambient-berry b1" aria-hidden="true">🍓</div>
+      <div class="ambient-berry b2" aria-hidden="true">🍓</div>
+      <div class="ambient-berry b3" aria-hidden="true">✨</div>
+      <div class="ambient-berry b4" aria-hidden="true">🍓</div>
+      <div class="hero-grid shell">
+        <div class="hero-copy reveal">
+          <p class="bootzy-note">hihi, i’m ✿</p>
+          <h1>Marie <span>Zendee</span><sup>🍓</sup></h1>
+          <p class="role"><strong id="typeRole">Graphic Artist</strong><i>|</i></p>
+          <p class="hero-lede">Marie Zendee is a multidisciplinary creative building visual design, photography and brand work with clarity, softness and a more polished digital presence.</p>
+          <div class="actions"><a class="button primary" href="#visual">view selected work</a><a class="button secondary" href="#photography">photography archive</a></div>
+          <div class="hero-meta"><span>Based in Manila, Philippines</span><span>Visual design, branding and photography</span></div>
         </div>
-        <div class="nav-actions">
-          <button
-            class="icon-btn"
-            id="soundBtn"
-            type="button"
-            aria-label="Toggle music"
-          >
-            ♪
-          </button>
-          <a class="nav-cta" href="#contact">say hello</a>
-          <button
-            class="menu-btn"
-            id="menuBtn"
-            type="button"
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            ☰
-          </button>
-        </div>
-      </nav>
-    </header>
-
-    <main id="top">
-      <section class="hero page-section" data-tone="light">
-        <div class="ambient-berry b1" aria-hidden="true">🍓</div>
-        <div class="ambient-berry b2" aria-hidden="true">🍓</div>
-        <div class="ambient-berry b3" aria-hidden="true">✨</div>
-        <div class="ambient-berry b4" aria-hidden="true">🍓</div>
-        <div class="hero-grid shell">
-          <div class="hero-copy reveal">
-            <p class="bootzy-note">hihi, i’m ✿</p>
-            <h1>Marie <span>Zendee</span><sup>🍓</sup></h1>
-            <p class="role">
-              <strong id="typeRole">Graphic Artist</strong><i>|</i>
-            </p>
-            <p class="hero-lede">
-              Marie Zendee is a multidisciplinary creative building visual
-              design, photography and brand work with clarity, softness and a
-              more polished digital presence.
-            </p>
-            <div class="actions">
-              <a class="button primary" href="#visual">view selected work</a
-              ><a class="button secondary" href="#photography"
-                >photography archive</a
-              >
-            </div>
-            <div class="hero-meta">
-              <span>Based in Manila, Philippines</span
-              ><span>Visual design, branding and photography</span>
-            </div>
-          </div>
-          <div
-            class="hero-showcase reveal delay-1"
-            aria-label="Selected portfolio highlights"
-          >
-            <figure class="hero-work hw-main">
-              <img
-                src="assets/tienda.png"
-                alt="Tienda e-commerce project preview"
-                fetchpriority="high"
-              />
-              <figcaption>
-                <span>01</span><b>Tienda</b><small>Digital Experience</small>
-              </figcaption>
-            </figure>
-            <figure class="hero-work hw-brand">
-              <img
-                src="assets/dylans-logo.jpg"
-                alt="Dylan's Little Closet identity preview"
-              />
-              <figcaption>
-                <span>02</span><b>Dylan's</b><small>identity</small>
-              </figcaption>
-            </figure>
-            <figure class="hero-work hw-photo">
-              <img
-                src="assets/photo-city.jpg"
-                alt="City skyline photography preview"
-              />
-              <figcaption>
-                <span>03</span><b>Photography</b><small>archive</small>
-              </figcaption>
-            </figure>
-            <div class="hero-glass-note glass">
-              <b>selected practice</b><span>visual · brand · photo</span>
-            </div>
-          </div>
-        </div>
-        <a
-          class="scroll-indicator"
-          href="#visual"
-          aria-label="Scroll to visual design"
-          ><span></span
-        ></a>
-      </section>
-
-      <div class="ticker" aria-hidden="true">
-        <div>
-          <span
-            >visual design ✿ photography ✿ branding ✿ campaigns ✿ digital
-            experiences ✿ creative direction ✿ visual design ✿ photography ✿
-            branding ✿ campaigns ✿ digital experiences ✿ creative direction ✿
-          </span>
+        <div class="hero-showcase reveal delay-1" aria-label="Selected portfolio highlights">
+          <figure class="hero-work hw-main"><img src="assets/tienda-960.webp" srcset="assets/tienda-640.webp 640w, assets/tienda-960.webp 960w, assets/tienda-1280.webp 1280w" sizes="(max-width: 930px) 66vw, 39vw" alt="Tienda e-commerce project preview" fetchpriority="high" width="2133" height="1182"><figcaption><span>01</span><b>Tienda</b><small>Digital Experience</small></figcaption></figure>
+          <figure class="hero-work hw-brand"><img src="assets/dylans-logo-640.webp" srcset="assets/dylans-logo-640.webp 640w, assets/dylans-logo-960.webp 960w, assets/dylans-logo-1280.webp 1280w" sizes="(max-width: 930px) 31vw, 18vw" alt="Dylan's Little Closet identity preview" width="2000" height="2000"><figcaption><span>02</span><b>Dylan's</b><small>identity</small></figcaption></figure>
+          <figure class="hero-work hw-photo"><img src="assets/photo-city-640.webp" srcset="assets/photo-city-640.webp 640w, assets/photo-city-960.webp 960w, assets/photo-city-1280.webp 1280w" sizes="(max-width: 930px) 40vw, 24vw" alt="City skyline photography preview" width="1280" height="853"><figcaption><span>03</span><b>Photography</b><small>archive</small></figcaption></figure>
+          <div class="hero-glass-note glass"><b>selected practice</b><span>visual · brand · photo</span></div>
         </div>
       </div>
+      <a class="scroll-indicator" href="#visual" aria-label="Scroll to visual design"><span></span></a>
+    </section>
 
-      <section
-        class="angled section-pink page-section"
-        id="visual"
-        data-tone="pink"
-      >
-        <div class="shell">
-          <header class="section-head reveal">
-            <div>
-              <p class="kicker">01 · visual designs</p>
-              <h2>
-                Visual work that feels<br /><em
-                  >soft, clear and intentional.</em
-                >
-              </h2>
-            </div>
-            <p>
-              A more refined showcase of campaigns, layouts, digital experiences
-              and brand assets presented with space, motion and cleaner
-              storytelling.
-            </p>
-          </header>
+    <div class="ticker" aria-hidden="true"><div><span>visual design ✿ photography ✿ branding ✿ campaigns ✿ digital experiences ✿ creative direction ✿ visual design ✿ photography ✿ branding ✿ campaigns ✿ digital experiences ✿ creative direction ✿ </span></div></div>
 
-          <div class="visual-story" id="visualStory">
-            <div class="visual-copy reveal">
-              <span class="chapter-index">01 / 04</span>
-              <h3 id="visualTitle">Tienda</h3>
-              <p id="visualDesc">
-                A curated digital storefront direction shaped around product
-                discovery, visual hierarchy and a gentle editorial rhythm.
-              </p>
-              <button class="text-link" type="button" data-case="tienda">
-                open case study ↗
-              </button>
-            </div>
-            <div class="visual-stage reveal delay-1" aria-live="polite">
-              <article
-                class="visual-frame active"
-                data-visual="tienda"
-                data-title="Tienda"
-                data-desc="A curated digital storefront direction shaped around product discovery, visual hierarchy and a gentle editorial rhythm."
-              >
-                <img
-                  src="assets/tienda.png"
-                  alt="Tienda e-commerce project preview"
-                />
-              </article>
-              <article
-                class="visual-frame"
-                data-visual="dylan"
-                data-title="Dylan's Little Closet"
-                data-desc="A playful identity system that stays charming and memorable while still working across practical brand touchpoints."
-              >
-                <img
-                  src="assets/dylans-logo.jpg"
-                  alt="Dylan's Little Closet logo"
-                />
-              </article>
-              <article
-                class="visual-frame"
-                data-visual="avon"
-                data-title="Avon Seamfree"
-                data-desc="A product-led campaign visual using bold hierarchy, cleaner messaging and retail-friendly clarity."
-              >
-                <img
-                  src="assets/avon-seamfree.jpg"
-                  alt="Avon Seamfree campaign visual"
-                />
-              </article>
-              <article
-                class="visual-frame"
-                data-visual="promo"
-                data-title="Promo Sheets"
-                data-desc="Compact promotional layouts that scan quickly while still protecting the brand tone and visual polish."
-              >
-                <img
-                  src="assets/promo-sheet.jpg"
-                  alt="Promotional sheet design"
-                />
-              </article>
-            </div>
-            <div
-              class="visual-tabs reveal"
-              role="tablist"
-              aria-label="Visual design projects"
-            >
-              <button class="active" type="button" data-show="tienda">
-                <span>01</span>Tienda
-              </button>
-              <button type="button" data-show="dylan">
-                <span>02</span>Dylan's
-              </button>
-              <button type="button" data-show="avon">
-                <span>03</span>Avon
-              </button>
-              <button type="button" data-show="promo">
-                <span>04</span>Promo
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section class="angled section-pink page-section" id="visual" data-tone="pink">
+      <div class="shell">
+        <header class="section-head reveal"><div><p class="kicker">01 · visual designs</p><h2>Visual work that feels<br><em>soft, clear and intentional.</em></h2></div><p>A more refined showcase of campaigns, layouts, digital experiences and brand assets — presented with space, motion and cleaner storytelling.</p></header>
 
-      <section
-        class="angled section-photo page-section"
-        id="photography"
-        data-tone="dark"
-      >
-        <div class="photo-backdrop">
-          <img src="assets/photo-shop.jpg" alt="" />
-        </div>
-        <div class="photo-wash"></div>
-        <div class="shell photo-layout">
-          <div class="photo-copy reveal">
-            <p class="kicker light">02 · photography</p>
-            <h2>little memories,<br /><em>kept forever.</em></h2>
-            <p>
-              Travel, landscape and quiet details. The archive opens like a
-              small letter, then turns into a glass photo shelf you can swipe,
-              wheel or drag through.
-            </p>
+        <div class="visual-story" id="visualStory">
+          <div class="visual-copy reveal">
+            <span class="chapter-index">01 / 04</span>
+            <h3 id="visualTitle">Tienda</h3>
+            <p id="visualDesc">A curated digital storefront direction shaped around product discovery, visual hierarchy and a gentle editorial rhythm.</p>
+            <button class="text-link" type="button" data-case="tienda">open case study ↗</button>
           </div>
-          <div class="envelope-zone reveal delay-1">
-            <button
-              class="envelope"
-              id="envelope"
-              type="button"
-              aria-label="Open photography archive"
-            >
-              <span class="env-shadow"></span><span class="env-back"></span
-              ><span class="env-letter"
-                ><i>photography archive</i><b>VIEW ME</b
-                ><small>four little moments · 2026</small></span
-              ><span class="env-flap"></span><span class="env-front"></span
-              ><span class="env-seal">🍓</span>
-            </button>
-            <p class="envelope-hint glass">
-              click the envelope · then scroll the photos
-            </p>
+          <div class="visual-stage reveal delay-1" aria-live="polite">
+            <article class="visual-frame active" data-visual="tienda" data-title="Tienda" data-desc="A curated digital storefront direction shaped around product discovery, visual hierarchy and a gentle editorial rhythm."><img src="assets/tienda-960.webp" srcset="assets/tienda-640.webp 640w, assets/tienda-960.webp 960w, assets/tienda-1280.webp 1280w" sizes="(max-width: 930px) 90vw, 65vw" alt="Tienda e-commerce project preview" width="2133" height="1182" /></article>
+            <article class="visual-frame" data-visual="dylan" data-title="Dylan's Little Closet" data-desc="A playful identity system that stays charming and memorable while still working across practical brand touchpoints."><img src="assets/dylans-logo-960.webp" srcset="assets/dylans-logo-640.webp 640w, assets/dylans-logo-960.webp 960w, assets/dylans-logo-1280.webp 1280w" sizes="(max-width: 930px) 90vw, 65vw" alt="Dylan's Little Closet logo" width="2000" height="2000" loading="lazy" decoding="async" /></article>
+            <article class="visual-frame" data-visual="avon" data-title="Avon Seamfree" data-desc="A product-led campaign visual using bold hierarchy, cleaner messaging and retail-friendly clarity."><img src="assets/avon-seamfree-960.webp" srcset="assets/avon-seamfree-640.webp 640w, assets/avon-seamfree-960.webp 960w, assets/avon-seamfree-1280.webp 1280w" sizes="(max-width: 930px) 90vw, 65vw" alt="Avon Seamfree campaign visual" width="1446" height="2048" loading="lazy" decoding="async" /></article>
+            <article class="visual-frame" data-visual="promo" data-title="Promo Sheets" data-desc="Compact promotional layouts that scan quickly while still protecting the brand tone and visual polish."><img src="assets/promo-sheet-960.webp" srcset="assets/promo-sheet-640.webp 640w, assets/promo-sheet-960.webp 960w" sizes="(max-width: 930px) 90vw, 65vw" alt="Promotional sheet design" width="1080" height="1350" loading="lazy" decoding="async" /></article>
           </div>
-        </div>
-      </section>
-
-      <section
-        class="angled section-white page-section"
-        id="branding"
-        data-tone="light"
-      >
-        <div class="shell">
-          <header class="section-head reveal">
-            <div>
-              <p class="kicker">03 · branding</p>
-              <h2>Personality, without<br /><em>losing polish.</em></h2>
-            </div>
-            <p>
-              The identity keeps personality through small accents while the
-              overall direction leans more editorial, minimal and glass-like.
-            </p>
-          </header>
-          <div class="brand-system reveal">
-            <div class="brand-lockup">
-              <p>Marie</p>
-              <h3>Zendee</h3>
-              <img
-                class="brand-lockup-logo"
-                src="assets/zendee-logo.png"
-                alt="Marie Zendee logo"
-              />
-            </div>
-            <div class="brand-statement">
-              <small>brand direction</small
-              ><strong
-                >Soft personality.<br />Clear systems.<br />Apple-like
-                polish.</strong
-              >
-            </div>
-            <div class="palette">
-              <div class="tone t1"><span>whitish pink</span><b>#FFF2F7</b></div>
-              <div class="tone t2"><span>white</span><b>#FFFFFF</b></div>
-              <div class="tone t3">
-                <span>blackish plum</span><b>#231A1F</b>
-              </div>
-            </div>
-            <div class="brand-details">
-              <div>
-                <small>display accent</small><b class="bootzy">Bootzy</b>
-              </div>
-              <div><small>interface</small><b>system / SF-style sans</b></div>
-              <div>
-                <small>materials</small
-                ><b>glass · soft gradients · fine borders</b>
-              </div>
-              <div>
-                <small>motion</small
-                ><b>transform + opacity · reduced-motion aware</b>
-              </div>
-            </div>
+          <div class="visual-tabs reveal" role="tablist" aria-label="Visual design projects">
+            <button class="active" type="button" data-show="tienda"><span>01</span>Tienda</button>
+            <button type="button" data-show="dylan"><span>02</span>Dylan's</button>
+            <button type="button" data-show="avon"><span>03</span>Avon</button>
+            <button type="button" data-show="promo"><span>04</span>Promo</button>
           </div>
-        </div>
-      </section>
-
-      <section
-        class="angled section-ink page-section"
-        id="projects"
-        data-tone="dark"
-      >
-        <div class="shell">
-          <header class="section-head inverse reveal">
-            <div>
-              <p class="kicker light">04 · projects</p>
-              <h2>
-                Projects with enough<br /><em>room to tell the story.</em>
-              </h2>
-            </div>
-            <p>
-              Each project opens in a focused glass case-study sheet so the work
-              can speak with more context, less clutter and smoother
-              transitions.
-            </p>
-          </header>
-          <div class="project-list">
-            <button class="project-row reveal" type="button" data-case="tienda">
-              <span>01</span>
-              <div>
-                <small>Digital Experience</small>
-                <h3>Tienda</h3>
-              </div>
-              <b>↗</b>
-            </button>
-            <button class="project-row reveal" type="button" data-case="dylan">
-              <span>02</span>
-              <div>
-                <small>Brand Identity</small>
-                <h3>Dylan's Little Closet</h3>
-              </div>
-              <b>↗</b>
-            </button>
-            <button class="project-row reveal" type="button" data-case="avon">
-              <span>03</span>
-              <div>
-                <small>Campaign Visual</small>
-                <h3>Avon Seamfree</h3>
-              </div>
-              <b>↗</b>
-            </button>
-            <button class="project-row reveal" type="button" data-case="paw">
-              <span>04</span>
-              <div>
-                <small>Awareness Campaign</small>
-                <h3>Paw-Up</h3>
-              </div>
-              <b>↗</b>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="angled section-pink page-section"
-        id="process"
-        data-tone="pink"
-      >
-        <div class="shell">
-          <header class="section-head reveal">
-            <div>
-              <p class="kicker">05 · creative process</p>
-              <h2>
-                Thoughtful from the first<br /><em>idea to the final pixel.</em>
-              </h2>
-            </div>
-            <p>
-              A lightweight process keeps the work consistent without flattening
-              the personality that makes each project feel distinct.
-            </p>
-          </header>
-          <div class="process-grid">
-            <article class="process-card reveal">
-              <span>01</span>
-              <h3>Understand</h3>
-              <p>
-                Clarify audience, message, constraints and what the design
-                actually needs to accomplish.
-              </p>
-            </article>
-            <article class="process-card reveal delay-1">
-              <span>02</span>
-              <h3>Shape</h3>
-              <p>
-                Build the hierarchy, direction, references and reusable visual
-                language before polishing.
-              </p>
-            </article>
-            <article class="process-card reveal delay-2">
-              <span>03</span>
-              <h3>Refine</h3>
-              <p>
-                Reduce noise, test spacing and interaction, then keep only the
-                details that strengthen the work.
-              </p>
-            </article>
-          </div>
-          <div class="tool-strip glass reveal">
-            <span>Figma</span><span>Canva</span><span>Photoshop</span
-            ><span>Lightroom</span><span>HTML</span><span>CSS</span>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="angled section-white page-section"
-        id="about"
-        data-tone="light"
-      >
-        <div class="shell about-editorial">
-          <div class="about-copy reveal">
-            <p class="kicker">06 · about me</p>
-            <h2>
-              Thoughtful visuals,<br /><em>made to communicate clearly.</em>
-            </h2>
-            <p>
-              Hi, I’m <strong>Marie Zendee</strong>. I work across visual
-              development, branding, campaigns, social content and creative
-              concepts. I like work that feels warm and memorable, while still
-              solving the communication problem in front of it.
-            </p>
-            <div class="about-facts">
-              <div>
-                <small>what I care about</small
-                ><b>clarity · feeling · detail</b>
-              </div>
-              <div>
-                <small>working style</small
-                ><b>collaborative · thoughtful · practical</b>
-              </div>
-            </div>
-            <div class="chips">
-              <span>🎨 visual content</span><span>📣 campaigns</span
-              ><span>📱 social</span><span>✨ creative direction</span>
-            </div>
-            <a
-              class="button secondary resume-button"
-              href="assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
-              download
-              >download résumé ↓</a
-            >
-          </div>
-          <figure class="about-photo reveal delay-1">
-            <img
-              src="assets/zendee-profile-about.jpg"
-              alt="Marie Zendee seated in a book-filled studio"
-              loading="lazy"
-            />
-            <figcaption class="glass">
-              <strong>Marie Zendee</strong
-              ><span>visual · brand · photography</span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section
-        class="angled contact-section page-section"
-        id="contact"
-        data-tone="dark"
-      >
-        <div class="shell contact-card reveal">
-          <p class="bootzy-note">don’t be shy ♡</p>
-          <h2>Let’s make something<br /><em>lovely together.</em></h2>
-          <p>
-            Available for visual design, brand support, creative content and
-            digital projects.
-          </p>
-          <div class="actions social-actions">
-            <a class="button primary" href="mailto:mariezendee@gmail.com"
-              >email me 💌</a
-            ><a
-              class="button glass-button"
-              href="https://www.linkedin.com/in/marie-zendee-patalinghug/"
-              target="_blank"
-              rel="noopener"
-              >linkedin ↗</a
-            ><a
-              class="button glass-button"
-              href="https://www.instagram.com/mariezendee/"
-              target="_blank"
-              rel="noopener"
-              >instagram ↗</a
-            ><a
-              class="button glass-button"
-              href="https://www.facebook.com/mariezendeee"
-              target="_blank"
-              rel="noopener"
-              >facebook ↗</a
-            >
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>🍓</p>
-      <span
-        >Marie Zendee · visual design · photography · branding · portfolio</span
-      >
-    </footer>
-
-    <div
-      class="photo-modal"
-      id="photoModal"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Photography archive"
-    >
-      <div class="photo-window glass-heavy">
-        <div class="photo-window-bar">
-          <div>
-            <small>Photography archive</small>
-            <h3>landscapes / moments</h3>
-          </div>
-          <button
-            class="round-close"
-            id="photoClose"
-            type="button"
-            aria-label="Close photography archive"
-          >
-            ×
-          </button>
-        </div>
-        <div class="photo-scroll-wrap">
-          <button
-            class="photo-arrow prev"
-            id="photoPrev"
-            type="button"
-            aria-label="Previous photograph"
-          >
-            ‹
-          </button>
-          <div class="photo-strip" id="photoStrip" tabindex="0">
-            <button
-              class="photo-slide"
-              type="button"
-              data-photo="assets/photo-shop.jpg"
-            >
-              <img
-                src="assets/photo-shop.jpg"
-                alt="Green vintage shop interior"
-              /><span class="glass"><b>01</b> found details</span>
-            </button>
-            <button
-              class="photo-slide"
-              type="button"
-              data-photo="assets/photo-lake.jpg"
-            >
-              <img
-                src="assets/photo-lake.jpg"
-                alt="Portrait beside a calm lake"
-                loading="lazy"
-              /><span class="glass"><b>02</b> still water</span>
-            </button>
-            <button
-              class="photo-slide"
-              type="button"
-              data-photo="assets/photo-peacock.jpg"
-            >
-              <img
-                src="assets/photo-peacock.jpg"
-                alt="Peacock in a green garden"
-                loading="lazy"
-              /><span class="glass"><b>03</b> quiet encounters</span>
-            </button>
-            <button
-              class="photo-slide"
-              type="button"
-              data-photo="assets/photo-city.jpg"
-            >
-              <img
-                src="assets/photo-city.jpg"
-                alt="City skyline beside the water"
-                loading="lazy"
-              /><span class="glass"><b>04</b> city / water</span>
-            </button>
-          </div>
-          <button
-            class="photo-arrow next"
-            id="photoNext"
-            type="button"
-            aria-label="Next photograph"
-          >
-            ›
-          </button>
-        </div>
-        <div class="photo-progress">
-          <span id="photoCount">01 / 04</span>
-          <div><i id="photoBar"></i></div>
-          <small>scroll · swipe · drag</small>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div
-      class="viewer"
-      id="viewer"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Expanded photograph"
-    >
-      <button
-        class="round-close"
-        id="viewerClose"
-        type="button"
-        aria-label="Close expanded photograph"
-      >
-        ×
-      </button>
-      <figure class="viewer-card glass-heavy">
-        <img id="viewerImg" src="" alt="" />
-      </figure>
-    </div>
+    <section class="angled section-photo page-section" id="photography" data-tone="dark">
+      <div class="photo-backdrop"><img src="assets/photo-shop-1280.webp" srcset="assets/photo-shop-640.webp 640w, assets/photo-shop-960.webp 960w, assets/photo-shop-1280.webp 1280w" sizes="100vw" alt="" loading="lazy" decoding="async" width="1280" height="853" /></div>
+      <div class="photo-wash"></div>
+      <div class="shell photo-layout">
+        <div class="photo-copy reveal"><p class="kicker light">02 · photography</p><h2>little places,<br><em>kept forever.</em></h2><p>Travel, landscape and quiet details. The archive opens like a small letter, then turns into a glass photo shelf you can swipe, wheel or drag through.</p></div>
+        <div class="envelope-zone reveal delay-1">
+          <button class="envelope" id="envelope" type="button" aria-label="Open photography archive">
+            <span class="env-shadow"></span><span class="env-back"></span><span class="env-letter"><i>photography archive</i><b>VIEW ME</b><small>four little moments · 2026</small></span><span class="env-flap"></span><span class="env-front"></span><span class="env-seal">🍓</span>
+          </button>
+          <p class="envelope-hint glass">click the envelope · then scroll the photos</p>
+        </div>
+      </div>
+    </section>
 
-    <div
-      class="case-modal"
-      id="caseModal"
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Project case study"
-    >
-      <div class="case-sheet glass-heavy" id="caseSheet"></div>
-    </div>
+    <section class="angled section-white page-section" id="branding" data-tone="light">
+      <div class="shell">
+        <header class="section-head reveal"><div><p class="kicker">03 · branding</p><h2>Personality, without<br><em>losing polish.</em></h2></div><p>The identity keeps personality through small accents while the overall direction leans more editorial, minimal and glass-like.</p></header>
+        <div class="brand-system reveal">
+          <div class="brand-lockup"><p>Marie</p><h3>Zendee</h3><img class="brand-lockup-logo" src="assets/zendee-logo.png" alt="Marie Zendee logo" /></div>
+          <div class="brand-statement"><small>brand direction</small><strong>Soft personality.<br>Clear systems.<br>Apple-like polish.</strong></div>
+          <div class="palette"><div class="tone t1"><span>whitish pink</span><b>#FFF2F7</b></div><div class="tone t2"><span>white</span><b>#FFFFFF</b></div><div class="tone t3"><span>blackish plum</span><b>#231A1F</b></div></div>
+          <div class="brand-details"><div><small>display accent</small><b class="bootzy">Bootzy</b></div><div><small>interface</small><b>system / SF-style sans</b></div><div><small>materials</small><b>glass · soft gradients · fine borders</b></div><div><small>motion</small><b>transform + opacity · reduced-motion aware</b></div></div>
+        </div>
+      </div>
+    </section>
 
-    <script src="app.js" defer></script>
-    <script src="zendee-sound.js" defer></script>
-  </body>
+    <section class="angled section-ink page-section" id="projects" data-tone="dark">
+      <div class="shell">
+        <header class="section-head inverse reveal"><div><p class="kicker light">04 · projects</p><h2>Projects with enough<br><em>room to tell the story.</em></h2></div><p>Each project opens in a focused glass case-study sheet so the work can speak with more context, less clutter and smoother transitions.</p></header>
+        <div class="project-list">
+          <button class="project-row reveal" type="button" data-case="tienda"><span>01</span><div><small>Digital Experience</small><h3>Tienda</h3></div><b>↗</b></button>
+          <button class="project-row reveal" type="button" data-case="dylan"><span>02</span><div><small>Brand Identity</small><h3>Dylan's Little Closet</h3></div><b>↗</b></button>
+          <button class="project-row reveal" type="button" data-case="avon"><span>03</span><div><small>Campaign Visual</small><h3>Avon Seamfree</h3></div><b>↗</b></button>
+          <button class="project-row reveal" type="button" data-case="paw"><span>04</span><div><small>Awareness Campaign</small><h3>Paw-Up</h3></div><b>↗</b></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="angled section-pink page-section" id="process" data-tone="pink">
+      <div class="shell">
+        <header class="section-head reveal"><div><p class="kicker">05 · creative process</p><h2>Thoughtful from the first<br><em>idea to the final pixel.</em></h2></div><p>A lightweight process keeps the work consistent without flattening the personality that makes each project feel distinct.</p></header>
+        <div class="process-grid">
+          <article class="process-card reveal"><span>01</span><h3>Understand</h3><p>Clarify audience, message, constraints and what the design actually needs to accomplish.</p></article>
+          <article class="process-card reveal delay-1"><span>02</span><h3>Shape</h3><p>Build the hierarchy, direction, references and reusable visual language before polishing.</p></article>
+          <article class="process-card reveal delay-2"><span>03</span><h3>Refine</h3><p>Reduce noise, test spacing and interaction, then keep only the details that strengthen the work.</p></article>
+        </div>
+        <div class="tool-strip glass reveal"><span>Figma</span><span>Canva</span><span>Photoshop</span><span>Lightroom</span><span>HTML</span><span>CSS</span></div>
+      </div>
+    </section>
+
+    <section class="angled section-white page-section" id="about" data-tone="light">
+      <div class="shell about-editorial">
+        <div class="about-copy reveal"><p class="kicker">06 · about me</p><h2>Thoughtful visuals,<br><em>made to communicate clearly.</em></h2><p>Hi, I’m <strong>Marie Zendee</strong>. I work across visual development, branding, campaigns, social content and creative concepts. I like work that feels warm and memorable, while still solving the communication problem in front of it.</p><div class="about-facts"><div><small>what I care about</small><b>clarity · feeling · detail</b></div><div><small>working style</small><b>collaborative · thoughtful · practical</b></div></div><div class="chips"><span>🎨 visual content</span><span>📣 campaigns</span><span>📱 social</span><span>✨ creative direction</span></div><a class="button secondary resume-button" href="assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf" download>download résumé ↓</a></div>
+        <figure class="about-photo reveal delay-1"><img src="assets/zendee-profile-about-900.webp" srcset="assets/zendee-profile-about-640.webp 640w, assets/zendee-profile-about-900.webp 900w" sizes="(max-width: 930px) 90vw, 45vw" alt="Marie Zendee seated in a book-filled studio" loading="lazy" decoding="async" width="900" height="1200" /><figcaption class="glass"><strong>Marie Zendee</strong><span>visual · brand · photography</span></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="angled contact-section page-section" id="contact" data-tone="dark">
+      <div class="shell contact-card reveal">
+        <p class="bootzy-note">don’t be shy ♡</p><h2>Let’s make something<br><em>lovely together.</em></h2><p>Available for freelance and full-time creative opportunities in visual design, brand support, content and digital projects.</p><div class="availability"><span class="status-dot" aria-hidden="true"></span><span>Open to opportunities</span></div>
+        <div class="actions social-actions"><a class="button primary" href="mailto:mariezendee@gmail.com">email me 💌</a><button class="button glass-button copy-email" id="copyEmail" type="button" data-email="mariezendee@gmail.com">copy email</button><a class="button glass-button" href="https://www.linkedin.com/in/marie-zendee-patalinghug/" target="_blank" rel="noopener">linkedin ↗</a><a class="button glass-button" href="https://www.instagram.com/mariezendee/" target="_blank" rel="noopener">instagram ↗</a><a class="button glass-button" href="https://www.facebook.com/mariezendeee" target="_blank" rel="noopener">facebook ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>🍓</p><span>Marie Zendee · visual design · photography · branding · portfolio</span></footer>
+
+  <div class="photo-modal" id="photoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photography archive" aria-describedby="photoArchiveHelp">
+    <div class="photo-window glass-heavy">
+      <div class="photo-window-bar"><div><small>Photography archive</small><h3>landscapes / moments</h3></div><button class="round-close" id="photoClose" type="button" aria-label="Close photography archive">×</button></div>
+      <div class="photo-scroll-wrap">
+        <button class="photo-arrow prev" id="photoPrev" type="button" aria-label="Previous photograph">‹</button>
+        <div class="photo-strip" id="photoStrip" tabindex="0" role="region" aria-label="Scrollable photography gallery">
+          <button class="photo-slide" type="button" data-photo="assets/photo-shop.jpg" aria-label="Open photograph 01: found details"><img src="assets/photo-shop-960.webp" srcset="assets/photo-shop-640.webp 640w, assets/photo-shop-960.webp 960w, assets/photo-shop-1280.webp 1280w" sizes="(max-width: 590px) 88vw, 72vw" alt="Green vintage shop interior" loading="lazy" decoding="async" width="1280" height="853" /><span class="glass"><b>01</b> found details</span></button>
+          <button class="photo-slide" type="button" data-photo="assets/photo-lake.jpg" aria-label="Open photograph 02: still water"><img src="assets/photo-lake-960.webp" srcset="assets/photo-lake-640.webp 640w, assets/photo-lake-960.webp 960w, assets/photo-lake-1280.webp 1280w" sizes="(max-width: 590px) 88vw, 72vw" alt="Portrait beside a calm lake" loading="lazy" decoding="async" width="1280" height="853" /><span class="glass"><b>02</b> still water</span></button>
+          <button class="photo-slide" type="button" data-photo="assets/photo-peacock.jpg" aria-label="Open photograph 03: quiet encounters"><img src="assets/photo-peacock-960.webp" srcset="assets/photo-peacock-640.webp 640w, assets/photo-peacock-960.webp 960w, assets/photo-peacock-1280.webp 1280w" sizes="(max-width: 590px) 88vw, 72vw" alt="Peacock in a green garden" loading="lazy" decoding="async" width="1280" height="853" /><span class="glass"><b>03</b> quiet encounters</span></button>
+          <button class="photo-slide" type="button" data-photo="assets/photo-city.jpg" aria-label="Open photograph 04: city / water"><img src="assets/photo-city-960.webp" srcset="assets/photo-city-640.webp 640w, assets/photo-city-960.webp 960w, assets/photo-city-1280.webp 1280w" sizes="(max-width: 590px) 88vw, 72vw" alt="City skyline beside the water" loading="lazy" decoding="async" width="1280" height="853" /><span class="glass"><b>04</b> city / water</span></button>
+        </div>
+        <button class="photo-arrow next" id="photoNext" type="button" aria-label="Next photograph">›</button>
+      </div>
+      <div class="photo-progress"><span id="photoCount">01 / 04</span><div><i id="photoBar"></i></div><small id="photoArchiveHelp">swipe, drag, use the wheel, or press arrow keys</small></div>
+    </div>
+  </div>
+
+  <div class="viewer" id="viewer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded photograph"><button class="round-close" id="viewerClose" type="button" aria-label="Close expanded photograph">×</button><figure class="viewer-card glass-heavy"><img id="viewerImg" src="" alt="" /></figure></div>
+
+  <div class="case-modal" id="caseModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project case study"><div class="case-sheet glass-heavy" id="caseSheet"></div></div>
+
+  <script src="app.js" defer></script>
+  <script src="zendee-sound.js" defer></script>
+</body>
 </html>

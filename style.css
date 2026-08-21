@@ -1295,3 +1295,79 @@ html,body{background:#fffdfd}
 .boot-track i{
   transition:width .36s cubic-bezier(.16,1,.3,1);
 }
+
+
+/* V18 production polish: accessibility, mobile sheet, responsive imagery, quieter Apple-like details */
+.skip-link{position:fixed;left:16px;top:12px;z-index:10000;padding:10px 14px;border-radius:999px;background:#231a1f;color:#fff;font-size:12px;transform:translateY(-160%);transition:transform .25s var(--motion)}
+.skip-link:focus{transform:none}
+:focus-visible{outline:3px solid rgba(215,87,136,.28);outline-offset:3px}
+.nav-links a[aria-current="true"]{background:#fff1f6;color:#a94068}
+.sound-wrap{position:relative;display:grid;place-items:center}
+.sound-tooltip{position:absolute;right:0;top:calc(100% + 10px);white-space:nowrap;padding:7px 10px;border-radius:12px;background:rgba(35,26,31,.88);color:#fff;font-size:9px;letter-spacing:.04em;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .25s var(--motion),transform .25s var(--motion)}
+.sound-wrap:hover .sound-tooltip,.sound-wrap:focus-within .sound-tooltip{opacity:1;transform:none}
+.nav-backdrop{position:fixed;inset:0;z-index:2390;background:rgba(25,18,22,.18);opacity:0;visibility:hidden;transition:opacity .32s var(--motion),visibility .32s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+body.menu-open .nav-backdrop{opacity:1;visibility:visible}
+.availability{margin:18px auto 0;display:inline-flex;align-items:center;gap:8px;font-size:10px;color:#e8cfd9}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#f0a3c0;box-shadow:0 0 0 5px rgba(240,163,192,.10)}
+.copy-email.copied{background:#fff;color:#a34268;border-color:#f0cad8}
+.asset-missing{position:relative;background:linear-gradient(145deg,#fff4f8,#f8edf2)!important}
+.asset-missing:after{content:"Preview unavailable";position:absolute;inset:0;display:grid;place-items:center;color:#9a7785;font-size:11px;letter-spacing:.05em}
+
+/* Photography: neighboring-frame cue and crisper active state */
+.photo-strip{scroll-padding-inline:max(9vw,78px)}
+.photo-slide{flex-basis:min(735px,69vw);filter:saturate(.84) brightness(.94)}
+.photo-slide.active{filter:saturate(1) brightness(1)}
+.photo-slide:not(.active) img{transform:scale(.992)}
+.photo-slide.active img{transform:scale(1.01)}
+.photo-progress small{max-width:280px;text-align:right}
+
+/* Responsive images should never shift layout */
+.hero-work img,.visual-frame img,.photo-slide img,.about-photo img,.photo-backdrop img{height:auto}
+
+/* Mobile navigation becomes an iOS-like bottom sheet */
+@media(max-width:930px){
+  .nav-shell{padding-inline:12px}
+  .nav{position:relative}
+  .nav-links{
+    position:fixed!important;
+    z-index:2450;
+    left:12px!important;
+    right:12px!important;
+    top:auto!important;
+    bottom:max(12px,env(safe-area-inset-bottom))!important;
+    display:flex!important;
+    flex-direction:column;
+    align-items:stretch!important;
+    padding:12px 12px calc(12px + env(safe-area-inset-bottom));
+    border-radius:30px!important;
+    background:rgba(255,255,255,.88)!important;
+    border:1px solid rgba(255,255,255,.9)!important;
+    box-shadow:0 26px 80px rgba(39,27,33,.18)!important;
+    -webkit-backdrop-filter:blur(28px) saturate(1.12);
+    backdrop-filter:blur(28px) saturate(1.12);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(calc(100% + 40px)) scale(.98);
+    transition:transform .42s var(--motion),opacity .32s var(--motion),visibility .32s;
+  }
+  .nav-links:before{content:"";width:38px;height:4px;border-radius:99px;background:#ddced4;margin:3px auto 9px}
+  .nav-links.open{opacity:1;visibility:visible;transform:none}
+  .nav-links a{font-size:15px!important;padding:13px 16px!important;text-align:left!important;border-radius:18px}
+  .menu-btn{display:block}
+  .icon-btn{display:grid}
+}
+
+/* Tiny screens and large screens */
+@media(max-width:390px){
+  :root{--shell:calc(100% - 22px)}
+  .hero-showcase{min-height:330px}
+  .hw-main{width:74%}.hw-brand{width:34%}.hw-photo{width:47%}
+  .visual-stage{min-height:340px}
+  .photo-slide{flex-basis:89vw}
+  .brand-lockup h3{font-size:62px}
+}
+@media(min-width:1500px){
+  :root{--shell:min(1240px,calc(100vw - 96px))}
+  .hero-grid{gap:90px}
+  .hero-showcase{min-height:570px}
+}

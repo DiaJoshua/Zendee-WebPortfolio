@@ -5,7 +5,8 @@
 
   const boot=$('#boot'), bootProgress=$('#bootProgress');
   const bootStart=performance.now();
-  const MIN_BOOT_TIME=reduced?80:1450;
+  let seenPortfolio=false;try{seenPortfolio=sessionStorage.getItem('mz-seen')==='1'}catch(e){};
+  const MIN_BOOT_TIME=reduced?80:(seenPortfolio?560:1450);
   let bootValue=8, bootDone=false, bootTimer=0, pageReady=false;
 
   const setBootProgress=(v)=>{
@@ -16,6 +17,7 @@
   const revealSite=()=>{
     if(bootDone)return;
     bootDone=true;
+    try{sessionStorage.setItem('mz-seen','1')}catch(e){};
     clearInterval(bootTimer);
     setBootProgress(100);
     boot?.classList.add('loading-complete');
@@ -106,12 +108,33 @@
   $$('.reveal').forEach(el=>revealIO.observe(el));
 
   const sections=$$('.page-section[id]'); const navAnchors=$$('.nav-links a');
-  const sectionIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;navAnchors.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-35% 0px -55% 0px',threshold:0});
+  const sectionIO=new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    navAnchors.forEach(a=>{
+      const current=a.getAttribute('href')==='#'+e.target.id;
+      a.classList.toggle('active',current);
+      if(current)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');
+    });
+  }),{rootMargin:'-34% 0px -58% 0px',threshold:0});
   sections.forEach(s=>sectionIO.observe(s));
 
-  const menu=$('#menuBtn'), links=$('#navLinks');
-  menu?.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
-  $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu?.setAttribute('aria-expanded','false')}));
+  const menu=$('#menuBtn'), links=$('#navLinks'), navBackdrop=$('#navBackdrop');
+  const closeMenu=()=>{
+    links?.classList.remove('open');
+    body.classList.remove('menu-open');
+    menu?.setAttribute('aria-expanded','false');
+    navBackdrop?.setAttribute('aria-hidden','true');
+  };
+  const openMenu=()=>{
+    links?.classList.add('open');
+    body.classList.add('menu-open');
+    menu?.setAttribute('aria-expanded','true');
+    navBackdrop?.setAttribute('aria-hidden','false');
+    $('a',links)?.focus({preventScroll:true});
+  };
+  menu?.addEventListener('click',()=>links?.classList.contains('open')?closeMenu():openMenu());
+  navBackdrop?.addEventListener('click',closeMenu);
+  $$('#navLinks a').forEach(a=>a.addEventListener('click',closeMenu));
 
   const roles=['Graphic Artist','Visual Designer','Photography & Brand Support'];
   const type=$('#typeRole'); let role=0,char=roles[0].length,del=false,typeTimer=0;
@@ -121,10 +144,30 @@
   function showVisual(key){const idx=visualFrames.findIndex(f=>f.dataset.visual===key);visualFrames.forEach(f=>f.classList.toggle('active',f.dataset.visual===key));visualTabs.forEach(b=>b.classList.toggle('active',b.dataset.show===key));const f=visualFrames[idx];if(!f)return;visualTitle.textContent=f.dataset.title;visualDesc.textContent=f.dataset.desc;chapter.textContent=String(idx+1).padStart(2,'0')+' / 04';visualLink.dataset.case=key}
   visualTabs.forEach(b=>b.addEventListener('click',()=>showVisual(b.dataset.show)));
 
+  let lastFocus=null,activeTrap=null;
+  const focusables=root=>$$('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])',root).filter(el=>!el.hidden&&el.offsetParent!==null);
+  const activateTrap=(root,initial)=>{
+    lastFocus=document.activeElement;
+    activeTrap=root;
+    (initial||focusables(root)[0])?.focus({preventScroll:true});
+  };
+  const releaseTrap=()=>{
+    activeTrap=null;
+    if(lastFocus?.focus)lastFocus.focus({preventScroll:true});
+    lastFocus=null;
+  };
+  addEventListener('keydown',e=>{
+    if(e.key==='Tab'&&activeTrap){
+      const list=focusables(activeTrap);if(!list.length)return;
+      const first=list[0],last=list[list.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
   const lock=v=>body.classList.toggle('lock',v);
   const envelope=$('#envelope'), photoModal=$('#photoModal'), photoClose=$('#photoClose'), photoStrip=$('#photoStrip'), slides=$$('.photo-slide'), photoCount=$('#photoCount'), photoBar=$('#photoBar');
-  function openPhotos(){envelope?.classList.add('open');setTimeout(()=>{photoModal?.classList.add('open');photoModal?.setAttribute('aria-hidden','false');lock(true);photoStrip?.focus({preventScroll:true});updatePhotoProgress()},reduced?0:440)}
-  function closePhotos(){photoModal?.classList.remove('open');photoModal?.setAttribute('aria-hidden','true');lock(false);setTimeout(()=>envelope?.classList.remove('open'),reduced?0:260)}
+  function openPhotos(){envelope?.classList.add('open');setTimeout(()=>{photoModal?.classList.add('open');photoModal?.setAttribute('aria-hidden','false');lock(true);activateTrap(photoModal,photoClose);photoStrip?.focus({preventScroll:true});updatePhotoProgress()},reduced?0:440)}
+  function closePhotos(){photoModal?.classList.remove('open');photoModal?.setAttribute('aria-hidden','true');lock(false);releaseTrap();setTimeout(()=>envelope?.classList.remove('open'),reduced?0:260)}
   envelope?.addEventListener('click',openPhotos); photoClose?.addEventListener('click',closePhotos); photoModal?.addEventListener('click',e=>{if(e.target===photoModal)closePhotos()});
   let photoRAF=0,activePhoto=0,wheelLock=false;
   function nearestPhoto(){if(!photoStrip||!slides.length)return 0;const center=photoStrip.scrollLeft+photoStrip.clientWidth/2;let best=0,dist=Infinity;slides.forEach((s,i)=>{const c=s.offsetLeft+s.offsetWidth/2,d=Math.abs(c-center);if(d<dist){dist=d;best=i}});return best}
@@ -142,8 +185,8 @@
   photoStrip?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();goPhoto(activePhoto+1)}else if(e.key==='ArrowLeft'){e.preventDefault();goPhoto(activePhoto-1)}});
 
   const viewer=$('#viewer'),viewerImg=$('#viewerImg');
-  slides.forEach(s=>s.addEventListener('click',()=>{if(dragMoved)return;viewerImg.src=s.dataset.photo;viewerImg.alt=$('img',s).alt;viewer.classList.add('open');viewer.setAttribute('aria-hidden','false')}));
-  function closeViewer(){viewer?.classList.remove('open');viewer?.setAttribute('aria-hidden','true')}
+  slides.forEach(s=>s.addEventListener('click',()=>{if(dragMoved)return;viewerImg.src=s.dataset.photo;viewerImg.alt=$('img',s).alt;viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');activateTrap(viewer,$('#viewerClose'))}));
+  function closeViewer(){viewer?.classList.remove('open');viewer?.setAttribute('aria-hidden','true');releaseTrap()}
   $('#viewerClose')?.addEventListener('click',closeViewer);viewer?.addEventListener('click',e=>{if(e.target===viewer)closeViewer()});
 
   const cases={
@@ -154,11 +197,24 @@
     paw:{type:'awareness campaign',title:'Paw-Up',img:'assets/Paw-up.jpg',desc:'An awareness visual built to feel warm, optimistic and immediately understandable.',focus:'campaign poster',approach:'friendly storytelling',deliverable:'awareness creative'}
   };
   const caseModal=$('#caseModal'),caseSheet=$('#caseSheet');
-  function openCase(key){const c=cases[key];if(!c)return;caseSheet.innerHTML=`<div class="case-head"><div><small>${c.type}</small><h3>${c.title}</h3></div><button class="round-close case-close" type="button" aria-label="Close case study">×</button></div><div class="case-body"><div class="case-media"><img src="${c.img}" alt="${c.title}"></div><div class="case-copy"><p>${c.desc}</p><div class="case-facts"><div><small>focus</small><b>${c.focus}</b></div><div><small>approach</small><b>${c.approach}</b></div><div><small>deliverable</small><b>${c.deliverable}</b></div></div></div></div>`;caseModal.classList.add('open');caseModal.setAttribute('aria-hidden','false');lock(true);$('.case-close',caseSheet).addEventListener('click',closeCase);wireImageFallbacks(caseSheet)}
-  function closeCase(){caseModal?.classList.remove('open');caseModal?.setAttribute('aria-hidden','true');lock(false)}
+  function openCase(key){const c=cases[key];if(!c)return;caseSheet.innerHTML=`<div class="case-head"><div><small>${c.type}</small><h3>${c.title}</h3></div><button class="round-close case-close" type="button" aria-label="Close case study">×</button></div><div class="case-body"><div class="case-media"><img src="${c.img}" alt="${c.title}"></div><div class="case-copy"><p>${c.desc}</p><div class="case-facts"><div><small>focus</small><b>${c.focus}</b></div><div><small>approach</small><b>${c.approach}</b></div><div><small>deliverable</small><b>${c.deliverable}</b></div></div></div></div>`;caseModal.classList.add('open');caseModal.setAttribute('aria-hidden','false');lock(true);activateTrap(caseModal,$('.case-close',caseSheet));$('.case-close',caseSheet).addEventListener('click',closeCase);wireImageFallbacks(caseSheet)}
+  function closeCase(){caseModal?.classList.remove('open');caseModal?.setAttribute('aria-hidden','true');lock(false);releaseTrap()}
   $$('[data-case]').forEach(el=>el.addEventListener('click',()=>openCase(el.dataset.case)));caseModal?.addEventListener('click',e=>{if(e.target===caseModal)closeCase()});
 
-  addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer?.classList.contains('open'))closeViewer();else if(caseModal?.classList.contains('open'))closeCase();else if(photoModal?.classList.contains('open'))closePhotos()});
+  addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(viewer?.classList.contains('open'))closeViewer();else if(caseModal?.classList.contains('open'))closeCase();else if(photoModal?.classList.contains('open'))closePhotos();else if(links?.classList.contains('open'))closeMenu()});
+
+  const copyEmail=$('#copyEmail');
+  copyEmail?.addEventListener('click',async()=>{
+    const email=copyEmail.dataset.email||'mariezendee@gmail.com';
+    try{
+      await navigator.clipboard.writeText(email);
+      copyEmail.textContent='copied ✓';
+      copyEmail.classList.add('copied');
+      setTimeout(()=>{copyEmail.textContent='copy email';copyEmail.classList.remove('copied')},1800);
+    }catch(e){
+      location.href='mailto:'+email;
+    }
+  });
 
   function wireImageFallbacks(root=document){$$('img',root).forEach(img=>{if(img.dataset.checked)return;img.dataset.checked='1';img.addEventListener('error',()=>img.parentElement?.classList.add('asset-missing'),{once:true})})}
   wireImageFallbacks();
