@@ -1,0 +1,27 @@
+{
+  "name": "Marie Zendee \u2014 Creative Desktop",
+  "short_name": "Marie Zendee",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff2f7",
+  "theme_color": "#fff2f7",
+  "icons": [
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "description": "A little world of visual design, branding, and photography by Marie Zendee."
+}

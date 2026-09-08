@@ -1,0 +1,122 @@
+VERIFICATION NOTES — BERRY DESKTOP
+
+Passed automated checks
+- Both JavaScript files parse successfully.
+- All local HTML image, stylesheet, script, icon, font, and résumé paths resolve.
+- All section links resolve; element IDs are unique.
+- Static JavaScript ID references match page elements.
+- Image elements have alternative text attributes.
+- All 29 original image/icon/font/PDF assets match the uploaded archive exactly.
+- 15 optimized image previews total approximately 1.47 MB, versus 6.76 MB for
+  the corresponding originals: approximately 78% smaller.
+
+Interaction logic checks (synthetic API harness, no live browser)
+1. Page initialization and default theme.
+2. All four project filters and result counts.
+3. All six project entries and wraparound next/previous navigation.
+4. Nested image viewer, underlying project state, and scroll lock.
+5. Expand/restore project window state.
+6. Gallery navigation and selected-thumbnail state.
+7. Swipe navigation without accidental image expansion.
+8. Repeated envelope clicks and cancellation before delayed opening.
+9. Appearance preference persistence.
+10. Calm motion and system reduced-motion preference.
+11. Search results, project handoff, and safe no-result handling.
+12. Email copy success feedback.
+13. Clipboard denial with local-copy fallback.
+14. Missing preview fallback to the original image.
+15. No audio initialized or played before opt-in.
+16. Sound off suppresses music and click effects.
+17. Audio initialization failure returns to sound off.
+
+Implementation fixes
+- Removed the blocking load screen and perpetual typewriter timer.
+- Replaced the accumulated stylesheet with one responsive styling system.
+- Replaced manual modal focus traps with native dialogs and explicit focus return.
+- Removed gallery wheel interception so normal scrolling remains available.
+- Prevented duplicate delayed gallery opens and accidental taps after swipes.
+- Sound no longer unlocks itself on unrelated clicks or plays while disabled.
+- UI sounds and melody pause while the page is hidden.
+- All original artwork remains available at full resolution.
+
+Scope and limits
+These are static validation and interaction-logic tests using mocked browser
+APIs. They do not verify visual rendering, native dialog focus behavior,
+real clipboard permissions, actual audio playback, or touch behavior in a live
+browser. Responsive rules cover small phones through large desktop displays,
+but real browser/device testing has not been performed in this session.
+
+Before public release, check the final deployed address on Safari/iPhone and
+Chrome/Windows, especially keyboard navigation, swipe interactions, audio,
+200% text enlargement, and the home-screen launch. There are no third-party
+runtime dependencies, remote image services, or required build steps.
+
+Navigation revision
+- Replaced the bottom app dock with simple Home, Work, Photos, About, and
+  Contact links in the sticky glass header. Search stays in the header tools.
+- On smaller screens, all five links stay visible in a compact second row.
+- Adjusted section anchor offsets and removed reserved bottom-dock spacing.
+
+Pinned header and envelope refinement
+- Navigation, search, sound and preferences stay together in the fixed top header.
+- Measured header height adjusts page spacing and section anchor offsets.
+- The current-section highlight follows the header position and selects Contact
+  at the page end. Section tracking reuses its navigation references.
+- Enlarged the envelope and clarified its label; smaller screens use a roomy
+  single-column photo introduction. Original desktop artwork and images remain.
+- Three additional synthetic checks passed: section selection threshold, wrapped
+  header spacing, and the final Contact highlight (20 logic checks in total).
+- Live browser and device rendering remain unverified.
+
+
+CREATIVE UPDATE CHECKS — SEPTEMBER 2026
+Run in headless Chromium over a local HTTP server, 1440x900 and 390x844.
+- No console errors and no uncaught exceptions on load or interaction.
+- Every image resolves; no broken or empty image sources.
+- Ledger rows open the matching project window (checked Paw-Up and Tienda).
+- Project filters still report the right counts after the new sections.
+- Search now also finds "The index of work" and "Services".
+- Marquee tracks animate, pause on hover, and take their speed from their own
+  measured width.
+- Calm motion removes the petals, stops both marquee tracks, shows every
+  revealed section at full opacity, and prints the counts without animating.
+- Berry, Pearl and Midnight all render the new sections correctly.
+- Wrapped headline text keeps its spaces when line breaks collapse on phones.
+Not verified: real iOS/Android devices, audio playback, clipboard permissions.
+
+CUTE PASS CHECKS — SEPTEMBER 2026
+- No console errors or uncaught exceptions; no broken images.
+- All three self-hosted faces load with no network request.
+- Typed roles cycle, stop under Calm motion (showing all three at once), and
+  pause when the tab is hidden.
+- The note form builds a mailto: link and confirms with the existing toast.
+- Ledger rows, filters, search, themes and the photo gallery all still pass.
+- Berry, Pearl and Midnight checked; mobile hero, contact and forms checked at
+  390px.
+
+MENU BAR CHECKS — SEPTEMBER 2026
+- Measured header height stays 68px, so anchor offsets and page padding are
+  unaffected by the capsule.
+- Current-page pill follows scrolling and lands on Contact at the end.
+- Manila chip hides below 1100px; the Command-K hint hides below 1240px.
+- Berry, Pearl and Midnight capsules all render on their own surface colour.
+- After the removals: no duplicate IDs, no broken images, no console errors,
+  and project windows, next/previous, filters, search, the photo gallery,
+  email copy and the note form all still pass.
+
+AFTER THE TRIM — SEPTEMBER 2026
+- No duplicate IDs, no broken images, no console errors.
+- Search no longer offers the removed process section; navigation highlighting
+  covers the remaining sections and still lands on Contact at the end.
+- Project windows, next/previous, filters, the photo gallery and email copy
+  all still pass.
+
+FINAL PASS CHECKS — SEPTEMBER 2026
+- Removing the search button does not break app.js (the listener is optional
+  now); Control+K / Command+K still opens the search window.
+- Résumé panel: both links point at the original PDF, one opening in a new tab
+  and one downloading; the layout stacks its buttons below 900px.
+- Search no longer offers the removed services section; navigation highlighting
+  still lands on Contact at the end.
+- No duplicate IDs, no broken images, no console errors; project windows,
+  next/previous, filters, the photo gallery and email copy all still pass.
