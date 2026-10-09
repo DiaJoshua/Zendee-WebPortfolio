@@ -1,82 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#fff3f7" />
-    <meta
-      name="description"
-      content="Marie Zendee — visual design, photography, branding and creative portfolio."
-    />
-    <meta name="color-scheme" content="light" />
-    <title>Marie Zendee Portfolio</title>
-    <link
-      rel="preload"
-      href="BootzyTM.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin
-    />
-    <link rel="canonical" href="https://berry-zendee.vercel.app/" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Marie Zendee — Visual Design, Photography & Branding"
-    />
-    <meta
-      property="og:description"
-      content="A multidisciplinary creative portfolio by Marie Zendee, featuring visual design, branding, campaigns and photography."
-    />
-    <meta property="og:url" content="https://berry-zendee.vercel.app/" />
-    <meta
-      property="og:image"
-      content="https://berry-zendee.vercel.app/og-preview.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Marie Zendee — Creative Portfolio" />
-    <meta
-      name="twitter:description"
-      content="Visual design, photography, branding and creative work by Marie Zendee."
-    />
-    <meta
-      name="twitter:image"
-      content="https://berry-zendee.vercel.app/og-preview.jpg"
-    />
-    <link
-      rel="preload"
-      href="assets/previews/tienda.webp"
-      as="image"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/quicksand-latin-500-normal.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/playfair-display-latin-600-normal.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="icon" type="image/png" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" href="favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Marie Zendee" />
-    <script type="application/ld+json">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#fff3f7" name="theme-color"/>
+<meta content="Marie Zendee — visual design, photography, branding and creative portfolio." name="description"/>
+<meta content="light" name="color-scheme"/>
+<title>Marie Zendee Portfolio</title>
+<link as="font" crossorigin="" href="BootzyTM.ttf" rel="preload" type="font/ttf"/>
+<link href="https://berry-zendee.vercel.app/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Marie Zendee — Visual Design, Photography &amp; Branding" property="og:title"/>
+<meta content="A multidisciplinary creative portfolio by Marie Zendee, featuring visual design, branding, campaigns and photography." property="og:description"/>
+<meta content="https://berry-zendee.vercel.app/" property="og:url"/>
+<meta content="https://berry-zendee.vercel.app/og-preview.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Marie Zendee — Creative Portfolio" name="twitter:title"/>
+<meta content="Visual design, photography, branding and creative work by Marie Zendee." name="twitter:description"/>
+<meta content="https://berry-zendee.vercel.app/og-preview.jpg" name="twitter:image"/>
+<link as="image" fetchpriority="high" href="assets/previews/tienda.webp" rel="preload"/>
+<link as="font" crossorigin="" href="assets/fonts/quicksand-latin-500-normal.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="assets/fonts/playfair-display-latin-600-normal.woff2" rel="preload" type="font/woff2"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="favicon.ico" rel="icon"/>
+<link href="favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="favicon-16x16.png" rel="icon" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Marie Zendee" name="apple-mobile-web-app-title"/>
+<script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -96,1132 +53,500 @@
         ]
       }
     </script>
-  </head>
-  <body>
-    <a class="skip-link" href="#visual">Skip to selected work</a>
-    <div class="wallpaper" aria-hidden="true"></div>
-    <div class="progress-line" id="progressLine" aria-hidden="true"></div>
-    <header class="menubar glass">
-      <a class="wordmark" href="#top"
-        ><img
-          src="assets/zendee-logo.png"
-          width="32"
-          height="32"
-          alt=""
-        /><strong>Marie Zendee</strong
-        ></a
-      >
-      <nav class="site-nav" aria-label="Main navigation">
-        <a
-          class="nav-link"
-          href="#top"
-          data-section="top"
-          aria-current="location"
-          >Home</a
-        ><a class="nav-link" href="#visual" data-section="visual">Work</a
-        ><a class="nav-link" href="#photography" data-section="photography"
-          >Photos</a
-        ><a class="nav-link" href="#about" data-section="about">About</a
-        ><a class="nav-link" href="#contact" data-section="contact">Contact</a>
-      </nav>
-      <div class="menu-tools">
-        <span class="manila-time"
-          ><span class="clock-icon" id="clockIcon" aria-hidden="true">🌙</span
-          ><span>Manila</span> <time id="clock">—</time></span
-        ><button
-          class="icon-button"
-          id="soundBtn"
-          aria-label="Turn sound on"
-          aria-pressed="false"
-          title="Sound off"
-        >
-          ♪</button
-        ><button
-          class="icon-button"
-          id="settingsBtn"
-          aria-label="Desktop preferences"
-          title="Make it yours"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M4 7h16M4 17h16" />
-            <circle cx="9" cy="7" r="3" />
-            <circle cx="15" cy="17" r="3" />
-          </svg>
-        </button>
-      </div>
-    </header>
-    <main id="top">
-      <section class="hero shell hero-editorial" aria-labelledby="heroTitle">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="lead">visual design portfolio · 2026</span></p>
-          <h1 id="heroTitle"><span>Ideas into</span><b>Visual Stories</b></h1>
-          <p class="hero-roles" aria-label="Brand assistant, visual content developer, graphic artist">
-            <span id="typewriter">Graphic Designer</span><span class="caret" aria-hidden="true"></span>
+</head>
+<body>
+<a class="skip-link" href="#visual">Skip to selected work</a>
+<div aria-hidden="true" class="wallpaper"></div>
+<div aria-hidden="true" class="progress-line" id="progressLine"></div>
+<header class="menubar glass">
+<a class="wordmark" href="#top"><img alt="" height="32" src="assets/zendee-logo.png" width="32"/><strong>Marie Zendee</strong></a>
+<nav aria-label="Main navigation" class="site-nav">
+<a aria-current="location" class="nav-link" data-section="top" href="#top">Home</a><a class="nav-link" data-section="visual" href="#visual">Work</a><a class="nav-link" data-section="photography" href="#photography">Photos</a><a class="nav-link" data-section="about" href="#about">About</a><a class="nav-link" data-section="contact" href="#contact">Contact</a>
+</nav>
+<div class="menu-tools">
+<span class="manila-time"><span aria-hidden="true" class="clock-icon" id="clockIcon">🌙</span><span>Manila</span> <time id="clock">—</time></span><button aria-label="Turn sound on" aria-pressed="false" class="icon-button" id="soundBtn" title="Sound off">
+          ♪</button><button aria-label="Desktop preferences" class="icon-button" id="settingsBtn" title="Make it yours">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M4 7h16M4 17h16"></path>
+<circle cx="9" cy="7" r="3"></circle>
+<circle cx="15" cy="17" r="3"></circle>
+</svg>
+</button>
+</div>
+</header>
+<main id="top">
+<section aria-labelledby="heroTitle" class="hero shell hero-editorial">
+<div class="hero-copy">
+<p class="eyebrow">
+<span class="lead">visual design portfolio · 2026</span>
+</p>
+<h1 id="heroTitle"><span>Ideas into</span><b>Visual Stories</b></h1>
+<p aria-label="Brand assistant, visual content developer, graphic artist" class="hero-roles">
+<span id="typewriter">Graphic Designer</span><span aria-hidden="true" class="caret"></span>
+</p>
+<p class="hero-role">Branding, campaigns &amp; digital design.</p>
+<p class="hero-description">
+            I create thoughtful visual identities and playful, polished designs
+            that help brands feel memorable.
           </p>
-          <p class="hero-role">Branding, campaigns & digital design.</p>
-          <p class="hero-description">I create thoughtful visual identities and playful, polished designs that help brands feel memorable.</p>
-          <div class="actions">
-            <a href="#visual" class="button primary">Explore my work
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-            </a>
-            <a href="#contact" class="text-button">Let’s collaborate</a>
+<div class="actions">
+<a class="button primary" href="#visual">Explore my work
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"></path>
+</svg>
+</a>
+<a class="text-button" href="#contact">Let’s collaborate</a>
+</div>
+<div class="hero-footnote">
+<span class="status-dot"></span> Open to creative opportunities
           </div>
-          <div class="hero-footnote"><span class="status-dot"></span> Open to creative opportunities</div>
-        </div>
-        <div class="hero-showcase" aria-label="Selected graphic design projects">
-          <div class="showcase-topline"><span>SELECTED WORK</span><span>01 — 03</span></div>
-          <button class="showcase-card showcase-card-main" data-case="daily-matcha" aria-label="Explore Daily Matcha Fix digital product card project">
-            <picture><source srcset="assets/previews/matcha-cup-poster.webp" type="image/webp" /><img src="assets/matcha-cup-poster.jpg" alt="Iced matcha drink poster with editorial green typography" width="1100" height="1600" fetchpriority="high" /></picture>
-            <span class="showcase-caption"><strong>Daily Matcha Fix</strong><small>Digital · Product card</small></span>
-            <span class="showcase-description">A playful matcha campaign built around fresh color, bold type and product photography.</span>
-          </button>
-          <button class="showcase-card showcase-card-promo" data-case="daily-matcha" aria-label="Explore opening hours product card design">
-            <picture><source srcset="assets/previews/opening-hours-card.webp" type="image/webp" /><img src="assets/opening-hours-card.jpg" alt="Kocha Matcha opening hours and receipt-inspired promotional card" width="1100" height="1600" loading="lazy" decoding="async" /></picture>
-            <span class="showcase-caption"><strong>Opening Hours</strong><small>Product card</small></span>
-            <span class="showcase-description">A receipt-inspired card that presents store details in a clean, memorable format.</span>
-          </button>
-          <button class="showcase-card showcase-card-brand" data-case="daily-matcha" aria-label="Explore Famous Puff promotional poster">
-            <picture><source srcset="assets/previews/famous-puff-poster.webp" type="image/webp" /><img src="assets/famous-puff-poster.jpg" alt="Famous Puff limited-edition pastry campaign poster" width="1100" height="1600" loading="lazy" decoding="async" /></picture>
-            <span class="showcase-caption"><strong>Famous Puff</strong><small>Campaign artwork</small></span>
-            <span class="showcase-description">Warm product photography and checkered styling give this limited-edition launch a bold, appetizing look.</span>
-          </button>
-          <p class="showcase-note">A mix of strategy, color and character.</p>
-        </div>
-      </section>
-      <div class="marquee-band" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="marquee-group"
-            ><span>ui/ux design</span>
-            ><span>graphic art</span>
-            ><span>visual design</span>
-            ><span>branding</span>
-            ><span>campaign design</span>
-            ><span>photography</span>
-            ><span>based in the philippines</span>
-            ><span>open for projects</span>></span
-          ><span class="marquee-group"
-            ><span>ui/ux design</span>
-            ><span>graphic art</span>
-            ><span>visual design</span>
-            ><span>branding</span>
-            ><span>campaign design</span>
-            ><span>photography</span>
-            ><span>based in the philippines</span>
-            ><span>open for projects</span>></span
-          >
-        </div>
-      </div>
-      <p class="visually-hidden">
+</div>
+<div aria-label="A small preview of selected graphic design projects" class="hero-showcase">
+<div class="showcase-topline"><span>SELECTED WORK</span><span>3 QUICK PREVIEWS</span></div>
+<button aria-label="Explore Daily Matcha Fix digital product card project" class="showcase-card showcase-card-main" data-case="daily-matcha">
+<picture><source srcset="assets/previews/matcha-cup-poster.webp" type="image/webp"/>
+<img alt="Iced matcha drink poster with editorial green typography" fetchpriority="high" height="1600" src="assets/matcha-cup-poster.jpg" width="1100"/></picture>
+<span class="showcase-caption"><strong>Daily Matcha Fix</strong><small>Digital · Product card</small></span>
+<span class="showcase-description">A playful matcha campaign built around fresh color, bold type and
+              product photography.</span>
+</button>
+<button aria-label="Explore opening hours product card design" class="showcase-card showcase-card-promo" data-case="daily-matcha">
+<picture><source srcset="assets/previews/opening-hours-card.webp" type="image/webp"/>
+<img alt="Kocha Matcha opening hours and receipt-inspired promotional card" decoding="async" height="1600" loading="lazy" src="assets/opening-hours-card.jpg" width="1100"/></picture>
+<span class="showcase-caption"><strong>Opening Hours</strong><small>Product card</small></span>
+<span class="showcase-description">A receipt-inspired card that presents store details in a clean,
+              memorable format.</span>
+</button>
+<button aria-label="Explore Famous Puff promotional poster" class="showcase-card showcase-card-brand" data-case="daily-matcha">
+<picture><source srcset="assets/previews/famous-puff-poster.webp" type="image/webp"/>
+<img alt="Famous Puff limited-edition pastry campaign poster" decoding="async" height="1600" loading="lazy" src="assets/famous-puff-poster.jpg" width="1100"/></picture>
+<span class="showcase-caption"><strong>Famous Puff</strong><small>Campaign artwork</small></span>
+<span class="showcase-description">Warm product photography and checkered styling give this
+              limited-edition launch a bold, appetizing look.</span>
+</button>
+<p class="showcase-note">A little preview of what I do.</p>
+</div>
+</section>
+<div aria-hidden="true" class="marquee-band">
+<div class="marquee-track">
+<span class="marquee-group"><span>ui/ux design</span> &gt;<span>graphic art</span> &gt;<span>visual design</span>
+            &gt;<span>branding</span> &gt;<span>campaign design</span> &gt;<span>photography</span>
+            &gt;<span>based in the philippines</span> &gt;<span>open for projects</span>&gt;</span><span class="marquee-group"><span>ui/ux design</span> &gt;<span>graphic art</span> &gt;<span>visual design</span>
+            &gt;<span>branding</span> &gt;<span>campaign design</span> &gt;<span>photography</span>
+            &gt;<span>based in the philippines</span> &gt;<span>open for projects</span>&gt;</span>
+</div>
+</div>
+<p class="visually-hidden">
         Disciplines: ui/ux design, graphic art, visual design, branding,
         campaign design and photography. Based in the Philippines and open for
         projects.
       </p>
-      <section id="visual" class="section shell" aria-labelledby="workTitle">
-        <header class="section-heading">
-          <div>
-            <p class="eyebrow">
-              <span class="num">01</span
-              ><span class="lead">stuff i made with love</span>
-            </p>
-            <h2 id="workTitle">Ideas, out in the <em>world.</em></h2>
-          </div>
-          <p>
-            A collection of identities, campaigns, <br />and thoughtful digital
-            experiences.
-          </p>
-        </header>
-        <div class="work-window glass">
-          <div class="collection-toolbar">
-            <span class="collection-name"
-              ><svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.65"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="3" width="7" height="7" rx="2" />
-                <rect x="14" y="3" width="7" height="7" rx="2" />
-                <rect x="3" y="14" width="7" height="7" rx="2" />
-                <rect x="14" y="14" width="7" height="7" rx="2" />
-              </svg>
-              Work collection <span id="workCount">7 projects</span></span
-            >
-            <div class="filters" role="group" aria-label="Filter selected work">
-              <button data-filter="all" aria-pressed="true">All work</button
-              ><button data-filter="brand" aria-pressed="false">Identity</button
-              ><button data-filter="campaign" aria-pressed="false">
-                Campaigns</button
-              ><button data-filter="digital" aria-pressed="false">
-                Digital
-              </button>
-            </div>
-          </div>
-          <div class="project-grid">
-            <article class="project-card" data-category="digital">
-              <button class="project-open" data-case="daily-matcha">
-                <span class="project-image project-daily-matcha"><picture><source srcset="assets/previews/daily-matcha-fix.webp" type="image/webp" /><img src="assets/daily-matcha-fix.jpg" alt="Daily Matcha Fix loyalty card and matcha branding artwork" width="1100" height="1600" loading="lazy" decoding="async" /></picture><span class="open-badge"><span>Explore project</span></span></span>
-                <span class="project-caption"><span><small>Digital</small><strong>Daily Matcha Fix</strong><span class="card-tag">Product card</span></span><span class="project-index">01</span></span>
-                <span class="project-description">A cheerful matcha identity expressed through a loyalty card, product promotion and in-store information cards. The green-and-pink palette keeps the set cohesive, while each layout gives the key message room to shine.</span>
-              </button>
-            </article>
-            <article class="project-card" data-category="brand">
-              <button class="project-open" data-case="dylan">
-                <span class="project-image project-dylan"
-                  ><picture
-                    ><source
-                      srcset="assets/previews/dylans-logo.webp"
-                      type="image/webp" />
-                    <img
-                      src="assets/dylans-logo.jpg"
-                      alt="Dylan’s Little Closet"
-                      width="2000"
-                      height="2000"
-                      class=""
-                      loading="lazy"
-                      decoding="async" /></picture
-                  ><span class="open-badge"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-                    ><span>Explore project</span></span
-                  ></span
-                ><span class="project-caption"
-                  ><span
-                    ><small>Brand identity</small
-                    ><strong>Dylan’s Little Closet</strong
-                    ><span class="card-tag">branding</span></span
-                  ><span class="project-index"
-                    >02
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14m-6-6 6 6-6 6" /></svg></span
-                ></span>
-              </button>
-            </article>
-            <article class="project-card" data-category="campaign">
-              <button class="project-open" data-case="avon">
-                <span class="project-image project-avon"
-                  ><picture
-                    ><source
-                      srcset="assets/previews/avon-seamfree.webp"
-                      type="image/webp" />
-                    <img
-                      src="assets/avon-seamfree.jpg"
-                      alt="Avon Seamfree"
-                      width="1446"
-                      height="2048"
-                      class=""
-                      loading="lazy"
-                      decoding="async" /></picture
-                  ><span class="open-badge"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-                    ><span>Explore project</span></span
-                  ></span
-                ><span class="project-caption"
-                  ><span
-                    ><small>Campaign design</small><strong>Avon Seamfree</strong
-                    ><span class="card-tag">campaign</span></span
-                  ><span class="project-index"
-                    >03
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14m-6-6 6 6-6 6" /></svg></span
-                ></span>
-              </button>
-            </article>
-            <article class="project-card" data-category="campaign">
-              <button class="project-open" data-case="promo">
-                <span class="project-image project-promo"
-                  ><picture
-                    ><source
-                      srcset="assets/previews/promo-sheet.webp"
-                      type="image/webp" />
-                    <img
-                      src="assets/promo-sheet.jpg"
-                      alt="Promo Sheets"
-                      width="1080"
-                      height="1350"
-                      class=""
-                      loading="lazy"
-                      decoding="async" /></picture
-                  ><span class="open-badge"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-                    ><span>Explore project</span></span
-                  ></span
-                ><span class="project-caption"
-                  ><span
-                    ><small>Print & social</small><strong>Promo Sheets</strong
-                    ><span class="card-tag">print</span></span
-                  ><span class="project-index"
-                    >04
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14m-6-6 6 6-6 6" /></svg></span
-                ></span>
-              </button>
-            </article>
-            <article class="project-card" data-category="campaign">
-              <button class="project-open" data-case="paw">
-                <span class="project-image project-paw"
-                  ><picture
-                    ><source
-                      srcset="assets/previews/Paw-up.webp"
-                      type="image/webp" />
-                    <img
-                      src="assets/Paw-up.jpg"
-                      alt="Paw-Up"
-                      width="1080"
-                      height="1350"
-                      class=""
-                      loading="lazy"
-                      decoding="async" /></picture
-                  ><span class="open-badge"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-                    ><span>Explore project</span></span
-                  ></span
-                ><span class="project-caption"
-                  ><span
-                    ><small>Awareness campaign</small><strong>Paw-Up</strong
-                    ><span class="card-tag">campaign</span></span
-                  ><span class="project-index"
-                    >05
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14m-6-6 6 6-6 6" /></svg></span
-                ></span>
-              </button>
-            </article>
-            <article class="project-card" data-category="brand">
-              <button class="project-open" data-case="berry">
-                <span class="project-image project-berry"
-                  ><picture
-                    ><source
-                      srcset="assets/previews/3.webp"
-                      type="image/webp" />
-                    <img
-                      src="assets/3.png"
-                      alt="A little berry personal"
-                      width="1920"
-                      height="1080"
-                      class=""
-                      loading="lazy"
-                      decoding="async" /></picture
-                  ><span class="open-badge"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-                    ><span>Explore project</span></span
-                  ></span
-                ><span class="project-caption"
-                  ><span
-                    ><small>Personal identity</small
-                    ><strong>A little berry personal</strong
-                    ><span class="card-tag">personal</span></span
-                  ><span class="project-index"
-                    >06
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.65"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14m-6-6 6 6-6 6" /></svg></span
-                ></span>
-              </button>
-            </article>
-          </div>
-          <div class="collection-footer">
-            <span>Small details. A whole lot of intention.</span
-            ><span>Made by Marie</span>
-          </div>
-        </div>
-      </section>
-      <section
-        id="photography"
-        class="photo-section section"
-        aria-labelledby="photosTitle"
-      >
-        <div class="photo-background">
-          <picture
-            ><source
-              srcset="assets/previews/photo-shop.webp"
-              type="image/webp" />
-            <img
-              src="assets/photo-shop.jpg"
-              alt=""
-              width="1280"
-              height="853"
-              class=""
-              loading="lazy"
-              decoding="async"
-          /></picture>
-        </div>
-        <div class="photo-section-inner shell">
-          <div>
-            <p class="eyebrow">
-              <span class="num">02</span
-              ><span class="lead">a peek through my lens</span>
-            </p>
-            <h2 id="photosTitle">Little moments. <br /><em>Long after.</em></h2>
-            <p>
-              Places, people, and the quiet in between. <br />A few memories,
+<section aria-labelledby="workTitle" class="section shell" id="visual">
+<header class="section-heading">
+<div>
+<p class="eyebrow">
+<span class="num">01</span><span class="lead">stuff i made with love</span>
+</p>
+<h2 id="workTitle">Ideas, out in the <em>world.</em></h2>
+</div>
+<p>Browse every project by category. Each piece includes a quick note on the idea and its purpose.</p>
+</header>
+<div class="work-window glass">
+<div class="collection-toolbar">
+<span class="collection-name"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<rect height="7" rx="2" width="7" x="3" y="3"></rect>
+<rect height="7" rx="2" width="7" x="14" y="3"></rect>
+<rect height="7" rx="2" width="7" x="3" y="14"></rect>
+<rect height="7" rx="2" width="7" x="14" y="14"></rect>
+</svg>
+              Work collection <span id="workCount">7 projects</span></span>
+<div aria-label="Filter selected work" class="filters" role="group">
+<button aria-pressed="true" data-filter="all">All work</button><button aria-pressed="false" data-filter="brand">Identity</button><button aria-pressed="false" data-filter="campaign">Campaign</button><button aria-pressed="false" data-filter="digital">Product cards</button>
+</div>
+</div>
+<div class="project-grid">
+<article class="project-card" data-category="digital">
+<button class="project-open" data-case="daily-matcha">
+<span class="project-image project-daily-matcha"><picture><source srcset="assets/previews/daily-matcha-fix.webp" type="image/webp"/>
+<img alt="Daily Matcha Fix loyalty card and matcha branding artwork" decoding="async" height="1600" loading="lazy" src="assets/daily-matcha-fix.jpg" width="1100"/></picture><span class="open-badge"><span>Explore project</span></span></span>
+<span class="project-caption"><span><small>Product cards</small><strong>Daily Matcha Fix</strong><span class="card-tag">product card</span></span><span class="project-index">01</span></span>
+
+</button><span class="project-description">A cheerful matcha identity expressed through a loyalty card,
+                  product promotion and in-store information cards. The
+                  green-and-pink palette keeps the set cohesive, while each
+                  layout gives the key message room to shine.</span>
+</article>
+<article class="project-card" data-category="digital">
+<button aria-label="Explore Tienda digital experience project" class="project-open" data-case="tienda" type="button">
+<span class="project-image project-tienda">
+<picture><source srcset="assets/previews/tienda.webp" type="image/webp"/>
+<img alt="Tienda digital shopping experience preview" decoding="async" height="1200" loading="lazy" src="assets/tienda.png" width="1200"/>
+</picture>
+<span class="open-badge"><span>Explore project</span></span>
+</span>
+<span class="project-caption"><span><small>Digital product</small><strong>Tienda</strong><span class="card-tag">digital experience</span></span><span class="project-index">02</span></span>
+
+</button><p class="project-description">A digital shopping experience focused on clear product discovery, intuitive navigation, and a friendly, consistent interface.</p>
+</article><article class="project-card" data-category="brand">
+<button class="project-open" data-case="dylan">
+<span class="project-image project-dylan"><picture><source srcset="assets/previews/dylans-logo.webp" type="image/webp"/>
+<img alt="Dylan’s Little Closet" class="" decoding="async" height="2000" loading="lazy" src="assets/dylans-logo.jpg" width="2000"/></picture><span class="open-badge"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg><span>Explore project</span></span></span><span class="project-caption"><span><small>Identity</small><strong>Dylan’s Little Closet</strong><span class="card-tag">identity</span></span><span class="project-index">02
+                    <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></span>
+</button><p class="project-description">A warm, playful brand identity for a children’s clothing concept, designed to feel friendly, memorable, and easy to recognize.</p>
+</article>
+<article class="project-card" data-category="campaign">
+<button class="project-open" data-case="avon">
+<span class="project-image project-avon"><picture><source srcset="assets/previews/avon-seamfree.webp" type="image/webp"/>
+<img alt="Avon Seamfree" class="" decoding="async" height="2048" loading="lazy" src="assets/avon-seamfree.jpg" width="1446"/></picture><span class="open-badge"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg><span>Explore project</span></span></span><span class="project-caption"><span><small>Campaign</small><strong>Avon Seamfree</strong><span class="card-tag">campaign</span></span><span class="project-index">03
+                    <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></span>
+</button><p class="project-description">A product-led campaign concept that pairs clear messaging with polished visuals to make the Seamfree range feel approachable.</p>
+</article>
+<article class="project-card" data-category="campaign">
+<button class="project-open" data-case="promo">
+<span class="project-image project-promo"><picture><source srcset="assets/previews/promo-sheet.webp" type="image/webp"/>
+<img alt="Promo Sheets" class="" decoding="async" height="1350" loading="lazy" src="assets/promo-sheet.jpg" width="1080"/></picture><span class="open-badge"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg><span>Explore project</span></span></span><span class="project-caption"><span><small>Campaign</small><strong>Promo Sheets</strong><span class="card-tag">campaign</span></span><span class="project-index">04
+                    <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></span>
+</button><p class="project-description">A collection of promotional layouts designed to communicate offers quickly while keeping the typography and visual hierarchy consistent.</p>
+</article>
+<article class="project-card" data-category="campaign">
+<button class="project-open" data-case="paw">
+<span class="project-image project-paw"><picture><source srcset="assets/previews/Paw-up.webp" type="image/webp"/>
+<img alt="Paw-Up" class="" decoding="async" height="1350" loading="lazy" src="assets/Paw-up.jpg" width="1080"/></picture><span class="open-badge"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg><span>Explore project</span></span></span><span class="project-caption"><span><small>Campaign</small><strong>Paw-Up</strong><span class="card-tag">campaign</span></span><span class="project-index">05
+                    <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></span>
+</button><p class="project-description">An awareness campaign with an approachable visual style that helps the message feel clear, positive, and easy to remember.</p>
+</article>
+<article class="project-card" data-category="brand">
+<button class="project-open" data-case="berry">
+<span class="project-image project-berry"><picture><source srcset="assets/previews/3.webp" type="image/webp"/>
+<img alt="A little berry personal" class="" decoding="async" height="1080" loading="lazy" src="assets/3.png" width="1920"/></picture><span class="open-badge"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg><span>Explore project</span></span></span><span class="project-caption"><span><small>Identity</small><strong>A little berry personal</strong><span class="card-tag">identity</span></span><span class="project-index">06
+                    <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"></path></svg></span></span>
+</button><p class="project-description">A personal identity exploration using a soft palette, expressive lettering, and playful details to create a distinctive visual signature.</p>
+</article>
+</div>
+<div class="collection-footer">
+<span>Small details. A whole lot of intention.</span><span>Made by Marie</span>
+</div>
+</div>
+</section>
+<section aria-labelledby="photosTitle" class="photo-section section" id="photography">
+<div class="photo-background">
+<picture><source srcset="assets/previews/photo-shop.webp" type="image/webp"/>
+<img alt="" class="" decoding="async" height="853" loading="lazy" src="assets/photo-shop.jpg" width="1280"/></picture>
+</div>
+<div class="photo-section-inner shell">
+<div>
+<p class="eyebrow">
+<span class="num">02</span><span class="lead">a peek through my lens</span>
+</p>
+<h2 id="photosTitle">Little moments. <br/><em>Long after.</em></h2>
+<p>
+              Places, people, and the quiet in between. <br/>A few memories,
               tucked into a letter for you.
             </p>
-            <span class="photo-note"
-              >4 photographs · a personal collection</span
-            >
-          </div>
-          <div class="envelope-zone">
-            <button
-              class="envelope"
-              id="envelope"
-              aria-label="Unfold the envelope and open photography collection"
-            >
-              <span class="env-back"></span
-              ><span class="env-letter"
-                ><span>To: a curious soul</span
-                ><strong>A few little <br />memories.</strong
-                ><span>With love, Zendee</span></span
-              ><span class="env-front"></span><span class="env-flap"></span
-              ><span class="env-seal" aria-hidden="true">M</span
-              ><span class="env-label">view my photos</span></button
-            ><span class="envelope-caption">Open my photo collection ↗</span>
-          </div>
-        </div>
-      </section>
-      <section
-        id="branding"
-        class="section shell brand-section"
-        aria-labelledby="brandTitle"
-      >
-        <header class="section-heading">
-          <div>
-            <p class="eyebrow">
-              <span class="num">03</span
-              ><span class="lead">a peek at the vibe</span>
-            </p>
-            <h2 id="brandTitle">A world of my <em>own.</em></h2>
-          </div>
-          <p>
-            Soft pinks. A playful signature. <br />The little things that feel
+<span class="photo-note">4 photographs · a personal collection</span>
+</div>
+<div class="envelope-zone">
+<button aria-label="Unfold the envelope and open photography collection" class="envelope" id="envelope">
+<span class="env-back"></span><span class="env-letter"><span>To: a curious soul</span><strong>A few little <br/>memories.</strong><span>With love, Zendee</span></span><span class="env-front"></span><span class="env-flap"></span><span aria-hidden="true" class="env-seal">M</span><span class="env-label">view my photos</span></button><span class="envelope-caption">Open my photo collection ↗</span>
+</div>
+</div>
+</section>
+<section aria-labelledby="brandTitle" class="section shell brand-section" id="branding">
+<header class="section-heading">
+<div>
+<p class="eyebrow">
+<span class="num">03</span><span class="lead">a peek at the vibe</span>
+</p>
+<h2 id="brandTitle">A world of my <em>own.</em></h2>
+</div>
+<p>
+            Soft pinks. A playful signature. <br/>The little things that feel
             like me.
           </p>
-        </header>
-        <div class="identity-grid">
-          <button
-            class="identity-main glass"
-            data-case="berry"
-            aria-label="Explore Marie Zendee personal identity"
-          >
-            <img
-              src="assets/mz-logo.png"
-              alt="Marie Zendee pink monogram"
-              width="765"
-              height="679"
-              loading="lazy"
-            /><span
-              >THE SIGNATURE
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.65"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-            ></span>
-          </button>
-          <div class="identity-details glass">
-            <span class="eyebrow">THE PALETTE</span>
-            <div class="palette">
-              <span style="--swatch: #fff2f7"
-                ><i></i>Petal<small>#FFF2F7</small></span
-              ><span style="--swatch: #ffffff"
-                ><i></i>Cloud<small>#FFFFFF</small></span
-              ><span style="--swatch: #8d315a"
-                ><i></i>Berry<small>#8D315A</small></span
-              >
-            </div>
-            <div class="type-sample">
-              <span class="bootzy">Just my type.</span
-              ><span>Bootzy / a handwritten hello</span>
-            </div>
-          </div>
-        </div>
-        <div class="identity-boards">
-          <button
-            data-image="assets/1.png"
-            data-alt="Personal identity presentation, board 1"
-            aria-label="Expand personal identity board 1"
-          >
-            <picture
-              ><source srcset="assets/previews/1.webp" type="image/webp" />
-              <img
-                src="assets/1.png"
-                alt="Personal identity presentation, board 1"
-                width="1920"
-                height="1080"
-                class=""
-                loading="lazy"
-                decoding="async"
-            /></picture></button
-          ><button
-            data-image="assets/2.png"
-            data-alt="Personal identity presentation, board 2"
-            aria-label="Expand personal identity board 2"
-          >
-            <picture
-              ><source srcset="assets/previews/2.webp" type="image/webp" />
-              <img
-                src="assets/2.png"
-                alt="Personal identity presentation, board 2"
-                width="1920"
-                height="1080"
-                class=""
-                loading="lazy"
-                decoding="async"
-            /></picture></button
-          ><button
-            data-image="assets/3.png"
-            data-alt="Personal identity presentation, board 3"
-            aria-label="Expand personal identity board 3"
-          >
-            <picture
-              ><source srcset="assets/previews/3.webp" type="image/webp" />
-              <img
-                src="assets/3.png"
-                alt="Personal identity presentation, board 3"
-                width="1920"
-                height="1080"
-                class=""
-                loading="lazy"
-                decoding="async"
-            /></picture>
-          </button>
-        </div>
-      </section>
-      <section
-        id="about"
-        class="section shell about-section"
-        aria-labelledby="aboutTitle"
-      >
-        <div class="about-image">
-          <picture
-            ><source
-              srcset="assets/previews/zendee-profile-about.webp"
-              type="image/webp" />
-            <img
-              src="assets/zendee-profile-about.jpg"
-              alt="Marie Zendee seated in a book-filled studio"
-              width="900"
-              height="1200"
-              class=""
-              loading="lazy"
-              decoding="async" /></picture
-          ><span class="about-image-note glass"
-            >A curious mind, a creative heart.</span
-          >
-        </div>
-        <div class="about-copy">
-          <p class="eyebrow">
-            <span class="num">04</span
-            ><span class="lead">nice to meet you</span>
-          </p>
-          <h2 id="aboutTitle">
-            A thoughtful eye. <br />A playful <em>heart.</em>
-          </h2>
-          <p>
+</header>
+<div class="identity-grid">
+<button aria-label="Explore Marie Zendee personal identity" class="identity-main glass" data-case="berry">
+<img alt="Marie Zendee pink monogram" height="679" loading="lazy" src="assets/mz-logo.png" width="765"/><span>THE SIGNATURE
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg></span>
+</button>
+<div class="identity-details glass">
+<span class="eyebrow">THE PALETTE</span>
+<div class="palette">
+<span style="--swatch: #fff2f7"><i></i>Petal<small>#FFF2F7</small></span><span style="--swatch: #ffffff"><i></i>Cloud<small>#FFFFFF</small></span><span style="--swatch: #8d315a"><i></i>Berry<small>#8D315A</small></span>
+</div>
+<div class="type-sample">
+<span class="bootzy">Just my type.</span><span>Bootzy / a handwritten hello</span>
+</div>
+</div>
+</div>
+<div class="identity-boards">
+<button aria-label="Expand personal identity board 1" data-alt="Personal identity presentation, board 1" data-image="assets/1.png">
+<picture><source srcset="assets/previews/1.webp" type="image/webp"/>
+<img alt="Personal identity presentation, board 1" class="" decoding="async" height="1080" loading="lazy" src="assets/1.png" width="1920"/></picture></button><button aria-label="Expand personal identity board 2" data-alt="Personal identity presentation, board 2" data-image="assets/2.png">
+<picture><source srcset="assets/previews/2.webp" type="image/webp"/>
+<img alt="Personal identity presentation, board 2" class="" decoding="async" height="1080" loading="lazy" src="assets/2.png" width="1920"/></picture></button><button aria-label="Expand personal identity board 3" data-alt="Personal identity presentation, board 3" data-image="assets/3.png">
+<picture><source srcset="assets/previews/3.webp" type="image/webp"/>
+<img alt="Personal identity presentation, board 3" class="" decoding="async" height="1080" loading="lazy" src="assets/3.png" width="1920"/></picture>
+</button>
+</div>
+</section>
+<section aria-labelledby="aboutTitle" class="section shell about-section" id="about">
+<div class="about-image">
+<picture><source srcset="assets/previews/zendee-profile-about.webp" type="image/webp"/>
+<img alt="Marie Zendee seated in a book-filled studio" class="" decoding="async" height="1200" loading="lazy" src="assets/zendee-profile-about.jpg" width="900"/></picture><span class="about-image-note glass">A curious mind, a creative heart.</span>
+</div>
+<div class="about-copy">
+<p class="eyebrow">
+<span class="num">04</span><span class="lead">nice to meet you</span>
+</p>
+<h2 id="aboutTitle">
+            Designs That Do More <br/>Than Look <em>Good.</em>
+</h2>
+<p>
             Hi, I’m <strong>Marie Zendee</strong>. I work across visual design,
             branding, campaigns, social content, and creative concepts.
           </p>
-          <p>
-            I like work that feels warm and memorable, while still solving the
-            communication problem in front of it. For me, the magic is in the
-            balance: clarity, feeling, and the little details.
+<p>
+            I create thoughtful, eye-catching visuals that bring brand stories
+            to life and help businesses connect with their audience. From social
+            media creatives and product cards to promotional materials and
+            advertising campaigns, I turn ideas into designs that are visually
+            engaging, purposeful, and aligned with each brand’s identity. <br/>
+            My goal is to create designs that not only capture attention but
+            also communicate the right message and support each brand’s
+            marketing goals.
           </p>
-          <div class="about-tags">
-            <span>Visual design</span><span>Branding</span
-            ><span>Photography</span><span>Creative content</span>
-          </div>
-          <div class="currently">
-            <div>
-              <small>Based in</small>
-              <p>Manila, Philippines 🇵🇭</p>
-            </div>
-            <div>
-              <small>Currently</small>
-              <p>Open to creative opportunities</p>
-            </div>
-            <div>
-              <small>Happiest making</small>
-              <p>Identities with a little heart</p>
-            </div>
-          </div>
-          <div class="cert-stack">
-            <div class="cert-card">
-              <span class="cert-emoji" aria-hidden="true">🏅</span>
-              <div>
-                <h3>UI/UX with Figma &amp; Adobe XD</h3>
-                <p>Certification</p>
-              </div>
-            </div>
-            <div class="cert-card">
-              <span class="cert-emoji" aria-hidden="true">🎓</span>
-              <div>
-                <h3>Professional Google Workspace Administrator</h3>
-                <p>Certification</p>
-              </div>
-            </div>
-            <div class="resume-panel">
-              <span class="resume-doc" aria-hidden="true">
-                <span class="resume-doc-tag">PDF</span>
-                <i></i><i></i><i></i><i></i><i></i>
-              </span>
-              <div class="resume-body">
-                <small>Curriculum vitae</small>
-                <h3>Marie Zendee Patalinghug</h3>
-                <p>
-                  Brand assistant · Visual content developer · Graphic artist
-                </p>
-                <p class="resume-meta">One page · 2026 edition · PDF, 0.9 MB</p>
-              </div>
-              <div class="resume-actions">
-                <a
-                  class="button primary"
-                  href="assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
-                  target="_blank"
-                  rel="noopener"
-                  >Open résumé
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.65"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg></a
-                ><a
-                  class="button secondary"
-                  href="assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf"
-                  download
-                  >Download
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.65"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5" /></svg
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        id="contact"
-        class="section shell contact-section"
-        aria-labelledby="contactTitle"
-      >
-        <div class="contact-card glass">
-          <p class="eyebrow"><span class="lead">don’t be shy</span></p>
-          <h2 id="contactTitle">
-            Let’s make something <br /><em>meaningful.</em>
-          </h2>
-          <p>
-            For creative opportunities, collaborations, <br />or just a friendly
+<div class="about-tags">
+<span>Graphic Design &amp; Visuals</span><span>Social Media Creatives</span><span>Campaign &amp; Marketing Design</span><span>Creative Copy &amp; Layout</span>
+</div>
+<div class="currently">
+<div>
+<small>Based in</small>
+<p>Manila, Philippines 🇵🇭</p>
+</div>
+<div>
+<small>Currently</small>
+<p>Open to creative opportunities</p>
+</div>
+<div>
+<small>Happiest making</small>
+<p>Identities with a little heart</p>
+</div>
+</div>
+<div class="cert-stack">
+<div class="cert-card">
+<span aria-hidden="true" class="cert-emoji">🏅</span>
+<div>
+<h3>UI/UX with Figma &amp; Adobe XD</h3>
+<p>Certification</p>
+</div>
+</div>
+<div class="cert-card">
+<span aria-hidden="true" class="cert-emoji">🎓</span>
+<div>
+<h3>Professional Google Workspace Administrator</h3>
+<p>Certification</p>
+</div>
+</div>
+<div class="resume-panel">
+<span aria-hidden="true" class="resume-doc">
+<span class="resume-doc-tag">PDF</span>
+<i></i><i></i><i></i><i></i><i></i>
+</span>
+<div class="resume-body">
+<small>Curriculum vitae</small>
+<h3>Marie Zendee Patalinghug</h3>
+<p class="resume-meta">One page · 2026 · PDF</p>
+</div>
+<div class="resume-actions">
+<a class="button primary" href="assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf" rel="noopener" target="_blank">Open résumé
+                  <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg></a><a class="button secondary" download="" href="assets/PATALINGHUG,%20MARIE%20ZENDEE%20CV%202026.pdf">Download
+                  <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"></path></svg></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="contactTitle" class="section shell contact-section" id="contact">
+<div class="contact-card glass">
+<p class="eyebrow"><span class="lead">don’t be shy</span></p>
+<h2 id="contactTitle">
+            Let’s make something <br/><em>meaningful.</em>
+</h2>
+<p>
+            For creative opportunities, collaborations, <br/>or just a friendly
             hello.
           </p>
-          <div class="actions">
-            <a class="button primary" href="mailto:mariezendee@gmail.com"
-              >Say hello
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.65"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="5" width="18" height="14" rx="3" />
-                <path d="m4 7 8 6 8-6" /></svg></a
-            ><button class="button secondary" id="copyEmail">Copy email</button>
-          </div>
-          <a class="email-address" href="mailto:mariezendee@gmail.com"
-            >mariezendee@gmail.com</a
-          >
-          <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/marie-zendee-patalinghug/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn ↗</a
-            ><a
-              href="https://www.instagram.com/mariezendee/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Instagram ↗</a
-            ><a
-              href="https://www.facebook.com/mariezendeee"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Facebook ↗</a
-            >
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="shell footer">
-      <span>© <span id="year">2026</span> Marie Zendee</span
-      ><a href="#top">Back to top ↑</a>
-    </footer>
-
-    <dialog
-      id="caseDialog"
-      class="case-dialog window-dialog"
-      aria-labelledby="caseTitle"
-    >
-      <div class="dialog-bar">
-        <span class="window-label">PROJECT / QUICK LOOK</span>
-        <div class="dialog-tools">
-          <button
-            class="icon-button"
-            id="caseExpand"
-            aria-label="Expand project window"
-            aria-pressed="false"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.65"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" />
-            </svg></button
-          ><button class="icon-button" data-close aria-label="Close project">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.65"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="m6 6 12 12M18 6 6 18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div id="caseContent" class="case-content"></div>
-      <div class="case-navigation">
-        <button class="text-button" id="casePrev">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m15 5-7 7 7 7" />
-          </svg>
-          Previous</button
-        ><span id="caseCounter"></span
-        ><button class="text-button" id="caseNext">
+<div class="actions">
+<a class="button primary" href="mailto:mariezendee@gmail.com">Say hello
+              <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<rect height="14" rx="3" width="18" x="3" y="5"></rect>
+<path d="m4 7 8 6 8-6"></path></svg></a><button class="button secondary" id="copyEmail">Copy email</button>
+</div>
+<a class="email-address" href="mailto:mariezendee@gmail.com">mariezendee@gmail.com</a>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/marie-zendee-patalinghug/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a><a href="https://www.instagram.com/mariezendee/" rel="noopener noreferrer" target="_blank">Instagram ↗</a><a href="https://www.facebook.com/mariezendeee" rel="noopener noreferrer" target="_blank">Facebook ↗</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="shell footer">
+<span>© <span id="year">2026</span> Marie Zendee</span><a href="#top">Back to top ↑</a>
+</footer>
+<dialog aria-labelledby="caseTitle" class="case-dialog window-dialog" id="caseDialog">
+<div class="dialog-bar">
+<span class="window-label">PROJECT / QUICK LOOK</span>
+<div class="dialog-tools">
+<button aria-label="Expand project window" aria-pressed="false" class="icon-button" id="caseExpand">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path>
+</svg></button><button aria-label="Close project" class="icon-button" data-close="">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m6 6 12 12M18 6 6 18"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="case-content" id="caseContent"></div>
+<div class="case-navigation">
+<button class="text-button" id="casePrev">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m15 5-7 7 7 7"></path>
+</svg>
+          Previous</button><span id="caseCounter"></span><button class="text-button" id="caseNext">
           Next project
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m9 5 7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-    </dialog>
-    <dialog
-      id="galleryDialog"
-      class="gallery-dialog window-dialog"
-      aria-labelledby="galleryTitle"
-    >
-      <div class="dialog-bar">
-        <div>
-          <span class="window-label">A LETTER FROM ZENDEE</span>
-          <h3 id="galleryTitle">Little moments, kept forever.</h3>
-        </div>
-        <button
-          class="icon-button"
-          data-close
-          aria-label="Close photography collection"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m6 6 12 12M18 6 6 18" />
-          </svg>
-        </button>
-      </div>
-      <div class="gallery-stage" id="galleryStage">
-        <button id="galleryExpand" aria-label="Expand current photograph">
-          <img id="galleryImage" alt="" /><span
-            class="gallery-expand-badge glass"
-            ><svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.65"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" />
-            </svg>
-            Take a closer look</span
-          >
-        </button>
-      </div>
-      <div class="gallery-controls">
-        <button
-          class="icon-button"
-          id="photoPrev"
-          aria-label="Previous photograph"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m15 5-7 7 7 7" />
-          </svg>
-        </button>
-        <div aria-live="polite">
-          <strong id="photoTitle"></strong><span id="photoCount"></span>
-        </div>
-        <button class="icon-button" id="photoNext" aria-label="Next photograph">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m9 5 7 7-7 7" />
-          </svg>
-        </button>
-      </div>
-      <div class="photo-thumbs" aria-label="Choose photograph">
-        <button data-photo="0" aria-label="Show photograph 1">
-          <picture
-            ><source
-              srcset="assets/previews/photo-shop.webp"
-              type="image/webp" />
-            <img
-              src="assets/photo-shop.jpg"
-              alt="Found details"
-              width="1280"
-              height="853"
-              class=""
-              loading="lazy"
-              decoding="async"
-          /></picture></button
-        ><button data-photo="1" aria-label="Show photograph 2">
-          <picture
-            ><source
-              srcset="assets/previews/photo-lake.webp"
-              type="image/webp" />
-            <img
-              src="assets/photo-lake.jpg"
-              alt="Still water"
-              width="1280"
-              height="853"
-              class=""
-              loading="lazy"
-              decoding="async"
-          /></picture></button
-        ><button data-photo="2" aria-label="Show photograph 3">
-          <picture
-            ><source
-              srcset="assets/previews/photo-peacock.webp"
-              type="image/webp" />
-            <img
-              src="assets/photo-peacock.jpg"
-              alt="Quiet encounters"
-              width="1280"
-              height="853"
-              class=""
-              loading="lazy"
-              decoding="async"
-          /></picture></button
-        ><button data-photo="3" aria-label="Show photograph 4">
-          <picture
-            ><source
-              srcset="assets/previews/photo-city.webp"
-              type="image/webp" />
-            <img
-              src="assets/photo-city.jpg"
-              alt="City / water"
-              width="1280"
-              height="853"
-              class=""
-              loading="lazy"
-              decoding="async"
-          /></picture>
-        </button>
-      </div>
-      <p class="gallery-hint">
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m9 5 7 7-7 7"></path>
+</svg>
+</button>
+</div>
+</dialog>
+<dialog aria-labelledby="galleryTitle" class="gallery-dialog window-dialog" id="galleryDialog">
+<div class="dialog-bar">
+<div>
+<span class="window-label">A LETTER FROM ZENDEE</span>
+<h3 id="galleryTitle">Little moments, kept forever.</h3>
+</div>
+<button aria-label="Close photography collection" class="icon-button" data-close="">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m6 6 12 12M18 6 6 18"></path>
+</svg>
+</button>
+</div>
+<div class="gallery-stage" id="galleryStage">
+<button aria-label="Expand current photograph" id="galleryExpand">
+<img alt="" id="galleryImage"/><span class="gallery-expand-badge glass"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path>
+</svg>
+            Take a closer look</span>
+</button>
+</div>
+<div class="gallery-controls">
+<button aria-label="Previous photograph" class="icon-button" id="photoPrev">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m15 5-7 7 7 7"></path>
+</svg>
+</button>
+<div aria-live="polite">
+<strong id="photoTitle"></strong><span id="photoCount"></span>
+</div>
+<button aria-label="Next photograph" class="icon-button" id="photoNext">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m9 5 7 7-7 7"></path>
+</svg>
+</button>
+</div>
+<div aria-label="Choose photograph" class="photo-thumbs">
+<button aria-label="Show photograph 1" data-photo="0">
+<picture><source srcset="assets/previews/photo-shop.webp" type="image/webp"/>
+<img alt="Found details" class="" decoding="async" height="853" loading="lazy" src="assets/photo-shop.jpg" width="1280"/></picture></button><button aria-label="Show photograph 2" data-photo="1">
+<picture><source srcset="assets/previews/photo-lake.webp" type="image/webp"/>
+<img alt="Still water" class="" decoding="async" height="853" loading="lazy" src="assets/photo-lake.jpg" width="1280"/></picture></button><button aria-label="Show photograph 3" data-photo="2">
+<picture><source srcset="assets/previews/photo-peacock.webp" type="image/webp"/>
+<img alt="Quiet encounters" class="" decoding="async" height="853" loading="lazy" src="assets/photo-peacock.jpg" width="1280"/></picture></button><button aria-label="Show photograph 4" data-photo="3">
+<picture><source srcset="assets/previews/photo-city.webp" type="image/webp"/>
+<img alt="City / water" class="" decoding="async" height="853" loading="lazy" src="assets/photo-city.jpg" width="1280"/></picture>
+</button>
+</div>
+<p class="gallery-hint">
         Swipe or use arrow keys · Select the photo to expand
       </p>
-    </dialog>
-    <dialog id="imageDialog" class="image-dialog" aria-label="Expanded image">
-      <div class="image-toolbar">
-        <span id="imageCaption"></span
-        ><button
-          class="icon-button"
-          data-close
-          aria-label="Close expanded image"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m6 6 12 12M18 6 6 18" />
-          </svg>
-        </button>
-      </div>
-      <div class="image-canvas"><img id="fullImage" alt="" /></div>
-      <a
-        id="originalLink"
-        class="button secondary"
-        target="_blank"
-        rel="noopener"
-        >Open original image
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.65"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7" /></svg
-      ></a>
-    </dialog>
-    <dialog
-      id="searchDialog"
-      class="search-dialog window-dialog"
-      aria-labelledby="searchTitle"
-    >
-      <div class="dialog-bar">
-        <h3 id="searchTitle">Find a little something.</h3>
-        <button class="icon-button" data-close aria-label="Close search">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m6 6 12 12M18 6 6 18" />
-          </svg>
-        </button>
-      </div>
-      <label class="search-field"
-        ><svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.65"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <circle cx="10.5" cy="10.5" r="6.5" />
-          <path d="m16 16 5 5" /></svg
-        ><input
-          id="searchInput"
-          type="search"
-          placeholder="Search projects, photos, or pages…"
-          autocomplete="off"
-          aria-label="Search portfolio"
-      /></label>
-      <div id="searchResults" class="search-results" aria-live="polite"></div>
-      <div class="search-help">
+</dialog>
+<dialog aria-label="Expanded image" class="image-dialog" id="imageDialog">
+<div class="image-toolbar">
+<span id="imageCaption"></span><button aria-label="Close expanded image" class="icon-button" data-close="">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m6 6 12 12M18 6 6 18"></path>
+</svg>
+</button>
+</div>
+<div class="image-canvas"><img alt="" id="fullImage"/></div>
+<a class="button secondary" id="originalLink" rel="noopener" target="_blank">Open original image
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="M14 3h7v7M3 14v7h7M21 3l-7 7M3 21l7-7"></path></svg></a>
+</dialog>
+<dialog aria-labelledby="searchTitle" class="search-dialog window-dialog" id="searchDialog">
+<div class="dialog-bar">
+<h3 id="searchTitle">Find a little something.</h3>
+<button aria-label="Close search" class="icon-button" data-close="">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m6 6 12 12M18 6 6 18"></path>
+</svg>
+</button>
+</div>
+<label class="search-field"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<circle cx="10.5" cy="10.5" r="6.5"></circle>
+<path d="m16 16 5 5"></path></svg><input aria-label="Search portfolio" autocomplete="off" id="searchInput" placeholder="Search projects, photos, or pages…" type="search"/></label>
+<div aria-live="polite" class="search-results" id="searchResults"></div>
+<div class="search-help">
         ↑ ↓ to explore <span>Enter to open · Esc to close</span>
-      </div>
-    </dialog>
-    <dialog
-      id="settingsDialog"
-      class="settings-dialog window-dialog"
-      aria-labelledby="settingsTitle"
-    >
-      <div class="dialog-bar">
-        <h3 id="settingsTitle">Make yourself at home.</h3>
-        <button class="icon-button" data-close aria-label="Close preferences">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.65"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="m6 6 12 12M18 6 6 18" />
-          </svg>
-        </button>
-      </div>
-      <div class="settings-content">
-        <p>A little change of scenery.</p>
-        <div class="theme-options" role="group" aria-label="Desktop appearance">
-          <button data-theme-choice="berry" aria-pressed="true">
-            <span class="theme-swatch berry"></span>Berry</button
-          ><button data-theme-choice="pearl" aria-pressed="false">
-            <span class="theme-swatch pearl"></span>Pearl</button
-          ><button data-theme-choice="midnight" aria-pressed="false">
-            <span class="theme-swatch midnight"></span>Midnight
+</div>
+</dialog>
+<dialog aria-labelledby="settingsTitle" class="settings-dialog window-dialog" id="settingsDialog">
+<div class="dialog-bar">
+<h3 id="settingsTitle">Make yourself at home.</h3>
+<button aria-label="Close preferences" class="icon-button" data-close="">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65" viewbox="0 0 24 24">
+<path d="m6 6 12 12M18 6 6 18"></path>
+</svg>
+</button>
+</div>
+<div class="settings-content">
+<p>A little change of scenery.</p>
+<div aria-label="Desktop appearance" class="theme-options" role="group">
+<button aria-pressed="true" data-theme-choice="berry">
+<span class="theme-swatch berry"></span>Berry</button><button aria-pressed="false" data-theme-choice="pearl">
+<span class="theme-swatch pearl"></span>Pearl</button><button aria-pressed="false" data-theme-choice="midnight">
+<span class="theme-swatch midnight"></span>Midnight
           </button>
-        </div>
-        <label class="setting-row"
-          ><span
-            ><strong>Calm motion</strong
-            ><small>Keep transitions minimal.</small></span
-          ><input id="calmMotion" type="checkbox" role="switch"
-        /></label>
-        <p class="setting-note">
+</div>
+<label class="setting-row"><span><strong>Calm motion</strong><small>Keep transitions minimal.</small></span><input id="calmMotion" role="switch" type="checkbox"/></label>
+<p class="setting-note">
           Your preferences stay on this device. Your device’s reduced-motion
           setting is always respected.
         </p>
-      </div>
-    </dialog>
-    <div id="toast" role="status" aria-live="polite"></div>
-    <noscript
-      ><div class="noscript-note">
+</div>
+</dialog>
+<div aria-live="polite" id="toast" role="status"></div>
+<noscript><div class="noscript-note">
         Project previews need JavaScript. All work images, contact links, and
         your résumé are available on this page.
-      </div></noscript
-    >
-    <script src="app.js" defer></script>
-    <script src="enhance.js" defer></script>
-    <script src="zendee-sound.js" defer></script>
-  </body>
+      </div></noscript>
+<script defer="" src="app.js"></script>
+<script defer="" src="enhance.js"></script>
+<script defer="" src="zendee-sound.js"></script>
+</body>
 </html>
