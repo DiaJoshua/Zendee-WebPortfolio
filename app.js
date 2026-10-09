@@ -34,10 +34,10 @@
     set(key, value) { try { localStorage.setItem(key, value); } catch { /* Session preferences still work. */ } }
   };
   function theme(value) {
-    const choice = ['berry','pearl','midnight'].includes(value) ? value : 'berry';
+    const choice = ['berry','pearl','midnight','cream'].includes(value) ? value : 'midnight';
     document.body.dataset.theme = choice;
     $$('[data-theme-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === choice)));
-    $('meta[name="theme-color"]').content = {berry:'#fff2f7',pearl:'#f3f4f6',midnight:'#211d28'}[choice];
+    $('meta[name="theme-color"]').content = {berry:'#fff2f7',pearl:'#f3f4f6',midnight:'#211d28',cream:'#fbf5e9'}[choice];
   }
   theme(storage.get('mz-theme'));
   const calmInput = $('#calmMotion');

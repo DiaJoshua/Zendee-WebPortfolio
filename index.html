@@ -6,12 +6,12 @@
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
-    <meta name="theme-color" content="#fff3f7" />
+    <meta name="theme-color" content="#211d28" />
     <meta
       name="description"
       content="Marie Zendee — visual design, photography, branding and creative portfolio."
     />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <title>Marie Zendee Portfolio</title>
     <link
       rel="preload"
@@ -97,7 +97,15 @@
       }
     </script>
   </head>
-  <body>
+  <body data-theme="midnight">
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('mz-theme');
+          if (['berry', 'pearl', 'midnight', 'cream'].indexOf(t) !== -1) document.body.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
     <a class="skip-link" href="#visual">Skip to selected work</a>
     <div class="wallpaper" aria-hidden="true"></div>
     <div class="progress-line" id="progressLine" aria-hidden="true"></div>
@@ -1083,12 +1091,14 @@
       <div class="settings-content">
         <p>A little change of scenery.</p>
         <div class="theme-options" role="group" aria-label="Desktop appearance">
-          <button data-theme-choice="berry" aria-pressed="true">
+          <button data-theme-choice="midnight" aria-pressed="true">
+            <span class="theme-swatch midnight"></span>Midnight</button
+          ><button data-theme-choice="berry" aria-pressed="false">
             <span class="theme-swatch berry"></span>Berry</button
           ><button data-theme-choice="pearl" aria-pressed="false">
             <span class="theme-swatch pearl"></span>Pearl</button
-          ><button data-theme-choice="midnight" aria-pressed="false">
-            <span class="theme-swatch midnight"></span>Midnight
+          ><button data-theme-choice="cream" aria-pressed="false">
+            <span class="theme-swatch cream"></span>Cream
           </button>
         </div>
         <label class="setting-row"

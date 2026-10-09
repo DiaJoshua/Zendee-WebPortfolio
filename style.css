@@ -434,3 +434,14 @@ body[data-theme=midnight] .resume-doc-tag{color:#2a1220}
 body[data-theme=midnight] .work-pagination button[aria-current=page]{color:#281b25}
 .identity-boards{grid-template-columns:repeat(2,1fr)}
 @media(max-width:580px){.identity-boards{grid-template-columns:1fr}}
+
+/* Cream theme: warm paper tones with a soft cocoa accent */
+body[data-theme=cream]{--bg:#fbf5e9;--ink:#3a2e24;--muted:#76675a;--accent:#9b5a3c;--accent-soft:#f1e3c9;--surface:rgba(255,252,243,.78);--solid:#fffdf6;--line:rgba(110,80,45,.16);--shadow:0 18px 55px -25px rgba(90,60,30,.22);--pink:#c0764f;--pink-pale:#f1e3c9}
+body[data-theme=cream] .marquee-band{background:#f1e3c9;color:#7a4429}
+body[data-theme=cream] .marquee-band:not(.soft):before{background:linear-gradient(90deg,#f1e3c9,transparent)}
+body[data-theme=cream] .marquee-band:not(.soft):after{background:linear-gradient(270deg,#f1e3c9,transparent)}
+body[data-theme=cream] .menubar:before{border-color:var(--line)}
+body[data-theme=cream] .title-star{color:#c0764f}
+.theme-swatch.cream{background:linear-gradient(130deg,#fffdf6,#ecd9b5)}
+.theme-options{grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:380px){.theme-options{grid-template-columns:repeat(2,1fr)}}

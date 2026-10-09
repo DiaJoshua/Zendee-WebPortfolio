@@ -13,7 +13,7 @@ WHAT'S INSIDE
 - An unfolding photography envelope with four photographs, thumbnail selection,
   touch swipes, arrow-key navigation, and a separate original-image viewer.
 - Portfolio search: click Search, or press Control+K / Command+K.
-- Berry, Pearl, and Midnight appearances, with device-local preferences.
+- Midnight (default), Berry, Pearl, and Cream appearances; the last one chosen is remembered on that device.
 - Calm motion, plus automatic respect for system reduced-motion preferences.
 - Opt-in music and subtle click sounds. Sound off silences both.
 - Both original portraits, personal identity boards, berry accents, Bootzy font,
