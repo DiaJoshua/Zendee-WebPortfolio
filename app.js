@@ -18,9 +18,7 @@
     {"id": "dylan", "title": "Dylan’s Little Closet", "type": "Brand identity", "img": "dylans-logo.jpg", "description": "A warm, playful brand identity for a children’s clothing concept, designed to feel friendly, memorable and easy to recognize.", "focus": "Logo · identity", "approach": "Friendly forms, a soft palette", "deliverable": "Brand mark · visual direction"},
     {"id": "avon", "title": "Avon Seamfree", "type": "Campaign design", "img": "avon-seamfree.jpg", "description": "A product-led campaign concept pairing clear messaging with polished visuals to make the Seamfree range feel approachable.", "focus": "Campaign composition", "approach": "Product-led hierarchy", "deliverable": "Campaign visual"},
     {"id": "promo", "title": "Promo Sheets", "type": "Print & social", "img": "promo-sheet.jpg", "description": "A promotional layout built to communicate offers quickly while keeping typography and visual hierarchy consistent.", "focus": "Layout design", "approach": "Information that scans clearly", "deliverable": "Promotional sheet"},
-    {"id": "paw", "title": "Paw-Up", "type": "Awareness campaign", "img": "Paw-up.jpg", "description": "An awareness campaign with an approachable visual style that keeps the message clear, positive and easy to remember.", "focus": "Campaign poster", "approach": "Friendly storytelling", "deliverable": "Awareness creative"},
     {"id": "berry", "title": "A little berry · Monogram", "type": "Personal identity", "img": "1.png", "description": "The personal monogram: delicate pink lettering around a soft illustrated detail, the starting point for the whole personal identity.", "focus": "Personal identity · monogram", "approach": "Soft pinks, expressive lettering", "deliverable": "Monogram board"},
-    {"id": "berry-about", "title": "A little berry · About board", "type": "Personal identity", "img": "2.png", "description": "An introduction board that carries the identity into text, pairing soft botanical details with a quiet, readable layout.", "focus": "Personal identity · layout", "approach": "Gentle type hierarchy, floral accents", "deliverable": "About board"},
     {"id": "berry-gardene", "title": "Gardene Theme · Portfolio cover", "type": "Personal identity", "img": "berry-gardene.jpg", "description": "A portfolio cover in a soft garden theme: watercolor florals frame a pink bow and a centered, elegant title.", "focus": "Cover design", "approach": "Symmetry, watercolor florals, refined serif type", "deliverable": "Portfolio cover"},
     {"id": "berry-cherry", "title": "Cherry on Top", "type": "Personal identity", "img": "berry-cherry.jpg", "description": "A bold poster exercise pairing a pink-bowed cherry illustration with oversized green type on a blush gradient.", "focus": "Poster design", "approach": "Big type, complementary red and green", "deliverable": "Poster"},
     {"id": "berry-valentine", "title": "Happy Valentine’s", "type": "Personal identity", "img": "berry-valentine.jpg", "description": "A romantic seasonal piece: a glossy red wax-seal heart holding a little lamb, finished with flowing script and a red bow.", "focus": "Seasonal graphic", "approach": "Rich reds, script lettering, playful details", "deliverable": "Greeting graphic"}
@@ -144,13 +142,52 @@
   $('#casePrev').addEventListener('click', () => renderCase(caseIndex-1));
   $('#caseNext').addEventListener('click', () => renderCase(caseIndex+1));
   $('#caseExpand').addEventListener('click', event => { const expanded=$('#caseDialog').classList.toggle('expanded');event.currentTarget.setAttribute('aria-pressed',String(expanded));event.currentTarget.setAttribute('aria-label',expanded?'Restore project window':'Expand project window'); });
+  // Filters and pagination work together: filter first, then show one page of the result.
+  const PAGE_SIZE = 8;
+  let activeFilter = 'all', workPage = 1;
+  function renderWork(scrollToTop = false) {
+    const cards = $$('.project-card');
+    const matching = cards.filter(card => activeFilter === 'all' || card.dataset.category === activeFilter);
+    const pages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+    workPage = Math.min(Math.max(1, workPage), pages);
+    const start = (workPage - 1) * PAGE_SIZE;
+    cards.forEach(card => {
+      const index = matching.indexOf(card);
+      card.hidden = index < start || index >= start + PAGE_SIZE;
+      if (!card.hidden) card.classList.add('revealed');
+    });
+    $('#workCount').textContent = matching.length + ' ' + (matching.length === 1 ? 'project' : 'projects');
+    const nav = $('#workPagination');
+    nav.hidden = pages <= 1;
+    nav.replaceChildren();
+    if (pages > 1) {
+      const make = (label, page, aria, current = false, disabled = false) => {
+        const button = document.createElement('button');
+        button.type = 'button'; button.textContent = label; button.setAttribute('aria-label', aria);
+        if (current) button.setAttribute('aria-current', 'page');
+        button.disabled = disabled;
+        button.addEventListener('click', () => { workPage = page; renderWork(true); });
+        return button;
+      };
+      nav.append(make('←', workPage - 1, 'Previous page', false, workPage === 1));
+      for (let page = 1; page <= pages; page++) nav.append(make(String(page), page, 'Page ' + page, page === workPage));
+      nav.append(make('→', workPage + 1, 'Next page', false, workPage === pages));
+      const status = document.createElement('span');
+      status.className = 'visually-hidden'; status.setAttribute('aria-live', 'polite');
+      status.textContent = 'Page ' + workPage + ' of ' + pages;
+      nav.append(status);
+    }
+    if (scrollToTop) {
+      const top = $('.collection-toolbar');
+      top.scrollIntoView({behavior: reduced() ? 'instant' : 'smooth', block: 'start'});
+    }
+  }
   $$('[data-filter]').forEach(button => button.addEventListener('click', () => {
-    const filter = button.dataset.filter;
-    $$('[data-filter]').forEach(item => item.setAttribute('aria-pressed',String(item===button)));
-    let count = 0;
-    $$('.project-card').forEach(card=>{card.hidden=filter!=='all'&&card.dataset.category!==filter;if(!card.hidden)count++;});
-    $('#workCount').textContent = count+' '+(count===1?'project':'projects');
+    activeFilter = button.dataset.filter; workPage = 1;
+    $$('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    renderWork();
   }));
+  renderWork();
   $('#workCount').setAttribute('aria-live','polite');
 
   let photoIndex = 0, envelopeTimer = null;

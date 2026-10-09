@@ -24,7 +24,7 @@ Every original image, icon, PDF, and font is preserved byte for byte at its
 original path. Keep the entire assets folder, including the original files.
 assets/previews contains additional WebP previews for faster page loading.
 The HTML uses the originals as fallbacks; full image views open the originals.
-Identity boards 1.png, 2.png, and 3.png are now visible in the portfolio.
+Identity boards 1.png and 3.png are visible in the portfolio.
 
 TO UPDATE CONTENT
 - Page content, project cards, and page image references: index.html

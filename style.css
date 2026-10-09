@@ -425,3 +425,12 @@ body[data-theme=midnight] .resume-doc-tag{color:#2a1220}
 .work-open .project-image.fit-cover-left img{object-fit:cover;object-position:25% 50%}
 .work-open .project-image img{object-position:50% 18%}
 .work-open .project-image.fit-contain img{object-position:50% 50%}
+
+/* Work collection pagination */
+.work-pagination{display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap;margin-top:34px}
+.work-pagination button{min-width:44px;height:44px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-size:.85rem;font-weight:600;transition:background .18s,color .18s,transform .18s}
+.work-pagination button:hover:not(:disabled){background:var(--accent-soft);transform:translateY(-1px)}
+.work-pagination button[aria-current=page]{background:var(--accent);color:#fff;border-color:var(--accent)}
+body[data-theme=midnight] .work-pagination button[aria-current=page]{color:#281b25}
+.identity-boards{grid-template-columns:repeat(2,1fr)}
+@media(max-width:580px){.identity-boards{grid-template-columns:1fr}}
