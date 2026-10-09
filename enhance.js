@@ -1,5 +1,5 @@
-/* Marie Zendee — creative layer. Reading progress, drifting petals, reveal on
-   scroll, counting numbers, and gentle card tilt. Buildless and dependency-free.
+/* Marie Zendee — creative layer. Reading progress, reveal on scroll, counting
+   numbers, and gentle card tilt. Buildless and dependency-free.
    Everything here is decorative: with calm motion or a system reduced-motion
    preference, each effect quietly turns itself off. */
 (() => {
@@ -25,39 +25,6 @@
     addEventListener('scroll', scheduleProgress, { passive: true });
     addEventListener('resize', scheduleProgress, { passive: true });
   }
-
-  /* ---------- Drifting petals ---------- */
-  const field = $('#petalField');
-  function petals() {
-    if (!field) return;
-    field.replaceChildren();
-    if (calm()) return;
-    const shapes = ['🍓', '✿', '🍓', '❀', '✦'];
-    const count = innerWidth < 820 ? 5 : 9;
-    for (let index = 0; index < count; index++) {
-      const petal = document.createElement('i');
-      petal.textContent = shapes[index % shapes.length];
-      petal.style.left = (4 + Math.random() * 92).toFixed(2) + '%';
-      petal.style.fontSize = (11 + Math.random() * 10).toFixed(0) + 'px';
-      petal.style.animationDuration = (22 + Math.random() * 22).toFixed(1) + 's';
-      petal.style.animationDelay = '-' + (Math.random() * 30).toFixed(1) + 's';
-      petal.style.opacity = (0.22 + Math.random() * 0.24).toFixed(2);
-      field.append(petal);
-    }
-  }
-  petals();
-  // The preferences panel toggles calm motion on the documentElement; react only
-  // when that state actually flips, not on every unrelated class change.
-  let wasCalm = calm();
-  const calmListeners = [petals];
-  const onCalmChange = () => {
-    const now = calm();
-    if (now === wasCalm) return;
-    wasCalm = now;
-    calmListeners.forEach(fn => fn());
-  };
-  motionQuery.addEventListener?.('change', onCalmChange);
-  new MutationObserver(onCalmChange).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
   /* ---------- Reveal on scroll ---------- */
   const revealTargets = [
