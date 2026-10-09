@@ -419,3 +419,9 @@ body[data-theme=midnight] .resume-doc-tag{color:#2a1220}
 @media(max-width:1050px){.work-open .project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 14px}}
 @media(max-width:700px){.work-open{width:calc(100% - 28px);padding-block:58px}.work-open .collection-toolbar{align-items:flex-start;flex-direction:column}.work-open .collection-name{width:100%}.work-open .filters{width:100%;justify-content:space-between}.work-open .filters button{flex:1;padding-inline:7px}.work-open .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.work-open .project-image{aspect-ratio:.88}.work-open .project-caption strong{font-size:.85rem}.work-open .project-description{font-size:.75rem}}
 @media(max-width:380px){.work-open{width:calc(100% - 22px)}.work-open .project-grid{gap:22px 10px}.work-open .filters button{font-size:.7rem;padding-inline:4px}}
+
+/* One image per project card */
+.work-open .project-image.fit-contain img{object-fit:contain;padding:8%}
+.work-open .project-image.fit-cover-left img{object-fit:cover;object-position:25% 50%}
+.work-open .project-image img{object-position:50% 18%}
+.work-open .project-image.fit-contain img{object-position:50% 50%}

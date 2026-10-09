@@ -9,6 +9,7 @@
   const motionQuery = matchMedia('(prefers-reduced-motion: reduce)');
   const calm = () => motionQuery.matches || document.documentElement.classList.contains('calm-motion');
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const calmListeners = [];
 
   /* ---------- Reading progress ---------- */
   const line = $('#progressLine');
